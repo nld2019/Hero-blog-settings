@@ -175,37 +175,41 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>在ubuntu上搭建SVN仓库，通过windows访问仓库以记录和管理文档。</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>检查ubuntu是否以及安装SVN工具<br>$ svn –version</p>
-</li>
-<li><p>如果没有SVN则安装SVN工具<br>$ sudo apt install subversion</p>
-</li>
-<li><p>再次检查SVN<br>$ svn –version<br>svn, version 1.9.7 (r1800392)<br>compiled Mar 28 2018, 08:49:13 on x86_64-pc-linux-gnu<br>……</p>
-</li>
-<li><p>创建SVN仓库测试目录<br>$ mkdir test<br>$ cd test/<br>$ mkdir svn<br>$ cd svn/</p>
-</li>
-<li><p>创建第一个SVN仓库，取名为repo1<br>$ svnadmin create ~/work/test/svn/repo1<br>$ ls<br>repo1<br>$ cd repo1/<br>$ ls<br>conf  db  format  hooks  locks  README.txt</p>
-</li>
-<li><p>进入仓库配置目录<br>$ cd conf/<br>$ ls<br>authz  hooks-env.tmpl  passwd  svnserve.conf</p>
-</li>
-<li><p>配置仓库<br>$ 修改文件svnserve.conf以设置以下选项<br>anon-access = none<br>auth-access = write<br>password-db = passwd<br>authz-db = authz<br>realm = My First Repository</p>
-</li>
-</ol>
-<p>8.修改文件passwod,以配置访问密码<br>//配置用户名为admin,等号右边为admin密码<br>[users]<br>admin = admin</p>
-<ol start="9">
-<li>修改文件authz,以配置访问权限和路径<br>[groups]<br>g_admin = admin</li>
-</ol>
-<p>[/]<br>@g_admin = rw</p>
-<ul>
-<li>= r</li>
-</ul>
-<p>10.启动SVN服务,即可通过 svn://192.168.0.110/repo1使用仓库<br>$ pwd<br>~/work/test/svn<br>$ ifconfig获取IP地址为: 192.168.0.110</p>
-<ol start="11">
-<li>在windows上安装TortoiseSVN</li>
-<li>通过安装的TortoiseSVN工具访问SVN仓库<br>首次使用示例</li>
-</ol>
-<p>1)创建test文件夹<br>2)鼠标右键-&gt;TortoiseSVN-&gt;Repo-broswer<br>3)输入仓库地址 svn://192.168.0.110/repo1<br>4)输入账号登陆即可浏览仓库<br>5)也可以鼠标右键-&gt;SVN checkout…到本地文件夹<br>6)更新仓库到最新，修改文件，提交文件到远程仓库</p>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>今天状态不好，错误的修改了领导的文档，发现不好恢复到原始模样，所以记录一下SVN版本控制工具。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1.检查ubuntu是否已经安装SVN工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ svn --version</span><br></pre></td></tr></table></figure>
+<p>2.如果没有SVN则安装SVN工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install subversion</span><br></pre></td></tr></table></figure>
+<p>3.再次检查SVN</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ svn --version</span><br><span class="line">svn, version 1.9.7 (r1800392)</span><br><span class="line">   compiled Mar 28 2018, 08:49:13 on x86_64-pc-linux-gnu</span><br><span class="line">   ......</span><br></pre></td></tr></table></figure>
+<p>4.创建SVN仓库测试目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir <span class="built_in">test</span></span><br><span class="line">$ <span class="built_in">cd</span> <span class="built_in">test</span>/</span><br><span class="line">$ mkdir svn</span><br><span class="line">$ <span class="built_in">cd</span> svn/</span><br></pre></td></tr></table></figure>
+<p>5.创建第一个SVN仓库，取名为repo1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ svnadmin create ~/work/<span class="built_in">test</span>/svn/repo1</span><br><span class="line">$ ls</span><br><span class="line">repo1</span><br><span class="line">$ <span class="built_in">cd</span> repo1/</span><br><span class="line">$ ls</span><br><span class="line">conf  db  format  hooks  locks  README.txt</span><br></pre></td></tr></table></figure>
+
+<p>6.进入仓库配置目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> conf/</span><br><span class="line">$ ls</span><br><span class="line">authz  hooks-env.tmpl  passwd  svnserve.conf</span><br></pre></td></tr></table></figure>
+
+<p>7.配置仓库</p>
+<blockquote>
+<p>$ 修改文件svnserve.conf以设置以下选项<br>  anon-access = none<br>  auth-access = write<br>  password-db = passwd<br>  authz-db = authz<br>  realm = My First Repository</p>
+</blockquote>
+<p>8.修改文件passwod,以配置访问密码</p>
+<blockquote>
+<p>//配置用户名为admin,等号右边为admin密码<br>  [users]<br>  admin = admin</p>
+</blockquote>
+<p>9.修改文件authz,以配置访问权限和路径</p>
+<blockquote>
+<p>[groups]<br>  g_admin = admin</p>
+<p>  [/]<br>  @g_admin = rw<br>* = r</p>
+</blockquote>
+<p>10.启动SVN服务,即可通过 svn://192.168.0.110/repo1使用仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">pwd</span></span><br><span class="line">~/work/<span class="built_in">test</span>/svn</span><br><span class="line">$ ifconfig获取IP地址为: 192.168.0.110</span><br></pre></td></tr></table></figure>
+
+<p>11.在windows上安装TortoiseSVN<br>12.通过安装的TortoiseSVN工具访问SVN仓库</p>
+<blockquote>
+<p>首次使用示例<br>  1)创建test文件夹<br>  2)鼠标右键-&gt;TortoiseSVN-&gt;Repo-broswer<br>  3)输入仓库地址 svn://192.168.0.110/repo1<br>  4)输入账号登陆即可浏览仓库<br>  5)也可以鼠标右键-&gt;SVN checkout…到本地文件夹<br>  6)更新仓库到最新，修改文件，提交文件到远程仓库</p>
+</blockquote>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>今天状态不好，错误的修改了文档，发现不好恢复到原始模样，所以记录一下SVN版本控制工具。</p>
 
       
 
@@ -261,7 +265,7 @@
 
         
         <a href="/2021/12/11/hello-world/" class="archive-article-date">
-  	<time datetime="2021-12-11T14:41:28.463Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-11</time>
+  	<time datetime="2021-12-11T14:58:26.373Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-11</time>
 </a>
  
 
