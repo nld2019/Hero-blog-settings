@@ -16,7 +16,7 @@
 <meta property="og:description" content="射频组件  发射机天线接收机有意辐射器等效全向辐射功率  功率单位与比较单位  瓦特毫瓦分贝各向同性分贝偶极子分贝毫瓦分贝平方反比定律  射频数学计算  10与3规则射频数学计算小结  本地噪声信噪比信干比接收信号强度指示链路预算 衰落裕度&#x2F;系统运行裕度通信的三项基本要求：  两台或多台设备要求通信必须存在某种通信介质、手段或方法必须遵守一系列通信规则  射频组件发射机计算机将数据传送给发射机，由">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-01-11T06:47:12.000Z">
-<meta property="article:modified_time" content="2022-01-11T09:07:52.376Z">
+<meta property="article:modified_time" content="2022-01-11T10:13:35.403Z">
 <meta property="article:author" content="L.D.2021">
 <meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
@@ -214,12 +214,12 @@
 <p>分贝(dB)<br>各向同性分贝(dBi)<br>偶极子分贝(dBd)</p>
 </blockquote>
 <p><strong>瓦特</strong><br>瓦特(W)是基本的功率单位，得名于18世纪的苏格兰发明家詹姆斯·瓦特。<br><strong>毫瓦</strong><br>千分之一瓦。<br>多数市内802.11设备的发射功率介于1mW和100mW之间。</p>
-<p><strong>分贝</strong><br>分贝是比较单位而非功率单位，用于描述两个值之间的差异。</p>
-<script type="math/tex; mode=display">B = log10(P1/P2)</script><script type="math/tex; mode=display">dB = 10log10(P1/P2)</script><p>由于分贝在描述信号衰减和增益的时候比瓦特和毫瓦方便很多，因而广泛采用分贝描述。</p>
+<p><strong>分贝</strong><br>分贝是比较单位而非功率单位，用于描述两个值之间的差异。<br>$ B = log10(P1/P2) $<br>$ dB = 10log10(P1/P2) $</p>
+<p>由于分贝在描述信号衰减和增益的时候比瓦特和毫瓦方便很多，因而广泛采用分贝描述。</p>
 <p><strong>各向同性分贝</strong><br>与各项同性辐射器产生的功率相比，天线的功率增益称为各项同性分贝(dBi)<br>dBi是天线增益的度量。</p>
 <p><strong>偶极子分贝</strong><br>dBd描述某幅天线相对于偶极子天线信号的增益。</p>
-<p><strong>毫瓦分贝</strong><br>dBm描述相对于1mW的分贝。</p>
-<script type="math/tex; mode=display">0dBm = 1mW</script><script type="math/tex; mode=display">20dBm = 100mW</script><p>由于自由空间路径损耗的影响，接收信号总是低于1mW. 即便极强的接收信号，功率也只有-40dBm,也就是0.0001mW(1mW的万分之一)<br>大多数无线接口可以解析从-30dBm ~ -100dBm的接收信号。</p>
+<p><strong>毫瓦分贝</strong><br>dBm描述相对于1mW的分贝。<br>$0dBm = 1mW$<br>$20dBm = 100mW$</p>
+<p>由于自由空间路径损耗的影响，接收信号总是低于1mW. 即便极强的接收信号，功率也只有-40dBm,也就是0.0001mW(1mW的万分之一)<br>大多数无线接口可以解析从-30dBm ~ -100dBm的接收信号。</p>
 <p><strong>平方反比定律</strong><br>功率变化与距离变化的平方成反比。</p>
 <script type="math/tex; mode=display">自由空间路径损耗 = 36.6 + 20xlog10(f) + 20xlog10(d)</script><p>从该公式可知，距离越远损耗越大，频率越高损耗越大。</p>
 <p>（未完待续…)</p>
