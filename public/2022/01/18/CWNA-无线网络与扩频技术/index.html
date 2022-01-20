@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>CWNA:IEEE 802.11标准与修正案(2) | Hexo</title>
+  <title>CWNA:无线网络与扩频技术 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="承接上一篇 802.11i-20041997-2004年，802.11原始标准对安全未作太多定义。无线局域网唯一使用的加密机制是有线等效保密(WEP)。这种64位静态加密机制早已遭到破解。无法提供符合要求的数据安全。安全解决方案的三要素：数据保密（加密）数据完整性（防止修改）身份验证（确认身份是否合法） 802.11原始标准定义了两种身份验证机制。开放系统身份验证(open system auth">
+  <meta name="description" content="窄带与扩频  多径干扰  跳频扩频  跳变序列驻留时间跳变时间调制  直接序列扩频  DSSS数据编码调制  正交频分复用  卷积编码调制  正交频分多址工业、科学和医疗频段非授权国家信息基础设施频段  U-NII-1频段U-NII-2A频段U-NII-2C频段U-NII-3频段今后的U-NII频段  3.6GHz频段4.9GHz频段未来的Wi-Fi频段  1GHz一下频段60GHz频段空白电视频">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CWNA:IEEE 802.11标准与修正案(2)">
-<meta property="og:url" content="http://example.com/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-2/index.html">
+<meta property="og:title" content="CWNA:无线网络与扩频技术">
+<meta property="og:url" content="http://example.com/2022/01/18/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="承接上一篇 802.11i-20041997-2004年，802.11原始标准对安全未作太多定义。无线局域网唯一使用的加密机制是有线等效保密(WEP)。这种64位静态加密机制早已遭到破解。无法提供符合要求的数据安全。安全解决方案的三要素：数据保密（加密）数据完整性（防止修改）身份验证（确认身份是否合法） 802.11原始标准定义了两种身份验证机制。开放系统身份验证(open system auth">
+<meta property="og:description" content="窄带与扩频  多径干扰  跳频扩频  跳变序列驻留时间跳变时间调制  直接序列扩频  DSSS数据编码调制  正交频分复用  卷积编码调制  正交频分多址工业、科学和医疗频段非授权国家信息基础设施频段  U-NII-1频段U-NII-2A频段U-NII-2C频段U-NII-3频段今后的U-NII频段  3.6GHz频段4.9GHz频段未来的Wi-Fi频段  1GHz一下频段60GHz频段空白电视频">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-01-10T02:26:31.000Z">
-<meta property="article:modified_time" content="2022-01-10T12:15:18.529Z">
+<meta property="article:published_time" content="2022-01-18T06:56:14.000Z">
+<meta property="article:modified_time" content="2022-01-20T06:52:43.496Z">
 <meta property="article:author" content="L.D.2021">
 <meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
@@ -149,20 +149,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CWNA-IEEE-802-11标准与修正案-2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CWNA-无线网络与扩频技术" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      CWNA:IEEE 802.11标准与修正案(2)
+      CWNA:无线网络与扩频技术
     </h1>
   
 
         
-        <a href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-2/" class="archive-article-date">
-  	<time datetime="2022-01-10T02:26:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-10</time>
+        <a href="/2022/01/18/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF/" class="archive-article-date">
+  	<time datetime="2022-01-18T06:56:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-18</time>
 </a>
  
         <!-- 不蒜子统计 -->
@@ -176,31 +176,96 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>承接上一篇</p>
-<h3 id="802-11i-2004"><a href="#802-11i-2004" class="headerlink" title="802.11i-2004"></a>802.11i-2004</h3><p>1997-2004年，802.11原始标准对安全未作太多定义。无线局域网唯一使用的加密机制是有线等效保密(WEP)。这种64位静态加密机制早已遭到破解。<br>无法提供符合要求的数据安全。安全解决方案的三要素：<br>数据保密（加密）<br>数据完整性（防止修改）<br>身份验证（确认身份是否合法）</p>
-<p>802.11原始标准定义了两种身份验证机制。<br>开放系统身份验证(open system authentication)是默认认证机制。<br>共享密钥身份验证(Shared key authentication)，同样存在很大安全隐患。</p>
-<p>802.11i修正案完善了无线网络安全保护机制，它定义了强健安全网络(RSN)，致力于更好的保护通过无线方式传输的数据。</p>
-<p><strong>数据保密</strong>：<br>使用计数器模式密码块链消息认证码协议(CCMP)，这种协议采用高级加密算法(AES)，称为CCMP/AES<br>另外也定义了临时密钥完整性协议(TKIP)做为可选的加密机制。TKIP采用ARC4流密码算法，是对WEP的改进。</p>
-<p><strong>数据完整性</strong>：<br>为了确保数据不被篡改<br>WEP使用完整性校验值(ICV)做为数据完整性方法。<br>TKIP采用消息完整性校验(MIC)；<br>CCMP采用跟高的MIC以及其他机制确保数据完整性。<br>另外，所有的802.11帧的帧尾都包含称为帧校验序列(FCS)的32位循环冗余校验。</p>
-<p><strong>身份验证</strong>：<br>802.11i采用802.1X授权框架或预共享密钥(PSK)定义了两种身份验证机制。<br>802.1X解决方案可配合扩展认证协议(EAP)使用，但没有指定具体的实现方式。</p>
-<p><strong>强健安全网络(RSN)</strong>:<br>定义了一套用于建立认证，协商安全关联，为客户端和接入点动态生成加密密钥的机制。<br>WPA属于802.11i获批前的过渡方案，而WPA2完全符合802.11i修正案。Wi-Fi联盟有一项对应于WPA2的安全认证项目。</p>
-<h3 id="802-11j-2004"><a href="#802-11j-2004" class="headerlink" title="802.11j-2004"></a>802.11j-2004</h3><p>为了获得日本监管机构的认可，该方案致力于改进MAC子层和物理层在4.9GHz和5GHz频段的操作。<br>802.11a需要支持20MHz的信道间隔，数据速率为6,9,12,18,24,36,48,54Mbps。日本市场可以使用10MHz的信道间隔，<br>可用带宽数据速率为3,4.5,6,9,12,18,24,27Mbps，必须支持3,6,12Mbps。</p>
-<h3 id="802-11k-2008"><a href="#802-11k-2008" class="headerlink" title="802.11k-2008"></a>802.11k-2008</h3><p>定义了无线资源测量(RRM)的相关标准。要求物理层和数据链路层的MAC子层以请求和报告的形式提供可测量的客户统计信息。<br>定义了以下重要的无线资源测量参数。<br>发射功率控制：<br>扩展了802.11h中的TCP方案，允许在其他频段和区域使用TPC。</p>
-<p>客户统计：<br>除了信噪比，信号强度，数据速率等物理层信息外，客户端可以报告传输，重传，错误等MAC子层信息。</p>
-<p>邻居报告：<br>从当前的接入点或无线局域网控制器学习目标接入点的信息，提高漫游效率。</p>
-<h3 id="802-11n-2009"><a href="#802-11n-2009" class="headerlink" title="802.11n-2009"></a>802.11n-2009</h3><p>这是继802.11g-2003之后另一个对Wi-Fi市场产生重大影响的方案。<br>提高了2.4GHz和5GHz两个频段的吞吐量。<br>通过改进物理层和MAC子层以支持到达600Mps的高吞吐量(HT)特性。<br>引入了多输入多输出(MIMO)和OFDM技术。<br>MIMO使用多幅接收天线和发送天线，利用了多径效应改善通信质量。不仅提高了吞吐量，还扩大了传输范围。</p>
-<h3 id="802-11p-2010"><a href="#802-11p-2010" class="headerlink" title="802.11p-2010"></a>802.11p-2010</h3><p>称为车载环境无线接入(WAVE)，用于支持智能交通系统应用。</p>
-<h3 id="802-11r-2008"><a href="#802-11r-2008" class="headerlink" title="802.11r-2008"></a>802.11r-2008</h3><p>称为快速基本服务集转换(FT)修正案。也称为快速安全漫游(FSR)</p>
-<h3 id="802-11s-2011"><a href="#802-11s-2011" class="headerlink" title="802.11s-2011"></a>802.11s-2011</h3><p>通常分布系统多采用有线802.3以太网介质，11s使得无线接入点充当无线分布系统(WDS)门户设备。### 802.11r-2008<br>称为快速基本服务集转换(FT)修正案。也称为快速安全漫游(FSR)</p>
-<h3 id="802-11u-2011"><a href="#802-11u-2011" class="headerlink" title="802.11u-2011"></a>802.11u-2011</h3><p>致力于解决接入网与外部网络之间的互通问题，也成称为外部网络互通。奠定了Wi-Fi联盟的热点2.0(Hostpot 2.0)规范<br>和控制点(Passpoint)认证项目的基础。</p>
-<h3 id="802-11v-2011"><a href="#802-11v-2011" class="headerlink" title="802.11v-2011"></a>802.11v-2011</h3><p>提供了一种信息交换的机制，有助于中央节点以无线方式简化客户端的配置。定义了无线网络管理(WNM)，802.11终端之间<br>可以交换信息以提高无线网络的整体性能。</p>
-<p>WNM协议还定义了无线局域网交换位置信息的机制，并为多BSSID功能提供支持。<br>WNM协议包括一种新的WMM休眠模式(WNM-Sleep)，客户端可以长时间进入休眠而无需从接入点接收帧。</p>
-<h3 id="802-11w-2009"><a href="#802-11w-2009" class="headerlink" title="802.11w-2009"></a>802.11w-2009</h3><p>使用802.11管理帧的数据链路层极易受到拒绝服务(Dos)攻击。802.11w致力于如何安全的交付管理帧，防止管理帧遭到伪造。<br>旨在保护单播，多播，广播管理帧的安全。</p>
-<p>802.11w帧称为强健管理帧(robust management frame),包括取消关联帧，取消身份验证帧，强健行为帧。<br>CCMP用于保护单播帧的安全，而广播/多播完整性协议(BIP)用于保护广播/多播帧的安全。</p>
-<p>不过，目前无法阻止所有的二层拒绝服务攻击。</p>
-<h3 id="802-11y-2008"><a href="#802-11y-2008" class="headerlink" title="802.11y-2008"></a>802.11y-2008</h3><p>多数802.11设备使用非授权频段，802.11y用于规范授权频段的相关操作。</p>
-<h3 id="802-11z-2010"><a href="#802-11z-2010" class="headerlink" title="802.11z-2010"></a>802.11z-2010</h3><p>定义并规范直接链路建立(DLS)机制。是的关联到同一接入点的客户端之间直接交换帧，而无需通过接入点交换。<br>目前尚未实现应用。</p>
-<p>(未完待续…)</p>
+        <p>窄带与扩频</p>
+<blockquote>
+<p>多径干扰</p>
+</blockquote>
+<p>跳频扩频</p>
+<blockquote>
+<p>跳变序列<br>驻留时间<br>跳变时间<br>调制</p>
+</blockquote>
+<p>直接序列扩频</p>
+<blockquote>
+<p>DSSS数据编码<br>调制</p>
+</blockquote>
+<p>正交频分复用</p>
+<blockquote>
+<p>卷积编码<br>调制</p>
+</blockquote>
+<p>正交频分多址<br>工业、科学和医疗频段<br>非授权国家信息基础设施频段</p>
+<blockquote>
+<p>U-NII-1频段<br>U-NII-2A频段<br>U-NII-2C频段<br>U-NII-3频段<br>今后的U-NII频段</p>
+</blockquote>
+<p>3.6GHz频段<br>4.9GHz频段<br>未来的Wi-Fi频段</p>
+<blockquote>
+<p>1GHz一下频段<br>60GHz频段<br>空白电视频段</p>
+</blockquote>
+<p>2.4GHz信道<br>5GHz信道</p>
+<blockquote>
+<p>5G长期演进技术</p>
+</blockquote>
+<p>邻信道、非邻信道与重叠信道<br>吞吐量与带宽<br>通信系统恢复能力</p>
+<blockquote>
+<p>802.11aj-2018</p>
+</blockquote>
+<h3 id="窄带与扩频"><a href="#窄带与扩频" class="headerlink" title="窄带与扩频"></a>窄带与扩频</h3><p>射频传输方式主要分为窄带和扩频两类。<br>窄带：使用极窄的带宽发送携带的数据。   // 针对该频率范围的蓄意干扰或非蓄意干扰很容易破坏信号。<br>扩频：使用超出实际所需的带宽发送数据。 // 抗干扰较强。</p>
+<h3 id="跳频扩频"><a href="#跳频扩频" class="headerlink" title="跳频扩频"></a>跳频扩频</h3><p>FHSS:在一段时间内使用一个特定的频率传输数据，这段时间称为驻留时间。<br>大致工作方式：首先使用一个很小的频率载波空间传输数据，然后跳变到另一个很小的频率载波空间传输数据，再跳到第三个频率载波空间。</p>
+<p><strong>跳变序列</strong><br>跳频使用信道的跳变方式。跳变序列结束后将重复。<br>所有FHSS发射机和接收机必须同时在同一载波跳上同步。FHSS接入点可以配置802.11原始标准定义的跳变序列，跳变序列信息通过信标管理帧发送给客户端。</p>
+<p><strong>驻留时间</strong><br>在切换到跳变序列中下一个频率之前，FHSS系统使用特定频率传输数据的时间，称为驻留时间。</p>
+<p><strong>跳变时间</strong><br>发射机从一个频率切换到另一个频率所需的时间。<br>跳变时间通常200~300us，与100~200ms的典型驻留时间相比很短。<br>跳变时间属于开销时间。一般而言，跳变越少吞吐量越高。<br>跳变可以增强抗干扰，跳变越少越易受到干扰。</p>
+<h3 id="直接序列扩频"><a href="#直接序列扩频" class="headerlink" title="直接序列扩频"></a>直接序列扩频</h3><p>直接序列扩频(DSSS)，是802.11定义的原始标准。它仅使用一条信道进行通信。</p>
+<p><strong>DSSS数据编码</strong><br>无线通信极易收到干扰，为此无线系统将每个数据比特编码为多个比特进行传输，称为处理增益。<br>系统将一个数据比特转换为一系列称为码片的比特。<br>单个数据比特转换为码片序列的过程称为展宽或码片成形。<br>接收端将码片序列转换为单个比特的过程称为解扩。<br>巴克码的11个比特中9个损坏，接收端无线接口仍然能够解析码片序列，并恢复出原始数据。</p>
+<p><strong>调制</strong><br>使用展宽技术编码后，发射机需要调制数据以产生包含码片的载波信号。</p>
+<p>802.11和802.11b使用的编码与调制技术</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编码方式</th>
+<th style="text-align:center">数据速率</th>
+<th style="text-align:center">编码方式</th>
+<th style="text-align:center">码片长度</th>
+<th style="text-align:center">编码比特</th>
+<th>调制方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">DSSS</td>
+<td style="text-align:center">1Mbps</td>
+<td style="text-align:center">巴克码</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">1</td>
+<td>DBPSK</td>
+</tr>
+<tr>
+<td style="text-align:center">DSSS</td>
+<td style="text-align:center">2Mbps</td>
+<td style="text-align:center">巴克码</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">1</td>
+<td>DQPSK</td>
+</tr>
+<tr>
+<td style="text-align:center">HR-DSSS</td>
+<td style="text-align:center">5.5Mbps</td>
+<td style="text-align:center">CCK</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">4</td>
+<td>DQPSK</td>
+</tr>
+<tr>
+<td style="text-align:center">HR-DSSS</td>
+<td style="text-align:center">11Mbps</td>
+<td style="text-align:center">CCK</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+<td>DQPSK</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>（后续，OFDM）</p>
 
       
 
@@ -291,7 +356,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/18/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +370,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CWNA:IEEE 802.11标准与修正案(3)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/01/07/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CWNA:IEEE 802.11标准与修正案</div>
+    <a href="/2022/01/14/CWNA-%E5%B0%84%E9%A2%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E5%A4%A9%E7%BA%BF%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CWNA:射频信号与天线概念</div>
       <i class="icon-circle-right"></i>
     </a>
   
