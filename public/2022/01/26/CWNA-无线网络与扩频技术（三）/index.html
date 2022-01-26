@@ -16,7 +16,7 @@
 <meta property="og:description" content="2.4GHz信道IEEE将2.4GHz ISM频段划分为14条独立的信道。 Table-2.4GHz信道规划     信道编号 中心频率(GHz)     1 2.412   2 2.417   3 2.422   4 2.427   5 2.432   6 2.437   7 2.442   8 2.447   9 2.452   10 2.457   11 2.462   12 2.467">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-01-26T11:45:45.000Z">
-<meta property="article:modified_time" content="2022-01-26T12:27:06.017Z">
+<meta property="article:modified_time" content="2022-01-26T12:29:18.719Z">
 <meta property="article:author" content="L.D.2021">
 <meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
@@ -251,7 +251,10 @@
 <p><strong>5GHz 信道</strong><br>36，40，44，48，52，56，60，64，100，104，108，112，116，120，124，128，132，136，140，144，149，153，157，161，165，，169，173，177，181</p>
 <h3 id="非重叠信道"><a href="#非重叠信道" class="headerlink" title="非重叠信道"></a>非重叠信道</h3><p>802.11 DSSS信道中心频率必须相隔30MHz，认为互不重叠；<br>802.11b HR-DSSS和 802.11g ERP信道中心频率必须相隔25MHz认为互不重叠；<br>5G OFDM信道中心频率之间必须相关20MHz，认为互不重叠；</p>
 <h3 id="邻信道干扰"><a href="#邻信道干扰" class="headerlink" title="邻信道干扰"></a>邻信道干扰</h3><p>用于描述信道复用设计不当导致的频率空间重叠。</p>
-<h3 id="吞吐量与带宽"><a href="#吞吐量与带宽" class="headerlink" title="吞吐量与带宽"></a>吞吐量与带宽</h3><p>影响数据吞吐量的因素有：<br>带宽<br>数据编码<br>调制<br>介质争用<br>加密</p>
+<h3 id="吞吐量与带宽"><a href="#吞吐量与带宽" class="headerlink" title="吞吐量与带宽"></a>吞吐量与带宽</h3><p>影响数据吞吐量的因素有：</p>
+<blockquote>
+<p>带宽<br>数据编码<br>调制<br>介质争用<br>加密</p>
+</blockquote>
 <p>数据编码和调制方式决定了数据速率，数据速率有时又称为数据带宽。<br>例如：<br>802.11a OFDM无线接口能以6，9，12，18，24，36，48，54Mbps的速率传输数据，但所有的U-NII信道的频率带宽相同，速率不同时由<br>数据编码和调试方式不同。</p>
 <p>802.11网络采用带冲突避免的载波监听多路访问（CSMA/CA）作为介质访问方式，以确保在任何给定的时间，只有一台无线设备可以使用介质传输数据。</p>
 <p>802.11 a/b/g实际数总吞吐量一般不会超过数据速率的50%；  CSMA/CA 产生的介质争用开销通常为带宽的50%<br>802.11 n/ac传输，实际吞吐量为数据速率的60%~70%；  CSMA/CA 产生的介质争用开销通常为带宽的35%</p>
@@ -679,22 +682,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 </body>
 </html>
