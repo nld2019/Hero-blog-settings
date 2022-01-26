@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>CWNA:无线网络与扩频技术（三） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+  <meta name="description" content="2.4GHz信道IEEE将2.4GHz ISM频段划分为14条独立的信道。 Table-2.4GHz信道规划     信道编号 中心频率(GHz)     1 2.412   2 2.417   3 2.422   4 2.427   5 2.432   6 2.437   7 2.442   8 2.447   9 2.452   10 2.457   11 2.462   12 2.467">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CWNA:无线网络与扩频技术（三）">
+<meta property="og:url" content="http://example.com/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2.4GHz信道IEEE将2.4GHz ISM频段划分为14条独立的信道。 Table-2.4GHz信道规划     信道编号 中心频率(GHz)     1 2.412   2 2.417   3 2.422   4 2.427   5 2.432   6 2.437   7 2.442   8 2.447   9 2.452   10 2.457   11 2.462   12 2.467">
 <meta property="og:locale">
+<meta property="article:published_time" content="2022-01-26T11:45:45.000Z">
+<meta property="article:modified_time" content="2022-01-26T12:27:06.017Z">
 <meta property="article:author" content="L.D.2021">
+<meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -144,228 +149,137 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-CWNA-IEEE-802-11标准与修正案-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-CWNA-无线网络与扩频技术（三）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-2/">CWNA:IEEE 802.11标准与修正案(2)</a>
+    <h1 class="article-title" itemprop="name">
+      CWNA:无线网络与扩频技术（三）
     </h1>
   
 
         
-        <a href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-2/" class="archive-article-date">
-  	<time datetime="2022-01-10T02:26:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-10</time>
+        <a href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-01-26T11:45:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-26</time>
 </a>
  
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>承接上一篇</p>
-<h3 id="802-11i-2004"><a href="#802-11i-2004" class="headerlink" title="802.11i-2004"></a>802.11i-2004</h3><p>1997-2004年，802.11原始标准对安全未作太多定义。无线局域网唯一使用的加密机制是有线等效保密(WEP)。这种64位静态加密机制早已遭到破解。<br>无法提供符合要求的数据安全。安全解决方案的三要素：<br>数据保密（加密）<br>数据完整性（防止修改）<br>身份验证（确认身份是否合法）</p>
-<p>802.11原始标准定义了两种身份验证机制。<br>开放系统身份验证(open system authentication)是默认认证机制。<br>共享密钥身份验证(Shared key authentication)，同样存在很大安全隐患。</p>
-<p>802.11i修正案完善了无线网络安全保护机制，它定义了强健安全网络(RSN)，致力于更好的保护通过无线方式传输的数据。</p>
-<p><strong>数据保密</strong>：<br>使用计数器模式密码块链消息认证码协议(CCMP)，这种协议采用高级加密算法(AES)，称为CCMP/AES<br>另外也定义了临时密钥完整性协议(TKIP)做为可选的加密机制。TKIP采用ARC4流密码算法，是对WEP的改进。</p>
-<p><strong>数据完整性</strong>：<br>为了确保数据不被篡改<br>WEP使用完整性校验值(ICV)做为数据完整性方法。<br>TKIP采用消息完整性校验(MIC)；<br>CCMP采用跟高的MIC以及其他机制确保数据完整性。<br>另外，所有的802.11帧的帧尾都包含称为帧校验序列(FCS)的32位循环冗余校验。</p>
-<p><strong>身份验证</strong>：<br>802.11i采用802.1X授权框架或预共享密钥(PSK)定义了两种身份验证机制。<br>802.1X解决方案可配合扩展认证协议(EAP)使用，但没有指定具体的实现方式。</p>
-<p><strong>强健安全网络(RSN)</strong>:<br>定义了一套用于建立认证，协商安全关联，为客户端和接入点动态生成加密密钥的机制。<br>WPA属于802.11i获批前的过渡方案，而WPA2完全符合802.11i修正案。Wi-Fi联盟有一项对应于WPA2的安全认证项目。</p>
-<h3 id="802-11j-2004"><a href="#802-11j-2004" class="headerlink" title="802.11j-2004"></a>802.11j-2004</h3><p>为了获得日本监管机构的认可，该方案致力于改进MAC子层和物理层在4.9GHz和5GHz频段的操作。<br>802.11a需要支持20MHz的信道间隔，数据速率为6,9,12,18,24,36,48,54Mbps。日本市场可以使用10MHz的信道间隔，<br>可用带宽数据速率为3,4.5,6,9,12,18,24,27Mbps，必须支持3,6,12Mbps。</p>
-<h3 id="802-11k-2008"><a href="#802-11k-2008" class="headerlink" title="802.11k-2008"></a>802.11k-2008</h3><p>定义了无线资源测量(RRM)的相关标准。要求物理层和数据链路层的MAC子层以请求和报告的形式提供可测量的客户统计信息。<br>定义了以下重要的无线资源测量参数。<br>发射功率控制：<br>扩展了802.11h中的TCP方案，允许在其他频段和区域使用TPC。</p>
-<p>客户统计：<br>除了信噪比，信号强度，数据速率等物理层信息外，客户端可以报告传输，重传，错误等MAC子层信息。</p>
-<p>邻居报告：<br>从当前的接入点或无线局域网控制器学习目标接入点的信息，提高漫游效率。</p>
-<h3 id="802-11n-2009"><a href="#802-11n-2009" class="headerlink" title="802.11n-2009"></a>802.11n-2009</h3><p>这是继802.11g-2003之后另一个对Wi-Fi市场产生重大影响的方案。<br>提高了2.4GHz和5GHz两个频段的吞吐量。<br>通过改进物理层和MAC子层以支持到达600Mps的高吞吐量(HT)特性。<br>引入了多输入多输出(MIMO)和OFDM技术。<br>MIMO使用多幅接收天线和发送天线，利用了多径效应改善通信质量。不仅提高了吞吐量，还扩大了传输范围。</p>
-<h3 id="802-11p-2010"><a href="#802-11p-2010" class="headerlink" title="802.11p-2010"></a>802.11p-2010</h3><p>称为车载环境无线接入(WAVE)，用于支持智能交通系统应用。</p>
-<h3 id="802-11r-2008"><a href="#802-11r-2008" class="headerlink" title="802.11r-2008"></a>802.11r-2008</h3><p>称为快速基本服务集转换(FT)修正案。也称为快速安全漫游(FSR)</p>
-<h3 id="802-11s-2011"><a href="#802-11s-2011" class="headerlink" title="802.11s-2011"></a>802.11s-2011</h3><p>通常分布系统多采用有线802.3以太网介质，11s使得无线接入点充当无线分布系统(WDS)门户设备。### 802.11r-2008<br>称为快速基本服务集转换(FT)修正案。也称为快速安全漫游(FSR)</p>
-<h3 id="802-11u-2011"><a href="#802-11u-2011" class="headerlink" title="802.11u-2011"></a>802.11u-2011</h3><p>致力于解决接入网与外部网络之间的互通问题，也成称为外部网络互通。奠定了Wi-Fi联盟的热点2.0(Hostpot 2.0)规范<br>和控制点(Passpoint)认证项目的基础。</p>
-<h3 id="802-11v-2011"><a href="#802-11v-2011" class="headerlink" title="802.11v-2011"></a>802.11v-2011</h3><p>提供了一种信息交换的机制，有助于中央节点以无线方式简化客户端的配置。定义了无线网络管理(WNM)，802.11终端之间<br>可以交换信息以提高无线网络的整体性能。</p>
-<p>WNM协议还定义了无线局域网交换位置信息的机制，并为多BSSID功能提供支持。<br>WNM协议包括一种新的WMM休眠模式(WNM-Sleep)，客户端可以长时间进入休眠而无需从接入点接收帧。</p>
-<h3 id="802-11w-2009"><a href="#802-11w-2009" class="headerlink" title="802.11w-2009"></a>802.11w-2009</h3><p>使用802.11管理帧的数据链路层极易受到拒绝服务(Dos)攻击。802.11w致力于如何安全的交付管理帧，防止管理帧遭到伪造。<br>旨在保护单播，多播，广播管理帧的安全。</p>
-<p>802.11w帧称为强健管理帧(robust management frame),包括取消关联帧，取消身份验证帧，强健行为帧。<br>CCMP用于保护单播帧的安全，而广播/多播完整性协议(BIP)用于保护广播/多播帧的安全。</p>
-<p>不过，目前无法阻止所有的二层拒绝服务攻击。</p>
-<h3 id="802-11y-2008"><a href="#802-11y-2008" class="headerlink" title="802.11y-2008"></a>802.11y-2008</h3><p>多数802.11设备使用非授权频段，802.11y用于规范授权频段的相关操作。</p>
-<h3 id="802-11z-2010"><a href="#802-11z-2010" class="headerlink" title="802.11z-2010"></a>802.11z-2010</h3><p>定义并规范直接链路建立(DLS)机制。是的关联到同一接入点的客户端之间直接交换帧，而无需通过接入点交换。<br>目前尚未实现应用。</p>
-<p>(未完待续…)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-IEEE-802-11标准与修正案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/07/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88/">CWNA:IEEE 802.11标准与修正案</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/07/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2022-01-07T05:08:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-07</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.IEEE 802.11原始标准<br>2.IEEE 802.11-2016标准</p>
-<blockquote>
-<p> 802.11a-1999<br> 802.11b-1999<br> 802.11d-2001<br> 802.11e-2005<br> 802.11g-2003<br> 802.11h-2003<br> 802.11i-2003<br> 802.11j-2004<br> 802.11k-2008<br> 802.11n-2009<br> 802.11p-2010<br> 802.11r-2008<br> 802.11s-2011<br> 802.11u-2011<br> 802.11v-2011<br> 802.11w-2009<br> 802.11y-2008<br> 802.11z-2010<br> 802.11aa-2012<br> 802.11ac-2013<br> 802.11ad-2012<br> 802.11ae-2012<br> 802.11af-2014</p>
-</blockquote>
-<p>3.IEEE 802.11-2016标准发布后获批的修正案</p>
-<blockquote>
-<p> 802.11ah-2016<br> 802.11ai-2016<br> 802.11aj-2018<br> 802.11aq-2018<br> 802.11ak-2018</p>
-</blockquote>
-<p>4.IEEE 802.11 修正案草案</p>
-<blockquote>
-<p> 802.11ax<br> 802.11ay<br> 802.11az<br> 802.11ba</p>
-</blockquote>
-<p>5.已失效的IEEE 802.11 修正案</p>
-<blockquote>
-<p> 802.11F<br> 802.11T</p>
-</blockquote>
-<p>4.IEEE 802.11m 任务组</p>
-<hr>
-<p>上面所列的一系列标准是由IEEE协会制定，命名一般是按照字母顺序排列。但是，由于获批时间不一样，存在先后。</p>
-<h3 id="标准演进历程"><a href="#标准演进历程" class="headerlink" title="标准演进历程"></a>标准演进历程</h3><p>1997年6月，IEEE发布了802.11原始标准（IEEE std 802.11-1997）。通常称为802.11 prime。<br>1999年对原始标准进行了修订；<br>2003年再次确认以后以IEEE Std 802.11-1999(R-2003)为名重新发布。<br>2007年3月,IEEE 802.11-2007标准（IEEE Std 802.11-2007）获批。<br>2012年2月,IEEE 802.11-2012标准(IEEE Std 802.11-2012)获批。<br>2016年12月,IEEE 802.11-2016标准(IEEE Std 802.11-2016)获批。</p>
-<p>新标准IEEE Std 802.11-2016是IEEE Std 802.11-2012标准与获批的修正案合并为一份文档形成。严格来说，任何<br>纳入新标准的修正案都不再单独存在，然而，Wi-Fi联盟与大多数无线局域网专业人士仍然习惯采用获批的名称。</p>
-<h3 id="802-11a-1999"><a href="#802-11a-1999" class="headerlink" title="802.11a-1999"></a>802.11a-1999</h3><p>采用了正交频分复用(OFDM)的射频技术，定义了5GHz频率空间的无线局域网通信。可以使用三个不同的100MHz非授<br>权频段传输信息，三者称为非授权国家信息基础设施(U-NII)频段。</p>
-<p>802.11a无线接口最初可以使用U-NII-1、U-NII-2、与U-NII-3频段的12条信道传输信息，具体可以使用的信道决定<br>于各国的射频监管机构的规定。</p>
-<p>通过使用OFDM技术，802.11a无线接口可以支持6,9,12,18,24,36,48,54Mbps等数据速率。在修正案获批两年后，<br>802.11a设备开始面世，一开始采用OFDM技术的无线芯片组极为昂贵，导致5GHz无线局域网部署缓慢。芯片组价格<br>降至可负担的程度后，5GHz无线局域网显著增加。开始出现2.4GHz和5GHz两个无线接口的双频无线接入点。</p>
-<h3 id="802-11b-1999"><a href="#802-11b-1999" class="headerlink" title="802.11b-1999"></a>802.11b-1999</h3><p>定义了工作在2.4GHz ISM频段(2.4GHz~2.4835GHz)的无线局域网通信。支持1，2，5.5，11Mbps四种数据速率。它是<br>最早广泛部署应用的标准。</p>
-<h3 id="802-11d-2001"><a href="#802-11d-2001" class="headerlink" title="802.11d-2001"></a>802.11d-2001</h3><p>由于原始标准是为符合美国、加拿大、日本于欧洲的监管规定而制定的标准。因此，802.11d增加了必要的定义和要求，<br>以便802.11设备能在于是标准没有涉及的地区使用。</p>
-<p>Beacon Fream 和 probe response frame的字段中包含国家代码信息，802.11d兼容设备利用该信息确保符合特定国家<br>的频率和功率规定。</p>
-<h3 id="802-11e-2005"><a href="#802-11e-2005" class="headerlink" title="802.11e-2005"></a>802.11e-2005</h3><p>由于原始标准没有为使用Wi-Fi语音等时敏应用定义合乎要求的服务质量(QoS)规程。语音、视频、音频等应用要求较低<br>的延迟和抖动，其传输的优先级高于标准的数据应用流量。802.11e修正案定义了二层MAC机制，以满足无线局域网对时<br>敏应用的QoS要求。</p>
-<p>802.11原始标准定义了两种方法，以便802.11无线接口卡获取半双工介质的控制权。分布式协调功能(DCF)是默认方法，这种<br>基于争用的方法用于确定接下来使用无线介质进行传输的设备。为了满足Qos要求，混合协调功能(HCF)引入，增强型分布式<br>信道访问(EDCA)是对DCF的扩展，这种介质访问方法根据上层协议提供“帧优先”，以满足必要的延迟要求。</p>
-<p>Wi-Fi联盟有一项名为Wi-Fi多媒体(WMM)的认证项目。这项认证定义了802.11e修正案的许多要素，并根据重要性将流量<br>优先级划分为4个访问类别。</p>
-<h3 id="802-11g-2003"><a href="#802-11g-2003" class="headerlink" title="802.11g-2003"></a>802.11g-2003</h3><p>是一项引起轰动的修正案，无线接口采用称为扩展速率物理层的新技术，并仍然可以使用2.4GHz ISM频段。</p>
-<p>定义了两种强制和两种可选的物理层<br>为了获取更高的数据速率，设备必须支持称为扩展速率物理层-正交频分复用(ERP-OFDM)的物理层技术，支持6，9，12，18，<br>24，36，48，54Mbps等多种速率。</p>
-<p>为了向后兼容802.11 DSSS与802.11b网络，设备必须支持称为扩展速率物理层-直接序列扩频/补码键控(ERP-DSSS/CCK)的物<br>理层技术。</p>
-<p>802.11修正案的比较</p>
+        <h3 id="2-4GHz信道"><a href="#2-4GHz信道" class="headerlink" title="2.4GHz信道"></a>2.4GHz信道</h3><p>IEEE将2.4GHz ISM频段划分为14条独立的信道。</p>
+<p>Table-2.4GHz信道规划</p>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">802.11遗留</th>
-<th style="text-align:center">802.11b</th>
-<th style="text-align:center">802.11g</th>
-<th style="text-align:center">802.11a</th>
+<th style="text-align:center">信道编号</th>
+<th style="text-align:center">中心频率(GHz)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">工作频段</td>
-<td style="text-align:center">2.4GHz ISM</td>
-<td style="text-align:center">2.4GHz ISM</td>
-<td style="text-align:center">2.4GHz ISM</td>
-<td style="text-align:center">5GHz U-NII-1,U-NII-2,U-NII-3</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2.412</td>
 </tr>
 <tr>
-<td style="text-align:center">扩频技术</td>
-<td style="text-align:center">FHSS或DSSS</td>
-<td style="text-align:center">HR-DSSS</td>
-<td style="text-align:center">ERP:强制支持ERP-OFDM与ERP-DSSS/CCK</td>
-<td style="text-align:center">OFDM</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2.417</td>
 </tr>
 <tr>
-<td style="text-align:center">数据速率</td>
-<td style="text-align:center">1或2Mbps</td>
-<td style="text-align:center">DSSS:1 or 2Mbps/HR-DSSS: 5.5or 11Mbps</td>
-<td style="text-align:center">ERP-DSS/CCK:1,2,5.5,11Mbps/ERP-OFDM:强制支持6,12,24Mbs,可选支持9,18,36,48,54Mbps</td>
-<td style="text-align:center">强制支持6,12,24Mbps,可选支持9,18,36,48,54Mbps</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2.422</td>
 </tr>
 <tr>
-<td style="text-align:center">向后兼容</td>
-<td style="text-align:center">不适用</td>
-<td style="text-align:center">仅802.11 DSSS</td>
-<td style="text-align:center">802.11b HR-DSSS和802.11DSSS</td>
-<td style="text-align:center">无</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2.427</td>
 </tr>
 <tr>
-<td style="text-align:center">获批时间</td>
-<td style="text-align:center">1997年</td>
-<td style="text-align:center">1999年</td>
-<td style="text-align:center">2003年</td>
-<td style="text-align:center">1999年</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">2.432</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">2.437</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">2.442</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">2.447</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">2.452</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">2.457</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">2.462</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">2.467</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">2.472</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><strong>2.484</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="802-11h-2003"><a href="#802-11h-2003" class="headerlink" title="802.11h-2003"></a>802.11h-2003</h3><p>定义了动态频率选择(DFS)和发射功率控制(TPC)机制。初衷是为了满足欧洲对于5GHz频段通信的监管要求，以及检测和<br>避免对5GHz卫星和雷达系统的干扰。</p>
-<p>802.11h还定义了一个新的频段,UNII-2扩展(UNII-2 Extended)频段。属于802.11a频段的延申。</p>
-<p>DFS本质上属于雷达检测和雷达干扰回避技术，提供以下功能。</p>
-<blockquote>
-<p>接入点根据支持的信道，允许客户端进行关联。如果客户端成为接入点所在的无线网络的成员，称二者建立关联。<br>接入点可以将信道禁声以测试是否存在雷达传输。<br>在使用信道之前，接入点可以测试信道是否存在雷达传输。<br>接入点可以检测当前信道和其他信道是否存在雷达传输。<br>如果检测到雷达传输，接入点将停止操作以避免干扰。<br>检测到干扰时，接入点可以选择不同的信道进行传输，并通知所有关联到自己的客户端。</p>
-</blockquote>
-<p>TPC致力于满足有关传输功率的监管要求，提供以下功能。</p>
-<blockquote>
-<p>客户端可以根据发射功率与接入点建立关连。<br>如果法规允许，接入点和客户端遵守信道的最大发射功率电平。<br>接入点可以指定某个或所有关联到自己的客户端使用的发射功率。<br>接入点可以根据实际的射频环境参数（如路径损耗）调整客户端的传输功率。</p>
-</blockquote>
-<p>(未完待续…)</p>
+<p>802.11 DSSS 和 802.11 HR-DSSS使用的是22MHz的信道<br>信道中心频率间隔5MHz<br>OFDM技术使用的是20MHz的信道带宽。<br>2.4G一般有三个不重叠信道：1，6，11   或 2,7,12 或 3，8，13</p>
+<h3 id="5GHz信道"><a href="#5GHz信道" class="headerlink" title="5GHz信道"></a>5GHz信道</h3><p>信道中心频率 = 信道编号 X 5 + 5000<br>例如：<br>36 X 5 + 5000 = 5180MHz</p>
+<p><strong>5GHz 信道</strong><br>36，40，44，48，52，56，60，64，100，104，108，112，116，120，124，128，132，136，140，144，149，153，157，161，165，，169，173，177，181</p>
+<h3 id="非重叠信道"><a href="#非重叠信道" class="headerlink" title="非重叠信道"></a>非重叠信道</h3><p>802.11 DSSS信道中心频率必须相隔30MHz，认为互不重叠；<br>802.11b HR-DSSS和 802.11g ERP信道中心频率必须相隔25MHz认为互不重叠；<br>5G OFDM信道中心频率之间必须相关20MHz，认为互不重叠；</p>
+<h3 id="邻信道干扰"><a href="#邻信道干扰" class="headerlink" title="邻信道干扰"></a>邻信道干扰</h3><p>用于描述信道复用设计不当导致的频率空间重叠。</p>
+<h3 id="吞吐量与带宽"><a href="#吞吐量与带宽" class="headerlink" title="吞吐量与带宽"></a>吞吐量与带宽</h3><p>影响数据吞吐量的因素有：<br>带宽<br>数据编码<br>调制<br>介质争用<br>加密</p>
+<p>数据编码和调制方式决定了数据速率，数据速率有时又称为数据带宽。<br>例如：<br>802.11a OFDM无线接口能以6，9，12，18，24，36，48，54Mbps的速率传输数据，但所有的U-NII信道的频率带宽相同，速率不同时由<br>数据编码和调试方式不同。</p>
+<p>802.11网络采用带冲突避免的载波监听多路访问（CSMA/CA）作为介质访问方式，以确保在任何给定的时间，只有一台无线设备可以使用介质传输数据。</p>
+<p>802.11 a/b/g实际数总吞吐量一般不会超过数据速率的50%；  CSMA/CA 产生的介质争用开销通常为带宽的50%<br>802.11 n/ac传输，实际吞吐量为数据速率的60%~70%；  CSMA/CA 产生的介质争用开销通常为带宽的35%</p>
+<p>RTS/CTS 机制也会增加通信开销，影响系统吞吐量。</p>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -385,16 +299,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/07/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CWNA:无线网络与扩频技术</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -414,637 +387,14 @@
 
 
 
-
-  
-    <article id="post-CWNA-标准、行业组织与通信基础知识概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/06/CWNA-%E6%A0%87%E5%87%86%E3%80%81%E8%A1%8C%E4%B8%9A%E7%BB%84%E7%BB%87%E4%B8%8E%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A6%82%E8%BF%B0/">CWNA:标准、行业组织与通信基础知识概述</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/06/CWNA-%E6%A0%87%E5%87%86%E3%80%81%E8%A1%8C%E4%B8%9A%E7%BB%84%E7%BB%87%E4%B8%8E%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A6%82%E8%BF%B0/" class="archive-article-date">
-  	<time datetime="2022-01-06T06:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-06</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.无线局域网的发展历程<br>2.标准组织</p>
-<blockquote>
-<p>美国通信联邦委员会<br>国际电信联盟无线电通信部门<br>电气和电子工程师协会<br>互联网工程任务组<br>Wi-Fi联盟<br>国际标准化组织</p>
-</blockquote>
-<p>3.核心层、分布层与接入层<br>4.通信基础知识</p>
-<blockquote>
-<p>通信术语<br>载波信号<br>键控法</p>
-</blockquote>
-<h2 id="无线局域网的发展历程"><a href="#无线局域网的发展历程" class="headerlink" title="无线局域网的发展历程"></a>无线局域网的发展历程</h2><p>19世纪，迈克尔·法拉第、詹姆斯·克拉克·麦克斯韦、海因里希·鲁道夫·赫兹、尼古拉·特斯拉、大卫、爱德华·休斯、<br>托马斯·爱迪生、古列尔莫·马可尼等许多发明家与科学家开始进行无线通信方面的实验。 </p>
-<p>1970年，第一种无线网络ALOHAnet在美国夏威夷大学诞生，这种网络以无线方式在夏威夷群岛之间传输数据。一般认<br>为，ALOHAnet使用的技术奠定了802.3以太网CSMA/CD和802.11无线局域网CSMA/CA技术基础。 </p>
-<p>20世纪90年代，低速无线网络产品开始商用，多数工作在900MHz频段。1991年，IEEE开始讨论无线局域网技术的标准<br>化问题。1997年，IEEE批准通过802.11原始标准。  </p>
-<p>1999年，IEEE批准通过数据速率较高的802.11b修正案。支持高达11Mbps的速率，无线局域网开始大规模商用。  </p>
-<p>802.11技术营销术语称为Wi-Fi，被全球数十亿人公认为无线局域网络的代名词。</p>
-<h2 id="标准组织"><a href="#标准组织" class="headerlink" title="标准组织"></a>标准组织</h2><p>   各种标准组织共同对无线网络行业进行监管和规范。<br>监管机构：<br>   国际电信联盟无线电通信部门(ITU-R)以及美国联邦通信委员会(FCC)等监管机构负责制定规则，以约束用户使用无线电的行为。这<br>些机构管理通信频率，功率电平，传输方法，共同致力于规范日益壮大的无线用户。</p>
-<p>标准组织：</p>
-<blockquote>
-<p>电气和电子工程师协会(IEEE)负责确保网络设备兼容与共存的标准。<br>互联网工程任务组(IETF)负责制定互联网标准。<br>Wi-Fi联盟(Wi-Fi Alliance)对无线网络设备进行认证测试，以确保他们符合无线局域网通信协议,实现设备兼容。<br>国际标准化组织(ISO)创建了开放系统互连模型。</p>
-</blockquote>
-<p>监管机构负责授权频谱和非授权频谱的管理。非授权频谱需要申请牌照。授权频谱和非授权频谱受6个方面的监管。</p>
-<blockquote>
-<p>频率<br>带宽<br>有意辐射器的最大功率<br>最大等效全向辐射功率<br>使用（室内与室外）<br>频谱共享规则</p>
-</blockquote>
-<p>国际电信联盟无线电通信部门(ITU-R)承担全球频谱管理任务。致力于确保陆地、海洋与空中的通信活动不受干扰，通过<br>5大行政区维护一个全球性的频率分配数据库。5大行政区：</p>
-<blockquote>
-<p>行政区A:美洲<br>行政区B:西欧<br>行政区C:东欧与北亚<br>行政区D:非洲<br>行政区E:亚洲与澳大拉西亚</p>
-</blockquote>
-<p>除行政区外，还设3个由地理界定的无线电监管区:</p>
-<blockquote>
-<p>监管区1:欧洲、中东与非洲<br>监管区2:美洲<br>监管区3:亚洲与大洋洲</p>
-</blockquote>
-<p>除了上述组织，各国设置自己的监管机构。</p>
-<p>OSI模型</p>
-<blockquote>
-<p>第七层        应用层<br>第六层        表示层<br>第五层        会话层<br>第四层        传输层<br>第三层        网络层<br>第二层        数量链路层 : LLC子层和MAC子层<br>第一层        物理层</p>
-</blockquote>
-<h2 id="核心层、分布层与接入层"><a href="#核心层、分布层与接入层" class="headerlink" title="核心层、分布层与接入层"></a>核心层、分布层与接入层</h2><p>网络的核心层：由高速主干网络构成，高速主干网相当于网络中的“高速公路”，其核心目标是在重要的数据中心和<br>分布区域之间传输大量信息，如同高速公路连接城市与都会区一样。核心层既不负责流量路由，也不负责操作数据<br>包，它的任务就是高速交换。</p>
-<p>网络的分布层：将流量路由或引导至较小的节点集群或领域。类似于中等速度在城市或都会区中分流交通流量省道。</p>
-<p>网络的接入层：以较低速度将流量直接床输给最终用户或末端节点，类似于直接到达最终地址的地方道路。</p>
-<p>记住，速度是个相对概念，核心层、分布层、接入层是相对的。</p>
-<h2 id="通信基础知识"><a href="#通信基础知识" class="headerlink" title="通信基础知识"></a>通信基础知识</h2><p>通信术语</p>
-<blockquote>
-<p>单工：一个仅能发送，另一个仅能接收数据。例如调频广播<br>半双工：两台设备都能发送接收数据，但同一时间只有一个设备可以传输。例如无线对讲机<br>双工：两台设备可以同时发送接收数据。例如电话<br>载波信号：一种高频信号，用于承载有效信号进行发射。<br>振幅：波的高度，力度或能量。<br>波长：两个连续波的相似点之间的距离。一般是波峰与波峰之间。<br>频率：波传播的速度。一秒内产生的波的数量。周期的倒数。<br>周期：传播一个波长距离的时间。<br>相位：同频波之间的位置</p>
-</blockquote>
-<p>操作信号以表示多个数据的方法称为键控法(keying method)。</p>
-<blockquote>
-<p>幅移键控(ASK)<br>频移键控(FSK)<br>相移键控(PSK)</p>
-</blockquote>
-<h2 id="网站资源"><a href="#网站资源" class="headerlink" title="网站资源"></a>网站资源</h2><p>Wi-Fi联盟：<a target="_blank" rel="noopener" href="https://www.wi-fi.org">https://www.wi-fi.org</a><br>CWNP网站： <a target="_blank" rel="noopener" href="https://www.cwnp.com">https://www.cwnp.com</a><br>Revolution Wi-Fi: <a target="_blank" rel="noopener" href="http://www.revolutionwifi.net">http://www.revolutionwifi.net</a><br>Wirednot: <a target="_blank" rel="noopener" href="https://wirednot.wordpress.com">https://wirednot.wordpress.com</a><br>商业与个人博客链接：<a target="_blank" rel="noopener" href="https://gcatewifi.wordpress.com">https://gcatewifi.wordpress.com</a><br>WLPC网站：<a target="_blank" rel="noopener" href="https://www.wlanpros.com">https://www.wlanpros.com</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/06/CWNA-%E6%A0%87%E5%87%86%E3%80%81%E8%A1%8C%E4%B8%9A%E7%BB%84%E7%BB%87%E4%B8%8E%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A6%82%E8%BF%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vim-cscope-ctags阅读源码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/22/vim-cscope-ctags%E9%98%85%E8%AF%BB%E6%BA%90%E7%A0%81/">vim+cscope+ctags阅读源码</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/22/vim-cscope-ctags%E9%98%85%E8%AF%BB%E6%BA%90%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2021-12-22T06:20:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-22</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用vim + cscope/ctags，就能够实现Source Insight的功能，可以很方便地查看分析源代码。</p>
-<p>关键词: vim, cscope, ctags, tags</p>
-<p>1.查看vim是否支持cscope</p>
-<blockquote>
-<p>$ vim —version | grep cscope</p>
-</blockquote>
-<p>2.查看帮助</p>
-<blockquote>
-<p>$ man cscope<br>  $ man ctags<br>  :help cscope (vim command)</p>
-</blockquote>
-<p>3.使用cscope[2]<br>    当前目录有main.c，其中调用了cstest.c中的print()，此函数在cstest.h中进行了声明。<br>    使用下面的命令生成代码的符号索引文件：<br>    $ cscope -Rbkq<br>    这个命令会生成三个文件：cscope.out, cscope.in.out, cscope.po.out。</p>
-<pre><code>其中cscope.out是基本的符号索引，后两个文件是使用&quot;-q&quot;选项生成的，可以加快cscope的索引速度。上面命令的参数含义如下：
--R: 在生成索引文件时，搜索子目录树中的代码
--b: 只生成索引文件，不进入cscope的界面
--k: 在生成索引文件时，不搜索/usr/include目录
--q: 生成cscope.in.out和cscope.po.out文件，加快cscope的索引速度
--i: 如果保存文件列表的文件名不是cscope.files时，需要加此选项告诉cscope到哪儿去找源文件列表。可以使用&quot;-&quot;，表示由标准输入获得文件列表。
--I dir: 在-I选项指出的目录中查找头文件
--u: 扫描所有文件，重新生成交叉索引文件
--C: 在搜索时忽略大小写
--P path: 在以相对路径表示的文件前加上的path，这样，你不用切换到你数据库文件所在的目录也可以使用它了。
-
-在缺省情况下，cscope在生成数据库后就会进入它自己的查询界面，一般不用这个界面，所以使用了&quot;-b&quot;选项。如果已经进入了这个界面，按CTRL-D退出。
-
-查看阅读c++代码[3]
-cscope缺省只解析C文件(.c和.h)、lex文件(.l)和yacc文件(.y)，虽然它也可以支持C++以及Java，但它在扫描目录时会跳过C++及Java后缀的文件。
-如果希望cscope解析C++或Java文件，需要把这些文件的名字和路径保存在一个名为cscope.files的文件。
-当cscope发现在当前目录中存在cscope.files时，就会为cscope.files中列出的所有文件生成索引数据库。
-下面的命令会查找当前目录及子目录中所有后缀名为&quot;.h&quot;, &quot;.c&quot;, &quot;cc&quot;和&quot;.cpp&quot;的文件，并把查找结果重定向到文件cscope.files中。
-然后cscope根据cscope.files中的所有文件，生成符号索引文件。最后一条命令使用ctags命令，
-生成一个tags文件，在vim中执行&quot;:help tags&quot;命令查询它的用法。它可以和cscope一起使用。
-
-$ find . -name &quot;*.h&quot; -o -name &quot;*.c&quot; -o -name &quot;*.cc&quot; -o &quot;*.cpp&quot; &gt; cscope.files
-$ cscope -bkq -i cscope.files
-$ ctags -R
-
-接下来可以在vim里浏览代码了
-$ vim main.c
-在vim里命令状态下添加符号索引库
-: cscope add cscope.out
-然后可以查看相应的函数定义或文件，ctrl+t返回。
-: cscope find g print
-: cscope find f cstest.h
-
-#注意# 所生成的cscope.out和tags文件要在打开VIM所在的文件夹，否则VIM无法找到相关符号信息。
-</code></pre><p>4.创建相应的快捷键<br>    将以下内容添加到~/.vimrc中，vim会自动加载当前目录下的符号索引cscope.out，可以使用ctrl+t、ctrl+]等。</p>
-<pre><code>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-function UpdateCtags()
-     let curdir=getcwd()
-     while !filereadable(&quot;./tags&quot;)
-         cd ..
-         if getcwd() == &quot;/&quot;
-             break
-         endif
-     endwhile
-     if filewritable(&quot;./tags&quot;)
-         :!ctags -R
-     endif
-     execute &quot;:cd &quot; . curdir
- endfunction
-
- function UpdateCStags()
-     let curdir=getcwd()
-     while !filereadable(&quot;./cscope.out&quot;)
-         cd ..
-         if getcwd() == &quot;/&quot;
-             break
-         endif
-     endwhile
-     if filewritable(&quot;./cscope.out&quot;)
-         :!cscope -Rbq
-         execute &quot;:cscope kill 0&quot;
-         execute &quot;:cscope add cscope.out&quot;
-     endif
-     execute &quot;:cd &quot; . curdir
- endfunction
-
- nmap &lt;F8&gt; :call UpdateCtags()&lt;CR&gt;
- nmap &lt;F9&gt; :call UpdateCStags()&lt;CR&gt;
-
- &quot; 这样就可以在更新源代码文件后，随时使用&lt;F8&gt;及&lt;F9&gt;更新tags及cscope.out文件，
- &quot; 不必关闭编辑文件，执行ctags -R/cscope -Rbq及重新打开文件。
-
- if has(&quot;cscope&quot;)
- set cscopetag   &quot; 使支持用 Ctrl+]  和 Ctrl+t 快捷键在代码间跳来跳去
- &quot; check cscope for definition of a symbol before checking ctags:
- &quot; set to 1 if you want the reverse search order.
- set csto=1
-
- &quot; add any cscope database in current directory
- if filereadable(&quot;cscope.out&quot;)
- cs add cscope.out
- &quot; else add the database pointed to by environment variable
- elseif $CSCOPE_DB !=&quot;&quot;
- cs add $CSCOPE_DB
- endif
-
- &quot; show msg when any other cscope db added
- set cscopeverbose
-
- nmap &lt;C-\&gt;s :cs find s &lt;C-R&gt;=expand(&quot;&lt;cword&gt;&quot;)&lt;CR&gt;&lt;CR&gt;
- nmap &lt;C-\&gt;g :cs find g &lt;C-R&gt;=expand(&quot;&lt;cword&gt;&quot;)&lt;CR&gt;&lt;CR&gt;
- nmap &lt;C-\&gt;c :cs find c &lt;C-R&gt;=expand(&quot;&lt;cword&gt;&quot;)&lt;CR&gt;&lt;CR&gt;
- nmap &lt;C-\&gt;t :cs find t &lt;C-R&gt;=expand(&quot;&lt;cword&gt;&quot;)&lt;CR&gt;&lt;CR&gt;
- nmap &lt;C-\&gt;e :cs find e &lt;C-R&gt;=expand(&quot;&lt;cword&gt;&quot;)&lt;CR&gt;&lt;CR&gt;
- nmap &lt;C-\&gt;f :cs find f &lt;C-R&gt;=expand(&quot;&lt;cfile&gt;&quot;)&lt;CR&gt;&lt;CR&gt;
- nmap &lt;C-\&gt;i :cs find i &lt;C-R&gt;=expand(&quot;&lt;cfile&gt;&quot;)&lt;CR&gt;&lt;CR&gt;
- nmap &lt;C-\&gt;d :cs find d &lt;C-R&gt;=expand(&quot;&lt;cword&gt;&quot;)&lt;CR&gt;&lt;CR&gt;
- endif
-
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-其中&lt;C-/&gt;g是先同时按ctrl+\键，之后再按一个g。功能就是查看当前光标所在符号的定义。
-</code></pre><p>5.vim阅读代码<br>    添加cscope符号索引数据库后，可以调用”cscope find”命令进行查找，vim支持8种cscope的查询功能。<br>    如在代码中查找调用work()函数的函数，可以在vim命令状态下输入”:cs find c work”，回车即可。还可以进行字符串查找，<br>    它会对双引号或单引号括起来的内容查找。还可以输入一个正则表达式，这类似于egrep程序的功能。<br>    :cs help (vim command下查询)</p>
-<pre><code>s: 查找C语言符号，即查找函数名、宏、枚举值等出现的地方
-g: 查找函数、宏、枚举等定义的位置，类似ctags所提供的功能
-d: 查找本函数调用的函数
-c: 查找调用本函数的函数
-t: 查找指定的字符串
-e: 查找egrep模式，相当于egrep功能，但查找速度快多了
-f: 查找并打开文件，类似vim的find功能
-i: 查找包含本文件的文件
-</code></pre><p>6.在vim中使用tags查找符号<br>    查看ctags帮助<br>    $ man ctags<br>    :help ctags  (vim command)<br>    :help tags   (vim command)</p>
-<pre><code>在源代码根目录下执行 ctags -R 命令用来为程序源代码生成标签文件，其-R选项表示递归操作，同时为子目录也生成标签文件。
-vim利用生成的标签文件，可以进行相应检索、并在不同的文件C语言元素之间来回切换。
-$ ctags -R
-
-A) vim中使用&quot;:tag xxx&quot;跳到函数或数据结构xxx处。使用tag命令时，可以使用TAB键进行匹配查找，继续按TAB键向下切换。
-某个函数有多个定义时
-
-D) 运行vim的时候，必须在&quot;tags&quot;文件所在的目录下运行。否则，运行vim的时候还要用&quot;:set tags=xxx&quot;命令设定&quot;tags&quot;文件的路径，
-这样vim才能找到&quot;tags&quot;文件（这儿我们已经设置过了&quot;set tags=tags;&quot;，在子目录中也可以使用）。
-
-E) 在函数中移动光标的快捷键:
-gd 转到当前光标所指的局部变量的定义
-* 转到当前光标所指的单词下一次出现的地方
-# 转到当前光标所指的单词上一次出现的地方
-
-:ta tagname 跳转到标签tagname定义的地方
-:stag tagname 在分割窗口中查看包含tagname的文件
-:tags 查看到达当前位置所经过的标签路径
-:ts tagname   :tselect    列出匹配tagname的标签，如为空，则使用标签栈中最后的标签
-如果想跳到包含block的标识符&quot;:tag /block&quot; 然后用TAB键来选择。这里&#39;/&#39;就是告诉vim &#39;block&#39;是一个语句块标签。
-
-:tf 跳转至第一个匹配的标签
-:tlast   :tl 跳转至最后一个匹配的标签
-:tnext            :tn  跳转到下一个匹配的标签
-:[count]tnext
-:[count]tprevious   :[count] tp     跳到前count个
-
-跳转快捷键：
-ctrl-] ：跳转至光标所在对象定义之处
-ctrl-t：返回跳转前位置
-</code></pre><p>7.taglist插件使用[4]<br>    该插件可以像Source Insight那样将当前文件中的宏、全局变量、函数等tag显示在Symbol窗口，用鼠标点上述tag，就跳到该tag定义的位置；<br>    可以按字母序、该tag所属的类或scope，以及该tag在文件中出现的位置进行排序；<br>    如果切换到另外一个文件，Symbol窗口更新显示这个文件中的tag。taglist依赖于ctags。</p>
-<pre><code>要使用taglist插件，必须满足：
-1).打开VIM的文件类型自动检测功能；
-2).系统中装了Exuberant ctags工具，并且taglist能够找到此工具（因为taglist需要调用它来生成tag文件）；
-3).你的VIM支持system()调用；
-
-安装taglist插件
-# emerge -av app-vim/taglist
-
-查看帮助
-:help helptags
-:help taglist
-:help taglist-intro
-
-打开tag窗口
-:TlistToggle
-
-.vimrc中配置如下
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-&quot; ctags setting
-set tags=./tags,./../tags,./*/tags;
-
-&quot; Tag list (ctags)
-
-filetype on                            &quot;文件类型自动检测
-
-if MySys() == &quot;windows&quot;                &quot;设定windows系统中ctags程序的位置
-   let Tlist_Ctags_Cmd = &#39;ctags&#39;
-elseif MySys() == &quot;linux&quot;              &quot;设定linux系统中ctags程序的位置
-   let Tlist_Ctags_Cmd = &#39;/usr/bin/ctags&#39;
-endif
-
-let Tlist_Show_One_File = 1            &quot;不同时显示多个文件的tag，只显示当前文件的
-let Tlist_Exit_OnlyWindow = 1          &quot;如果taglist窗口是最后一个窗口，则退出vim
-let Tlist_Use_Right_Window = 1         &quot;在右侧窗口中显示taglist窗口
-
-map &lt;silent&gt; &lt;F8&gt; :TlistToggle&lt;cr&gt;     &quot;在映射F8键打开tags窗口
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/22/vim-cscope-ctags%E9%98%85%E8%AF%BB%E6%BA%90%E7%A0%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SVN服务仓库搭建记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/16/SVN%E6%9C%8D%E5%8A%A1%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/">SVN服务仓库搭建记录</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/16/SVN%E6%9C%8D%E5%8A%A1%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2021-12-16T15:41:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-16</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>在ubuntu上搭建SVN仓库，通过windows访问仓库以记录和管理文档。</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1.检查ubuntu是否已经安装SVN工具<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ svn --version</span><br></pre></td></tr></table></figure><br>2.如果没有SVN则安装SVN工具<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install subversion</span><br></pre></td></tr></table></figure><br>3.再次检查SVN<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ svn --version</span><br><span class="line">svn, version 1.9.7 (r1800392)</span><br><span class="line">   compiled Mar 28 2018, 08:49:13 on x86_64-pc-linux-gnu</span><br><span class="line">   ......</span><br></pre></td></tr></table></figure><br>4.创建SVN仓库测试目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir <span class="built_in">test</span></span><br><span class="line">$ <span class="built_in">cd</span> <span class="built_in">test</span>/</span><br><span class="line">$ mkdir svn</span><br><span class="line">$ <span class="built_in">cd</span> svn/</span><br></pre></td></tr></table></figure><br>5.创建第一个SVN仓库，取名为repo1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ svnadmin create ~/work/<span class="built_in">test</span>/svn/repo1</span><br><span class="line">$ ls</span><br><span class="line">repo1</span><br><span class="line">$ <span class="built_in">cd</span> repo1/</span><br><span class="line">$ ls</span><br><span class="line">conf  db  format  hooks  locks  README.txt</span><br></pre></td></tr></table></figure></p>
-<p>6.进入仓库配置目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> conf/</span><br><span class="line">$ ls</span><br><span class="line">authz  hooks-env.tmpl  passwd  svnserve.conf</span><br></pre></td></tr></table></figure></p>
-<p>7.配置仓库</p>
-<blockquote>
-<p>$ 修改文件svnserve.conf以设置以下选项<br>  anon-access = none<br>  auth-access = write<br>  password-db = passwd<br>  authz-db = authz<br>  realm = My First Repository</p>
-</blockquote>
-<p>8.修改文件passwod,以配置访问密码</p>
-<blockquote>
-<p>//配置用户名为admin,等号右边为admin密码<br>  [users]<br>  admin = admin</p>
-</blockquote>
-<p>9.修改文件authz,以配置访问权限和路径</p>
-<blockquote>
-<p>[groups]<br>  g_admin = admin</p>
-<p>  [/]<br>  @g_admin = rw<br>* = r</p>
-</blockquote>
-<p>10.启动SVN服务,即可通过 svn://192.168.0.110/repo1使用仓库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">pwd</span></span><br><span class="line">~/work/<span class="built_in">test</span>/svn</span><br><span class="line">$ ifconfig获取IP地址为: 192.168.0.110</span><br></pre></td></tr></table></figure></p>
-<p>11.在windows上安装TortoiseSVN<br>12.通过安装的TortoiseSVN工具访问SVN仓库</p>
-<blockquote>
-<p>首次使用示例<br>  1)创建test文件夹<br>  2)鼠标右键-&gt;TortoiseSVN-&gt;Repo-broswer<br>  3)输入仓库地址 svn://192.168.0.110/repo1<br>  4)输入账号登陆即可浏览仓库<br>  5)也可以鼠标右键-&gt;SVN checkout…到本地文件夹<br>  6)更新仓库到最新，修改文件，提交文件到远程仓库</p>
-</blockquote>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>今天状态不好，错误的修改了文档，发现不好恢复到原始模样，所以记录一下SVN版本控制工具。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/16/SVN%E6%9C%8D%E5%8A%A1%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/11/hello-world/" class="archive-article-date">
-  	<time datetime="2021-12-11T14:58:26.373Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-11</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/11/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Step-by-step-to-build-personal-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/08/Step-by-step-to-build-personal-blog/">Step by step to build personal blog.</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/08/Step-by-step-to-build-personal-blog/" class="archive-article-date">
-  	<time datetime="2021-12-08T15:48:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-08</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="OS-ubuntu"><a href="#OS-ubuntu" class="headerlink" title="OS:ubuntu"></a>OS:ubuntu</h2><p>1.<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a> 下载nodejs<br>2.解压下载的nodejs<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xvf node-v16.13.1-linux-x64.tar.xz</span><br></pre></td></tr></table></figure><br>3.配置nodejs<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cp node-v16.13.1-linux-x64 ~/nodejs</span><br><span class="line">$ sudo ln -s ~/nodejs/bin/npm /usr/bin/</span><br><span class="line">$ sudo ln -s ~/nodejs/bin/npm /usr/bin/</span><br></pre></td></tr></table></figure><br>4.安装cnpm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">$ sudo ln -s ~/nodejs/bin/cnpm /usr/bin/</span><br></pre></td></tr></table></figure></p>
-<p>5.安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br><span class="line">$ sudo ln -s ~/nodejs/bin/hexo /usr/bin/</span><br></pre></td></tr></table></figure></p>
-<p>6.创建目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure></p>
-<p>7.生成博客<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
-<p>8.启动博客<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
-<p>9.浏览器打开本地预览</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://localhost:4000">http://localhost:4000</a></p>
-</blockquote>
-<p>10.清理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure></p>
-<p>11.生成博客<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
-<p>12.浏览器打开</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://localhost:4000">http://localhost:4000</a> </p>
-</blockquote>
-<p>13.安装部署工具<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
-<p>14.修改配置用于部署</p>
-<blockquote>
-<p>在__config.yml最后添加：<br>    deploy:<br>    type: git<br>    repo: <a target="_blank" rel="noopener" href="https://github.com/nld2019/nld2019.github.io.git">https://github.com/nld2019/nld2019.github.io.git</a><br>    branch: master</p>
-</blockquote>
-<p>15.部署博客<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
-<p>16.根据仓库名称访问博客</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://nld2019.github.io/">https://nld2019.github.io/</a></p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/08/Step-by-step-to-build-personal-blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1080,8 +430,8 @@ map &lt;silent&gt; &lt;F8&gt; :TlistToggle&lt;cr&gt;     &quot;在映射F8键打
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
