@@ -146,6 +146,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-无线局域网拓扑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91/">CWNA:无线局域网拓扑</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91/" class="archive-article-date">
+  	<time datetime="2022-02-09T01:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-09</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="无线网络拓扑"><a href="#无线网络拓扑" class="headerlink" title="无线网络拓扑"></a>无线网络拓扑</h3><blockquote>
+<p>无线广域网<br>无线城域网<br>无线个域网<br>无线局域网</p>
+</blockquote>
+<h3 id="802-11终端"><a href="#802-11终端" class="headerlink" title="802.11终端"></a>802.11终端</h3><blockquote>
+<p>客户端<br>接入点<br>集成服务<br>分布系统<br>无线分布系统</p>
+</blockquote>
+<h3 id="802-11服务集"><a href="#802-11服务集" class="headerlink" title="802.11服务集"></a>802.11服务集</h3><blockquote>
+<p>服务集标识符<br>基本服务集<br>基本服务区<br>基本服务集标识符<br>多个基本服务集标识符<br>扩展服务集<br>独立基本服务集<br>个人基本服务集<br>网状基本服务集<br>Qos基本服务集</p>
+</blockquote>
+<h3 id="802-11配置模式"><a href="#802-11配置模式" class="headerlink" title="802.11配置模式"></a>802.11配置模式</h3><blockquote>
+<p>接入点模式<br>客户端模式</p>
+</blockquote>
+<h4 id="无线广域网（WWAN"><a href="#无线广域网（WWAN" class="headerlink" title="无线广域网（WWAN)"></a>无线广域网（WWAN)</h4><p>覆盖广阔的区域，蜂窝电话技术是其中的代表。<br>Wi-Fi技术和蜂窝技术的融合共存正逐步称为现实。</p>
+<h4 id="无线城域网（WMAN"><a href="#无线城域网（WMAN" class="headerlink" title="无线城域网（WMAN)"></a>无线城域网（WMAN)</h4><p>为都市圈提供射频覆盖，基本上已经搁浅。</p>
+<h4 id="无线个域网（WPAN"><a href="#无线个域网（WPAN" class="headerlink" title="无线个域网（WPAN)"></a>无线个域网（WPAN)</h4><p>用户附近各个设备之间的互联。计算机，游戏设备，平板电脑，智能手机等。<br>蓝牙和红外是最常见的无线个域网技术。<br>802.11无线接口用于无线个域网的最佳范例是对等连接技术。</p>
+<h4 id="无线局域网（WLAN"><a href="#无线局域网（WLAN" class="headerlink" title="无线局域网（WLAN)"></a>无线局域网（WLAN)</h4><p>为建筑物和校园环境提供网络连接。<br>802.11技术定义里无线局域网技术。</p>
+<h4 id="802-11终端-1"><a href="#802-11终端-1" class="headerlink" title="802.11终端"></a>802.11终端</h4><p>所有终端通过唯一MAC地址标识。<br>IEEE802.11-2016标准指定了终端在各种802.11拓扑中使用的体系结构服务。下面是MAC子层的3种802.11服务。<br><strong>终端服务</strong>  所有802.11终端（客户端和接入点）均提供以下服务。</p>
+<blockquote>
+<p>身份验证<br>接触身份验证<br>数据机密性<br>MSDU传输<br>动态频率选择(DFS)<br>发射功率控制(TPC)<br>上层计时器同步<br>Qos流量调度<br>无线电测量<br>动态终端启用(DSE)</p>
+</blockquote>
+<p><strong>分布系统服务</strong> 仅有接入点和网状门户使用分布系统服务(DSS),用于管理客户端关联，重关联，取消关联等。</p>
+<p><strong>PBSS控制点服务</strong> 专门为构成个人基本服务集的802.11ad无线接口而定义。</p>
+<p><strong>客户端</strong><br>与接入点相对的一种工作模式。计算机，平板电脑，智能手机等许多设备都能使用客户端无线接口，接入接入点后访问网络。</p>
+<p><strong>接入点</strong><br>接入点与客户端在功能上完全相同，关键的区别在门户功能。<br>门户功能 又称 分布系统接入功能（DSAF），允许关联到接入点的客户端经由无线介质与其他物理介质交换数据。<br>802.11接入点维护关联客户端的关联表，以定向流量转发。</p>
+<p><strong>集成服务</strong><br>IEEE 802.11-2016定义了集成服务(IS), 通过门户在分布系统与无线局域网之间传输MAC服务数据单位（MSDU)。<br>也就是传输数据帧净荷，即数据内容不变，帧格式转变。</p>
+<p><strong>分布系统</strong><br>接入点通常作为门户，多个接入点之间通常通过以太网连接构成分布系统。<br>多数情况下，有线网是分布系统的最佳选择。</p>
+<p><strong>无线分布系统</strong><br>通过无线回程将接入点连接在一起。<br>不易布线的情况，网状回程网络有时候就是更好的选择。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-无线网络与扩频技术（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1304,102 +1406,6 @@
 
 
   
-    <article id="post-CWNA-IEEE-802-11标准与修正案-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-3/">CWNA:IEEE 802.11标准与修正案(3)</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-3/" class="archive-article-date">
-  	<time datetime="2022-01-10T05:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-10</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>承接上一篇</p>
-<h3 id="802-11aa-2012"><a href="#802-11aa-2012" class="headerlink" title="802.11aa-2012"></a>802.11aa-2012</h3><p>为MAC子层定义了经过改进的Qos机制，以便为消费类应用和企业应用提供强健的音频和视频流。</p>
-<h3 id="802-11ac-2013"><a href="#802-11ac-2013" class="headerlink" title="802.11ac-2013"></a>802.11ac-2013</h3><p>根据5GHz U-NII频段拥有更多的频谱空间而定义了低于6GHz频段的甚高吞吐量(VHT)增强机制。最高速率<br>可达6933.3Mbps，这是由以下增强机制实现。<br><strong>更宽的信道</strong><br>802.11n定义了40MHz信道，而802.11ac支持20,40,80,160MHz信道宽度。这是2.4G所不具备的资源。</p>
-<p><strong>新的调制技术</strong><br>支持256-QAM调制，不过需要很高的信噪比才能发挥作用。</p>
-<p><strong>更多的空间流</strong><br>无线接口可以发送并接收最多8路空间流。</p>
-<p><strong>改进的MIMO与波束成形</strong><br>引入MU-MIMO技术，如果多个客户端支持MU-MIMO且位于不同的物理区域，具有MU-MIMO功能的接入点就能同<br>时向同一信道的这些客户端发送信号。</p>
-<h3 id="802-11ad-2012"><a href="#802-11ad-2012" class="headerlink" title="802.11ad-2012"></a>802.11ad-2012</h3><p>为了提高无线网络性能，引入更高的60GHz非授权频段，也定义了多向吉比特(DMG)技术，支持高达7Gbps的<br>数据速率。仅用于视距传输。</p>
-<p>引入了快速会话转移功能，以便在60GHz与遗留2.4GHz/5GHz频段之间无缝切换。<br>CCMP对于大数据量加密存在缺陷，引入了GCMP加密。</p>
-<h3 id="802-11ae-2012"><a href="#802-11ae-2012" class="headerlink" title="802.11ae-2012"></a>802.11ae-2012</h3><p>定义了经过改进的QoS管理机制，启用服务质量管理帧(QMF)服务，使用QoS访问类别，提高流量服务质量。</p>
-<h3 id="802-11af-2014"><a href="#802-11af-2014" class="headerlink" title="802.11af-2014"></a>802.11af-2014</h3><p>允许无线局域网通信使用54MHz~790MHz的空白电视频段(TVWS)。</p>
-<h3 id="802-11ah-2016"><a href="#802-11ah-2016" class="headerlink" title="802.11ah-2016"></a>802.11ah-2016</h3><p>定义1GHz以下频段的Wi-Fi应用，有望用于传感器网络，智能家居，汽车，零售业，农业等。</p>
-<h3 id="802-11ai-2016"><a href="#802-11ai-2016" class="headerlink" title="802.11ai-2016"></a>802.11ai-2016</h3><p>定义了快速初始链路建立机制，以应对高密度环境中存在的挑战。旨在改善机场，体育馆，购物中心的应用。</p>
-<h3 id="802-11aj-2018"><a href="#802-11aj-2018" class="headerlink" title="802.11aj-2018"></a>802.11aj-2018</h3><p>定义59GHz~64GHz频段操作提供支持。还对802.11ad进行调整，以使得中国的45GHz频段传输数据。</p>
-<h3 id="802-11ak-2018"><a href="#802-11ak-2018" class="headerlink" title="802.11ak-2018"></a>802.11ak-2018</h3><p>又称为通用链路(GLK)，致力于完善802.11链路，以便在桥接网络中使用。允许终端提供桥接服务。</p>
-<h3 id="802-11aq-2018"><a href="#802-11aq-2018" class="headerlink" title="802.11aq-2018"></a>802.11aq-2018</h3><p>研究终端与802.11网络建立关联之前如何交付网络服务信息。</p>
-<h3 id="802-11ax"><a href="#802-11ax" class="headerlink" title="802.11ax"></a>802.11ax</h3><p>称为高校无线局域网修正案，支持2.4GHz和5GHz频段，提高吞吐量，支持更多的用户和更高的密度。引入了<br>OFDMA技术。</p>
-<h3 id="802-11ay"><a href="#802-11ay" class="headerlink" title="802.11ay"></a>802.11ay</h3><p>致力于完善11ad方案，提高传输速度和增加传输距离。</p>
-<h3 id="802-11az"><a href="#802-11az" class="headerlink" title="802.11az"></a>802.11az</h3><p>致力于提高物理位置跟踪和定位精度。</p>
-<h3 id="802-11ba"><a href="#802-11ba" class="headerlink" title="802.11ba"></a>802.11ba</h3><p>提出了唤醒无线电(WuR)的节电数据接收模式，致力于不增加网络延迟和性能的情况下增加设备的电池使用时间。</p>
-<h3 id="802-11m"><a href="#802-11m" class="headerlink" title="802.11m"></a>802.11m</h3><p>致力于维护802.11标准的技术性文档。对外发布的综合性文档如下<br>IEEE 802.11-2007标准<br>IEEE 802.11-2012标准<br>IEEE 802.11-2016标准</p>
-<p>以上就是标准历史演进和功能概述。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1688,5 +1694,22 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 </html>
