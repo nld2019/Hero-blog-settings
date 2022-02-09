@@ -146,6 +146,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-无线局域网拓扑-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91-%E4%BA%8C/">CWNA:无线局域网拓扑(二)</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91-%E4%BA%8C/" class="archive-article-date">
+  	<time datetime="2022-02-09T05:10:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-09</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="802-11服务集"><a href="#802-11服务集" class="headerlink" title="802.11服务集"></a>802.11服务集</h3><p>IEEE802.11-2016标准定义了多种称为服务集的802.11拓扑，他们描述了无线接口相互通信的方式。包括：</p>
+<blockquote>
+<p>基本服务集（BSS）<br>扩展服务集（ESS）<br>独立基本服务集（IBSS）<br>个人基本服务集（PBSS）<br>网状基本服务集（MBSS）<br>QoS基本服务集（QBSS）</p>
+</blockquote>
+<h4 id="服务集标识符"><a href="#服务集标识符" class="headerlink" title="服务集标识符"></a>服务集标识符</h4><p>服务集标识符(SSID),用于标识802.11无线网络的逻辑名。SSID由最多32个字符组成，并且区分大小写。<br>大多数接入点提供了<strong>隐藏SSID</strong>的选项，隐藏后的网络名称只对合法的最终用户可见。<br>为了客户端的无缝漫游，接入点必须通告使用具有相同安全性配置的同一个SSID。</p>
+<h4 id="基本服务集（BSS"><a href="#基本服务集（BSS" class="headerlink" title="基本服务集（BSS)"></a>基本服务集（BSS)</h4><p>无线局域网的基础拓扑结构。通常包括一个接入点和若干客户端。<br>称为基本服务集的终端之间建立二层连接，称为相互关联。<br>多数无线局域网供应商提供了客户端隔离功能，以阻止关联到接入点的客户端之间进行对等通信。</p>
+<h4 id="基本服务区"><a href="#基本服务区" class="headerlink" title="基本服务区"></a>基本服务区</h4><p>接入点的实际覆盖区域。它是能够进行有效通信的区域。<br>由于不同客户端对RSSI的解读有所不同，可以认为基本服务区的有效范围与加入基本服务集的客户端有关。</p>
+<h4 id="基本服务集标识符"><a href="#基本服务集标识符" class="headerlink" title="基本服务集标识符"></a>基本服务集标识符</h4><p>接入点无线接口的48位（6字节）MAC地址称为基本服务集标识符(BSSID)。<br>每个基本服务集通过唯一的标识符标识，BSSID<br>BSS切换，客户端从一个基本服务集移到另一个基本服务集的漫游过程。<br>SSID是用户配置的无线局域网的逻辑名，BSSID是硬件制造商生产的无线接口的二层MAC地址。</p>
+<h4 id="多个基本服务集标识符"><a href="#多个基本服务集标识符" class="headerlink" title="多个基本服务集标识符"></a>多个基本服务集标识符</h4><p>可以通过子接口为无线接口创建多个BSSID，多BSSID在接入点无线接口原始MAC地址的基础上递增。<br>不少无线局域网供应商支持单个接入点无线接口传输多达16个SSID。SSID过多，会增大MAC子层的开销，进而影响整体性能。</p>
+<h4 id="扩展服务集"><a href="#扩展服务集" class="headerlink" title="扩展服务集"></a>扩展服务集</h4><p>如果将基本服务集比作802.11拓扑的基石，那么扩展服务集（ESS）就是由基石垒起的整栋大厦。<br>扩展服务集，由两个或多个基本服务集构成，这些基本服务集采用相同的配置，通过分布系统介质连接在一起。<br>扩展服务区，是扩展基本服务集覆盖的区域，所有客户端都能在扩展服务区内通信和漫游。<br>扩展服务集的逻辑名为 扩展服务集标识符（ESSID), 它与SSID是同义词。</p>
+<h4 id="独立基本服务集"><a href="#独立基本服务集" class="headerlink" title="独立基本服务集"></a>独立基本服务集</h4><p>IBSS仅由客户端构成，不存在接入点。<br>客户端之间直接传输帧，不会通过转发。所有客户端的帧交换都是对等的。<br>IBSS钟的所有客户端必须竞争半双工介质的使用权，且在任何给定的时间内，只有一个客户端可以传输数据。<br>为了确保通信的成功进行，IBSS中的所有客户端必须使用相同的频率信道传输数据，且构成IBSS的所有独立无线终端必须共享同一个SSID。<br>首先发起IBSS的客户端会随机生成一个MAC地址格式的BSSID，它是一个虚拟MAC地址，充当IBSS的二层标识符。</p>
+<h4 id="个人基本服务集"><a href="#个人基本服务集" class="headerlink" title="个人基本服务集"></a>个人基本服务集</h4><p>PBSS是一种支持802.11ad终端直接交换数据的802.11拓扑。只能由使用60GHz频段传输数据的802.11ad兼容无线接口创建。</p>
+<h4 id="网状基本服务集"><a href="#网状基本服务集" class="headerlink" title="网状基本服务集"></a>网状基本服务集</h4><p>802.11-2016标准定义了网状基本服务集（MBSS）<br>以无线方式分发网络流量。相当于二层路由。</p>
+<h4 id="Qos基本服务集"><a href="#Qos基本服务集" class="headerlink" title="Qos基本服务集"></a>Qos基本服务集</h4><p>WiFi联盟规定，802.11产品必须支持QoS机制才能取得WMM认证。因此，大多数基本服务集可视为QBSS</p>
+<h3 id="802-11配置模式"><a href="#802-11配置模式" class="headerlink" title="802.11配置模式"></a>802.11配置模式</h3><p><strong>接入点模式</strong> 通常称为AP<br>接入点模式，用作分布系统的入口<br>网状模式，也称中继器模式，作为无线回程无线接口使用。<br>传感器模式，又称监控模式或扫描模式，用于无线入侵防御系统体系结构中。<br>桥接模式，又称无线网桥。<br>工作组网桥模式，为连接的802.3有线客户端提供无线回程。<br>接入点被配置为客户端模式，充当客户设备，然后关联到其他接入点。</p>
+<p><strong>客户端模式</strong><br>基础设施模式（infrastructure mode），经由接入点进行通信。它是客户设备的默认模式。通常称为STA<br>自组织模式（ad hoc mode)，对等模式。 通常称为P2P</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91-%E4%BA%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-无线局域网拓扑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1278,105 +1369,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/01/11/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%882%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-射频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/10/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">CWNA:射频基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/10/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2022-01-10T09:10:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-10</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>射频信号定义</strong></p>
-<p><strong>射频特性</strong></p>
-<blockquote>
-<p>波长<br>频率<br>振幅<br>相位</p>
-</blockquote>
-<p><strong>射频行为</strong></p>
-<blockquote>
-<p>波传播<br>吸收<br>反射<br>散射<br>折射<br>衍射<br>损耗（衰减）<br>自由空间路径损耗<br>多径<br>增益（放大）</p>
-</blockquote>
-<p>为了深入理解802.11技术，需要掌握无线信号在OSI模型的物理层上的原理。射频通信是物理层核心所在。<br>有线通信，信号在有界介质中传输。<br>无线通信，信号在无界介质中传输，信号向四面八方辐射到周围环境中，因而容易受环境影响。</p>
-<p><strong>射频信号的定义</strong><br>电磁频谱通常简称频谱，表示所有可能的电磁辐射的范围，这种辐射以自传播的电磁波的形式存在。</p>
-<p>射频信号始于发射机产生的交流信号，在传输过程中，射频信号会产生多种运动行为，称为传播行为。</p>
-<p><strong>射频信号的特性</strong><br><strong>波长</strong>，连续两个波峰或者连续两个波谷之间的距离。也是射频信号在一个周期内实际传播的距离。<br>$λ=c/f$<br>表示波长等于光速除以频率。</p>
-<p>射频信号在空间或物质中传输会出现衰减。衰减的原因并非频率和波长，而是距离。所有天线都存在接收<br>功率的有效区域，称为天线孔径(aperture)。天线的频率越高，天线孔径能捕获的能量频率越低。人们总<br>感觉波长较短的高频信号衰减较快。从理论上讲，电磁波在空中传播永不停歇；从本质上将，信号永远可以<br>到达接收机，但是会因为强度过低而难以被检测到。</p>
-<p>人们认为，与波长较短的高频信号相比，波长较长的低频信号能传播更远的距离。实际情况是，高频天线的<br>孔径能够捕获的能量远低于低频天线的孔径所能捕获的能量。</p>
-<p>多数802.11无线接口使用2.4GHz和5GHz频段的数据。<br>2.45GHz对应的波长12.24cm<br>5.775GHz对应的波长5.19cm</p>
-<p>高频信号在通过各种物理介质时，衰减的速度一般比低频信号要快。衰减的原因：<br>信号的自由空间损耗；<br>频率越高穿越障碍物的能力越差。2.4GHz比5GHz的穿墙能力更好。</p>
-<p><strong>频率</strong><br>频率，在指定时间内发生的次数，单位Hz,得名于德国物理学家海因里希·鲁道夫·赫兹。</p>
-<blockquote>
-<p>1Hz:每秒循环1次<br>1kHz:每秒循环1000次<br>1MHz:每秒循环1 000 000次<br>1GHz:每秒循环1 000 000 000次<br>因此，2.4GHz信号每秒振荡24亿次。</p>
-</blockquote>
-<p><strong>振幅</strong><br>振幅，表征信号的强度或功率。<br>不同类型的射频技术要求的发射振幅有所不同。<br>调幅广播电台发射的窄带信号功率可能达到50kW<br>802.11接入点的发射功率介于1mW和100mW之间。<br>802.11无线接口可以接收并解调振幅低于十亿分之一毫瓦的信号。</p>
-<p><strong>相位</strong><br>相位，描述两个或多个同频信号之间的关系。<br>同相，两个同频信号的波峰同一时刻精确对齐。<br>异相，两个同频信号的波峰在同一时刻没有精确对齐。<br>相位影响信号叠加的强度。多径效应就是有异相信号引起的。</p>
-<p>（未完待续…)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/10/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
         </p>
       
 
