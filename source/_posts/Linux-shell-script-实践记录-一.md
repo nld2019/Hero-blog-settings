@@ -18,7 +18,7 @@ tags: 'Shell script'
 
 主shell script.
 
-```shell script
+```shell
 #!/bin/sh
 ##ISSUE i simulation script.
 ##Objects:Try to simulate the Wi-Fi interaction sequence to accelerate issue reproduce
@@ -175,7 +175,7 @@ done
 
 被上面的script调用
 
-```shell script
+```shell
 #!/bin/sh
 #This script is used to trigger cycle scan
 ERR_NUM=0
