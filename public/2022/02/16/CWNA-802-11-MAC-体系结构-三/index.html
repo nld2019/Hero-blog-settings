@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>CWNA:802.11介质访问（二） | Hexo</title>
+  <title>CWNA:802.11 MAC 体系结构(三) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="点协调功能PCF是一种可选的介质访问方法，IEEE认为PCF已经过时，可能今后会将其删除。 混合协调功能定义服务质量的802.11e增加了混合协调功能。HCF将DCF和PCF功能相结合并加以改进，定义了两种信道访问方法：增强型分布式信道访问（EDCA）和HCF受控信道访问（HCCA)前面的DCF和PCF介质争用机制只允许802.11无线接口传输单个帧。HCF定义的机制允许802.11无线接口通过射">
+  <meta name="description" content="802.11状态机802.11-2016定义了4种客户端状态，称为802.11状态机。旨在使得客户端和接入点能发现彼此并建安全连接。 主动扫描与被动扫描（active&#x2F;passive scan）———     状态1：未通过验证未建立关联 802.11身份验证成功(authentication request&#x2F;response) ———          状态2：已通过验证未建立关联 802.11">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CWNA:802.11介质访问（二）">
-<meta property="og:url" content="http://example.com/2022/02/14/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
+<meta property="og:title" content="CWNA:802.11 MAC 体系结构(三)">
+<meta property="og:url" content="http://example.com/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="点协调功能PCF是一种可选的介质访问方法，IEEE认为PCF已经过时，可能今后会将其删除。 混合协调功能定义服务质量的802.11e增加了混合协调功能。HCF将DCF和PCF功能相结合并加以改进，定义了两种信道访问方法：增强型分布式信道访问（EDCA）和HCF受控信道访问（HCCA)前面的DCF和PCF介质争用机制只允许802.11无线接口传输单个帧。HCF定义的机制允许802.11无线接口通过射">
+<meta property="og:description" content="802.11状态机802.11-2016定义了4种客户端状态，称为802.11状态机。旨在使得客户端和接入点能发现彼此并建安全连接。 主动扫描与被动扫描（active&#x2F;passive scan）———     状态1：未通过验证未建立关联 802.11身份验证成功(authentication request&#x2F;response) ———          状态2：已通过验证未建立关联 802.11">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-02-14T02:00:36.000Z">
-<meta property="article:modified_time" content="2022-02-14T07:21:09.429Z">
+<meta property="article:published_time" content="2022-02-16T01:22:00.000Z">
+<meta property="article:modified_time" content="2022-02-18T07:21:54.669Z">
 <meta property="article:author" content="L.D.2021">
 <meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
@@ -149,20 +149,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CWNA-802-11介质访问（二）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CWNA-802-11-MAC-体系结构-三" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      CWNA:802.11介质访问（二）
+      CWNA:802.11 MAC 体系结构(三)
     </h1>
   
 
         
-        <a href="/2022/02/14/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-02-14T02:00:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-14</time>
+        <a href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/" class="archive-article-date">
+  	<time datetime="2022-02-16T01:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-16</time>
 </a>
  
         <!-- 不蒜子统计 -->
@@ -176,13 +176,124 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="点协调功能"><a href="#点协调功能" class="headerlink" title="点协调功能"></a>点协调功能</h3><p>PCF是一种可选的介质访问方法，IEEE认为PCF已经过时，可能今后会将其删除。</p>
-<h3 id="混合协调功能"><a href="#混合协调功能" class="headerlink" title="混合协调功能"></a>混合协调功能</h3><p>定义服务质量的802.11e增加了混合协调功能。<br>HCF将DCF和PCF功能相结合并加以改进，定义了两种信道访问方法：增强型分布式信道访问（EDCA）和HCF受控信道访问（HCCA)<br>前面的DCF和PCF介质争用机制只允许802.11无线接口传输单个帧。<br>HCF定义的机制允许802.11无线接口通过射频介质传输多个帧。当兼容HCF的无线接口争用介质时，无线接口将获得帧发送时间，这段时间称为发送机会（TXOP）。<br>在此期间，802.11无线接口可以通过帧突发（frame burst)发送多个帧，帧之间通过SIFS隔开，以确保其他无线接口不会在帧突发期间占用介质。</p>
-<p><strong>增强型分布式信道访问</strong><br>提供差异化访问的无线介质访问方法，能将流量定向到4种访问类别的QoS优先级队列。优先级标记提供了在MAC子层实现QoS的机制。<br>EDMAC基于8个用户优先级字段定义了4种访问类别，优先级从低到高：<br>AC_BK(背景)<br>AC_BE（尽力而为)<br>AC_VI(视频)<br>AC_VO(语音)</p>
-<p>每种访问类别经过改进的增强型分布式信道访问功能争用介质。拥有高优先级的帧具有最小退避值，因此机会更多。</p>
-<p><strong>HCF受控信道访问</strong><br>内置在接入点中，具有更高的无线介质访问优先级。</p>
-<h3 id="Wi-Fi-多媒体"><a href="#Wi-Fi-多媒体" class="headerlink" title="Wi-Fi 多媒体"></a>Wi-Fi 多媒体</h3><p>语音，音频，视频等应用流量对延迟和抖动的容忍度较低，需要比标准数据流量更高的优先级。<br>WMM基于EDCA机制，因此以太网的802.1D优先级标记用于将流量定向到4种访问类别的优先级队列。</p>
-<h3 id="占用时长公平性"><a href="#占用时长公平性" class="headerlink" title="占用时长公平性"></a>占用时长公平性</h3><p>由于存在高速设备和低速设备争用无线介质会导致低速设备占用较多传输时长，<br>占用时长公平性，使得高数设备和低速设备有均等的时长，而非均等的机会。这样高速设备能够更多机会访问介质，最终提升无线局域网的性能、容量和吞吐量。<br>它致力于避免速度较慢设备影响网络的整体性能。</p>
+        <h3 id="802-11状态机"><a href="#802-11状态机" class="headerlink" title="802.11状态机"></a>802.11状态机</h3><p>802.11-2016定义了4种客户端状态，称为802.11状态机。旨在使得客户端和接入点能发现彼此并建安全连接。</p>
+<p>主动扫描与被动扫描（active/passive scan）———     状态1：未通过验证未建立关联</p>
+<p>802.11身份验证成功(authentication request/response) ———          状态2：已通过验证未建立关联</p>
+<p>802.11（重）关联成功(association request/response) ———           状态3：已通过验证，已建立关联</p>
+<p>四次握手成功(4-way handshake) ———               状态4：以通过验证，已建立关联</p>
+<h3 id="管理帧"><a href="#管理帧" class="headerlink" title="管理帧"></a>管理帧</h3><p>IEEE802.11-2016定义了14种管理帧子类型</p>
+<blockquote>
+<p>关联请求帧<br>关联响应帧<br>重关联请求帧<br>重关联响应帧<br>探询请求帧<br>探询响应帧<br>信标帧<br>通过流量指示消息<br>取消关联帧<br>身份验证帧<br>解除身份验证帧<br>行动帧<br>无确认行动帧<br>定时通告帧</p>
+</blockquote>
+<p><strong>信标帧（Beacon)</strong><br>相当于无线网络的心跳消息。接入点利用信标帧向客户端通告基本服务集的所有配置信息。信标帧间隔102.4毫秒，每秒大约发送10次信标帧。<br>基本服务集中：接入点广播信标帧，客户端侦听信标帧。<br>IBSS中：客户端之间传输信标帧。</p>
+<p>信标帧包含的信息</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">信息类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">时间戳</td>
+<td style="text-align:center">同步信息</td>
+</tr>
+<tr>
+<td style="text-align:center">扩频参数集</td>
+<td style="text-align:center">FHSS、OFDM等</td>
+</tr>
+<tr>
+<td style="text-align:center">SSID</td>
+<td style="text-align:center">无线局域网的逻辑名</td>
+</tr>
+<tr>
+<td style="text-align:center">数据速率</td>
+<td style="text-align:center">基本速率和支持速率</td>
+</tr>
+<tr>
+<td style="text-align:center">服务集功能</td>
+<td style="text-align:center">额外的BSS或IBSS参数</td>
+</tr>
+<tr>
+<td style="text-align:center">信道信息</td>
+<td style="text-align:center">接入点或IBSS使用的信道</td>
+</tr>
+<tr>
+<td style="text-align:center">流量指示图</td>
+<td style="text-align:center">节电过程使用的字段</td>
+</tr>
+<tr>
+<td style="text-align:center">BSS负载</td>
+<td style="text-align:center">802.11e指定的字段，能有效指示信道利用率</td>
+</tr>
+<tr>
+<td style="text-align:center">Qos功能</td>
+<td style="text-align:center">服务质量和增强型分布式信道访问信息</td>
+</tr>
+<tr>
+<td style="text-align:center">RSN功能</td>
+<td style="text-align:center">TKIP或CCMP密码信息和身份验证机制</td>
+</tr>
+<tr>
+<td style="text-align:center">HT与VHT功能</td>
+<td style="text-align:center">802.11n和802.11ac功能</td>
+</tr>
+<tr>
+<td style="text-align:center">供应商专有信息</td>
+<td style="text-align:center">特定于供应商的信息</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>1.被动扫描<br>客户端必须发现接入点才能进行连接。<br>客户端进行被动扫描时，将侦听接入点不断发送的信标帧(Beacon)。</p>
+<p>不足之处，信标帧仅在接入点使用的信道对外广播。</p>
+<p>2.主动扫描<br>客户端发送探询帧，它既可以包括客户端正在查找的特定无线局域网的SSID，也可以搜索任何SSID。<br>探询帧SSID字段为空：查找所有可能的SSID<br>探询帧SSID字段存在：查找特定的SSID。</p>
+<p>探询响应帧(probe request)，用于回复探询请求帧。（probe response)</p>
+<p>主动扫描通过所有可用信道发送探询请求帧。</p>
+<p>客户端即便已经关联到接入点并开始传输数据，客户端一般也会实施信道外扫描（off-channel scanning),并继续每隔几秒就利用其他信道发送探询请求帧。<br>主要目的是寻找可能漫游到其他接入点，通过off-channel scanning 客户端维护并更新一份已知接入点列表，从而在需要的时可以更快、更有效进行地漫游。</p>
+<p><strong>身份验证帧</strong><br>相当于验证两台设备是否是有效的802.11设备，客户端与接入点之间建立初步连接。802.11状态机进入状态2<br>两种身份验证机制：<br>1.共享密钥身份验证（早已过时）<br>2.开放系统身份验证<br>它不对客户端的身份做任何验证，本质是属于客户端与接入点之间的问候交换过程。</p>
+<p><strong>关联帧</strong><br>客户端向接入点验证自己的身份后，接下来将与接入点建立关联，关联到接入点的客户端称为基本服务集的成员。802.11状态机进入状态3<br>关联请求帧（association request）的关联响应帧（association response）的帧体包含管理标识符（AID），每个关联的客户端唯一。<br>如果不配做RSN安全，客户端可以请求IP地址并开始上层通信。<br>如果接入点配置了预共享密钥或802.1X/EAP作为身份验证机制，双方还需要进行四次握手(4-way handshake)的帧交换，以便创建动态加密密钥。802.11状态机进入状态4，成为基本服务集的成员。</p>
+<p>如果客户端不能使用所有的基本速率，就无法关联到接入点，也不会获准加入基本服务集。</p>
+<p><strong>重关联帧</strong><br>客户端与接入点的重关联过程：<br>1）客户端向新接入点发送重关联帧；<br>2）新接入点向客户端回复确认帧；<br>3）新接入点尝试利用分布介质（DSM）与原接入点通信，获取漫游客户端的信息，并请求接入点转发所有缓存数据。（这部分是供应商专有）<br>4）如果通信成功，原接入点将使用分布介质向新接入点转发所有缓冲数据。<br>5）新接入点通过无线介质向漫游客户端发送重关联响应帧。<br>6）客户端向新接入点回复确认帧，并准备漫游。<br>7）如果加密了，进行四次握手帧交换，以便在两个无线接口之间生成唯一的加密密钥。</p>
+<p><strong>取消关联帧</strong><br>取消关联属于通知而非请求，包括原因代码。802.11状态机由4/3 切换到2</p>
+<p><strong>解除身份验证帧</strong><br>属于通知而非请求，包括原因代码。802.11状态机由4/3/2 切换到1</p>
+<p><strong>行动帧</strong><br>用于触发基本服务集的特定操作，旨在为准备执行的操作提供信息和指示。<br>由于管理帧的子类型已经耗尽，802.11h修正案首次引入行动帧。（Action)</p>
+<p>Action帧结构</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">帧控制</th>
+<th style="text-align:center">持续时间</th>
+<th style="text-align:center">目的地址</th>
+<th style="text-align:center">源地址</th>
+<th style="text-align:center">BSSID</th>
+<th style="text-align:center">序列控制</th>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">行动</th>
+<th style="text-align:center">元素</th>
+<th style="text-align:center">FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">varialble</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>行动帧的帧体由3部分构成：<br>类别：描述行动帧的类型<br>操作：准备执行的操作<br>元素：添加有关操作的其他信息。</p>
 
       
 
@@ -273,7 +384,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/14/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +398,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/02/14/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CWNA:802.11 MAC 体系结构
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/02/10/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CWNA:802.11介质访问</div>
+    <a href="/2022/02/15/Linux-shell-script-%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95-%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux shell script 实践记录(一)</div>
       <i class="icon-circle-right"></i>
     </a>
   
