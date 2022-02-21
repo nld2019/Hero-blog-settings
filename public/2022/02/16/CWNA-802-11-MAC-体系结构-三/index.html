@@ -16,7 +16,7 @@
 <meta property="og:description" content="802.11状态机802.11-2016定义了4种客户端状态，称为802.11状态机。旨在使得客户端和接入点能发现彼此并建安全连接。 主动扫描与被动扫描（active&#x2F;passive scan）———     状态1：未通过验证未建立关联 802.11身份验证成功(authentication request&#x2F;response) ———          状态2：已通过验证未建立关联 802.11">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-02-16T01:22:00.000Z">
-<meta property="article:modified_time" content="2022-02-18T07:21:54.669Z">
+<meta property="article:modified_time" content="2022-02-18T07:24:08.467Z">
 <meta property="article:author" content="L.D.2021">
 <meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
@@ -80,13 +80,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="/" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="bilibili" target="_blank" href="/" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -119,13 +119,13 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="/" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="bilibili" target="_blank" href="/" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -253,13 +253,13 @@
 <p>探询响应帧(probe request)，用于回复探询请求帧。（probe response)</p>
 <p>主动扫描通过所有可用信道发送探询请求帧。</p>
 <p>客户端即便已经关联到接入点并开始传输数据，客户端一般也会实施信道外扫描（off-channel scanning),并继续每隔几秒就利用其他信道发送探询请求帧。<br>主要目的是寻找可能漫游到其他接入点，通过off-channel scanning 客户端维护并更新一份已知接入点列表，从而在需要的时可以更快、更有效进行地漫游。</p>
-<p><strong>身份验证帧</strong><br>相当于验证两台设备是否是有效的802.11设备，客户端与接入点之间建立初步连接。802.11状态机进入状态2<br>两种身份验证机制：<br>1.共享密钥身份验证（早已过时）<br>2.开放系统身份验证<br>它不对客户端的身份做任何验证，本质是属于客户端与接入点之间的问候交换过程。</p>
-<p><strong>关联帧</strong><br>客户端向接入点验证自己的身份后，接下来将与接入点建立关联，关联到接入点的客户端称为基本服务集的成员。802.11状态机进入状态3<br>关联请求帧（association request）的关联响应帧（association response）的帧体包含管理标识符（AID），每个关联的客户端唯一。<br>如果不配做RSN安全，客户端可以请求IP地址并开始上层通信。<br>如果接入点配置了预共享密钥或802.1X/EAP作为身份验证机制，双方还需要进行四次握手(4-way handshake)的帧交换，以便创建动态加密密钥。802.11状态机进入状态4，成为基本服务集的成员。</p>
+<p><strong>身份验证帧（authentication）</strong><br>相当于验证两台设备是否是有效的802.11设备，客户端与接入点之间建立初步连接。802.11状态机进入状态2<br>两种身份验证机制：<br>1.共享密钥身份验证（早已过时）<br>2.开放系统身份验证<br>它不对客户端的身份做任何验证，本质是属于客户端与接入点之间的问候交换过程。</p>
+<p><strong>关联帧(association)</strong><br>客户端向接入点验证自己的身份后，接下来将与接入点建立关联，关联到接入点的客户端称为基本服务集的成员。802.11状态机进入状态3<br>关联请求帧（association request）的关联响应帧（association response）的帧体包含管理标识符（AID），每个关联的客户端唯一。<br>如果不配做RSN安全，客户端可以请求IP地址并开始上层通信。<br>如果接入点配置了预共享密钥或802.1X/EAP作为身份验证机制，双方还需要进行四次握手(4-way handshake)的帧交换，以便创建动态加密密钥。802.11状态机进入状态4，成为基本服务集的成员。</p>
 <p>如果客户端不能使用所有的基本速率，就无法关联到接入点，也不会获准加入基本服务集。</p>
-<p><strong>重关联帧</strong><br>客户端与接入点的重关联过程：<br>1）客户端向新接入点发送重关联帧；<br>2）新接入点向客户端回复确认帧；<br>3）新接入点尝试利用分布介质（DSM）与原接入点通信，获取漫游客户端的信息，并请求接入点转发所有缓存数据。（这部分是供应商专有）<br>4）如果通信成功，原接入点将使用分布介质向新接入点转发所有缓冲数据。<br>5）新接入点通过无线介质向漫游客户端发送重关联响应帧。<br>6）客户端向新接入点回复确认帧，并准备漫游。<br>7）如果加密了，进行四次握手帧交换，以便在两个无线接口之间生成唯一的加密密钥。</p>
-<p><strong>取消关联帧</strong><br>取消关联属于通知而非请求，包括原因代码。802.11状态机由4/3 切换到2</p>
-<p><strong>解除身份验证帧</strong><br>属于通知而非请求，包括原因代码。802.11状态机由4/3/2 切换到1</p>
-<p><strong>行动帧</strong><br>用于触发基本服务集的特定操作，旨在为准备执行的操作提供信息和指示。<br>由于管理帧的子类型已经耗尽，802.11h修正案首次引入行动帧。（Action)</p>
+<p><strong>重关联帧(reassociation)</strong><br>客户端与接入点的重关联过程：<br>1）客户端向新接入点发送重关联帧；<br>2）新接入点向客户端回复确认帧；<br>3）新接入点尝试利用分布介质（DSM）与原接入点通信，获取漫游客户端的信息，并请求接入点转发所有缓存数据。（这部分是供应商专有）<br>4）如果通信成功，原接入点将使用分布介质向新接入点转发所有缓冲数据。<br>5）新接入点通过无线介质向漫游客户端发送重关联响应帧。<br>6）客户端向新接入点回复确认帧，并准备漫游。<br>7）如果加密了，进行四次握手帧交换，以便在两个无线接口之间生成唯一的加密密钥。</p>
+<p><strong>取消关联帧(deassociation)</strong><br>取消关联属于通知而非请求，包括原因代码。802.11状态机由4/3 切换到2</p>
+<p><strong>解除身份验证帧(deauthentication)</strong><br>属于通知而非请求，包括原因代码。802.11状态机由4/3/2 切换到1</p>
+<p><strong>行动帧(action)</strong><br>用于触发基本服务集的特定操作，旨在为准备执行的操作提供信息和指示。<br>由于管理帧的子类型已经耗尽，802.11h修正案首次引入行动帧。（Action)</p>
 <p>Action帧结构</p>
 <div class="table-container">
 <table>
@@ -397,6 +397,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CWNA:802.11 MAC 体系结构(四)
+        
+      </div>
+    </a>
   
   
     <a href="/2022/02/15/Linux-shell-script-%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95-%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
@@ -628,15 +637,15 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+              <a href="/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+              <a href="/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
             </li>
           
         </ul>
