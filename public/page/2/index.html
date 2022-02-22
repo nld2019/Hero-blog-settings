@@ -146,6 +146,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-802-11介质访问" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/10/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE/">CWNA:802.11介质访问</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/10/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE/" class="archive-article-date">
+  	<time datetime="2022-02-10T05:37:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-10</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSMA/CA与 CSMA/CD<br>冲突检测<br>分布式协调功能</p>
+<blockquote>
+<p>物理载波监听<br>虚拟载波监听<br>伪随机退避计时器<br>帧间间隔</p>
+</blockquote>
+<p>点协调功能<br>混合协调功能</p>
+<blockquote>
+<p>增强型分布式信道访问<br>HCF受控信道访问</p>
+</blockquote>
+<p>Wi-Fi多媒体<br>占用时长公平性</p>
+<h3 id="CSMA-CD-与-CSMA-CA"><a href="#CSMA-CD-与-CSMA-CA" class="headerlink" title="CSMA/CD 与 CSMA/CA"></a>CSMA/CD 与 CSMA/CA</h3><p>802.3以太网使用带冲突检测的载波监听多路访问（CSMA/CD)的介质争用方法。<br>802.11无线局域网使用带冲突避免的载波监听多路访问（CSMA/CA）的介质争用方法。</p>
+<p><strong>CSMA/CD</strong><br>有线节点首先检查另一个节点是否在传输数据。如果其他节点没有占用以太网介质，节点将发送第一个信息比特。<br>如果没有检测到冲突，则节点继续发送其他信息比特，同时继续检测是否存在冲突。<br>如果检测到冲突，则节点计算一个随机等待时间，然后重新开始上述过程。</p>
+<p><strong>CSMA/CA</strong><br>802.11节点无法同时发送和接收数据，半双工的特性决定了采用CSMA/CA<br>终端确定其他终端没有传输数据时，802.11无线接口选择一个随机的退避值，并根据退避值等待一段额外的时间再开始传输。<br>在此期间，终端继续监听介质，确保没有其他终端开始传输。</p>
+<p>载波监听，确定介质是否繁忙；<br>多路访问，确保所有无线接口都能获得公平使用介质的机会（一次仅有一个无线接口可以传输）<br>冲突避免，任何给定时间，仅有一个无线接口能访问介质，以避免可能存在的冲突。</p>
+<h3 id="冲突检测"><a href="#冲突检测" class="headerlink" title="冲突检测"></a>冲突检测</h3><p>所有802.11单播帧必须经过确认，而广播帧和多播帧不需要确认。<br>如果无线接口没有收到确认帧，则说明传输过程中可能存在冲突。<br>确认帧相当于验证802.11单播帧是否成功交付的机制：如果无法提供交付证明，原无线接口假定传输失败并<strong>重传单播帧</strong>。</p>
+<h3 id="分布式协调功能"><a href="#分布式协调功能" class="headerlink" title="分布式协调功能"></a>分布式协调功能</h3><p>DCF是无线局域网通信的基本访问方法，而CSMA/CA过程是DCF的基础。<br>CSMA/CA协议主要包括4种机制：</p>
+<blockquote>
+<p>物理载波监听         确定无线介质是否繁忙<br>虚拟载波监听         确定无线介质是否繁忙<br>伪随机退避计时器     争用介质<br>帧间间隔            提供访问无线介质的优先级</p>
+</blockquote>
+<p>4种机制同时实施，旨在确保仅有一个802.11无线接口使用半双工介质传输数据。</p>
+<p><strong>物理载波监听</strong><br>所有没有收发数据的终端都会持续进行物理载波监听。它是监听信道，查看是否有其他射频传输占用信道。<br>确定是否存在需要终端接收的帧传输。如果介质繁忙，无线接口将尝试与传输同步。<br>确定介质在传输开始前是否繁忙。仅当介质空闲时，终端才能传输数据。</p>
+<p>802.11无线接口通过空闲信道评估（CCA)实现这个目的。它通过两种空闲信道评估阈值实现。<br><strong>信号检测阈值</strong>用于识别802.11无线接口的前同步码传输。如果接收信号高于本底噪声4dB左右，无线接口通常能解码任何收到的802.11前同部门传输。<br><strong>能量检测阈值</strong>用于在空闲信道评估期间检测其他类型的射频传输。能量检测阈值比信号检测阈值高20dB<br>只有检测到两个阈值都空闲时，才允许传输。  如何判定繁忙？这是个问题。</p>
+<p><strong>虚拟载波监听</strong><br>802.11帧头包括一个持续时间/ID字段。客户端发送单播帧时，该字段值介于0和32767之间。它表示一个活动帧交换过程所需的时间，在此期间，其他无线接口不会中断传输过程。<br>这个值用于重置其他终端的网络分配向量计时器。</p>
+<p>虚载波监听使用称为网络分配向量（NAV)的计时器机制，NAV计时器根据从前一个帧传输中观察到的持续时间值来预测介质今后的流量。</p>
+<p>工作方式：<br>监听终端在侦听到其他终端的帧传输时将查看帧头，并确定持续时间/ID字段是否包含持续时间值或ID值。如果字段中包含持续时间值，监听终端将自己的NAV计时器设置为该值，<br>然后使用NAV作为倒数计时器。在倒计时减少到0之前，终端认为射频介质处于繁忙状态。传输数据的802.11无线接口通过这个过程通知其他终端，将在一段时间（持续时间/ID)<br>值内占用介质。没有传输数据的终端，等NAV减少为0再开始争用介质的使用权。再NAV计时器到达0之前，终端无法争用介质。<br>它是一种二层载波监听机制。</p>
+<p>虚载波监听属于二层防御措施，物理载波监听属于一层防御措施。</p>
+<p><strong>伪随机退避计时器</strong><br>伪随机退避计时器是终端在传输前最后使用的计时器。退避计时器减少到0时，终端重新评估信道状态，如果信道空闲，则开始传输数据。<br>如果物理载波监听或虚拟载波监听机制发现介质繁忙，则中止递减退避计数并保持退避计数的值。退避技术减少到0时，开始传输。</p>
+<blockquote>
+<p>OFDM终端从0~15的争用窗口中选择一个随机数，假如是4<br>终端将随机数与时隙值9微妙相乘<br>如果在时隙内没有介质活动，退避计数器将减少一个时隙<br>退避计数递减至0<br>终端执行最后一次信道评估，如果空闲，开始传输。<br>如果信道繁忙，终端将推迟一个时隙，然后再次执行空闲信道评估，如果空闲，开始传输。</p>
+</blockquote>
+<p>伪随机数保证了各个终端都有机会。<br>在复杂环境中，重传的终端的伪随机退避计将越来越大，直至最大值。</p>
+<p><strong>帧间间隔</strong><br>无线帧传输之间的一段时间，共10种，时间从短到长排列</p>
+<blockquote>
+<p>缩减的帧间间隔（RIFS),优先级最高。<br>短帧帧间间隔（SIFS)，优先级第二。<br>PCF帧间间隔(PIFS)，优先级中等。<br>DCF帧间间隔(DIFS)，优先级最低<br>仲裁帧间间隔(AIFS), 由QoS终端使用<br>扩展的帧间将(EIFS)，在收到损坏的帧后使用。</p>
+</blockquote>
+<p>帧间间隔用于确定随后传输的802.11流量类型，也可以作为虚载波监听的备份机制。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/10/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-无线局域网拓扑-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1276,99 +1386,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/01/11/CWNA%EF%BC%9A%E5%B0%84%E9%A2%91%E7%BB%84%E4%BB%B6%E3%80%81%E5%BA%A6%E9%87%8F%E4%B8%8E%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-射频基础知识（2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/11/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%882%EF%BC%89/">CWNA:射频基础知识（2）</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/11/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%882%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-01-11T05:13:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-11</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>传播介质对射频波的传播影响极大。</p>
-<p><strong>吸收</strong><br>2.4GHz射频信号通过混凝土墙后，功率降低到原来的1/16，而同样的信号穿过石膏板后，功率损失1/2.<br>吸收是导致信号衰减的主要原因。<br>成年人的身体平均含水量50%~60%，水会吸收信号，导致信号衰减。</p>
-<p><strong>反射</strong><br>反射分为天波反射和微波反射两大类。<br>频率低于1GHz的信号会发生天波反射，它会从地球电离层带电粒子的表面反弹回来。<br>反射导致多径效应，多径会降低接收信号的强度和质量，甚至导致数据损坏和信号相消。</p>
-<p>在遗留的802.11/a/b/无线接口时，反射和多径往往导致性能下降的罪魁祸首。而802.11n/ac无线接口采用<br>多输入多输出(MIMO)天线和高级数字信号处理技术，使得多径效应具有建设性影响。</p>
-<p><strong>散射</strong><br>天空之所以呈现蓝色是由于瑞利散射（Rayleigh scattering),得名于19世纪英国物理学家约翰·威廉·斯特拉特，后者曾受封瑞利勋爵。</p>
-<p>散射就是波向四面八方反射。</p>
-<p><strong>折射</strong><br>波进入密度不均匀的介质后会发生折射。</p>
-<p><strong>衍射</strong><br>信号遇到障碍物时发生弯曲。<br>障碍物正后方的区域称为射频阴影（RF shadow)。射频阴影可能称为信号覆盖死角，天线安装位置需要考虑。</p>
-<p><strong>损耗</strong><br>损耗又称为衰减，用于描述振幅和信号强度的降低。<br>介质会导致波的损耗。</p>
-<p><strong>自由空间损耗</strong><br>即便没有障碍物，吸收，反射，衍射等因素造成的衰减，电磁信号在传输过程中也会因为物理定律而衰减。由于波的自然展宽引起的信号强度衰减称为自由空间路径损耗，一般称为波束发散。</p>
-<p>距离每增加一倍，振幅将减少6dB。</p>
-<p>信号的成功接收，不仅要确保射频信号不会衰减到无线接口的接收灵敏度以下，也要确保信号不会衰减到接近或低于本底噪声的水平。</p>
-<p><strong>多径</strong><br>多径，指信号沿着两条或多条路径同时或相隔极短时间到达接收天线。上述波的各种行为多数会导致多径现象。</p>
-<p>电视图像的重影就是多径效应引起。</p>
-<p>多径引起的4种结果：<br>增强<br>减弱<br>消失<br>损坏</p>
-<p><strong>增益</strong><br>描述信号或信号强度的增加。分为有源增益和无源增益<br>有源增益————收发器<br>无源增益————天线</p>
-<p>两种信号测量工具<br>频域工具————频谱分析仪<br>时域工具————示波器</p>
-<h3 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h3><p>遇到网络问题，最好从物理层开始排除网络故障。无论是以太网还是无线局域网。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/11/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%882%EF%BC%89/">展开全文 >></a>
         </p>
       
 
