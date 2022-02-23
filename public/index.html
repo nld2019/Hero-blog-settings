@@ -146,6 +146,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-MIMO技术-无线局域网故障排除" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/23/CWNA-MIMO%E6%8A%80%E6%9C%AF-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/">CWNA:MIMO技术:无线局域网故障排除</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/23/CWNA-MIMO%E6%8A%80%E6%9C%AF-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/" class="archive-article-date">
+  	<time datetime="2022-02-23T01:27:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-23</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>无线局域网故障排除的五大原则</p>
+<blockquote>
+<p>遵循故障排除最佳实践<br>解决OSI模型存在的问题<br>大多数Wi-Fi问题源自客户端<br>合理的无线局域网设计可以降低问题出现的概率<br>无线局域网总是众矢之的</p>
+</blockquote>
+<p>第一层问题故障排除</p>
+<blockquote>
+<p>无线局域网设计<br>发射功率<br>射频干扰<br>驱动程序<br>以太网供电<br>固件漏洞</p>
+</blockquote>
+<p>第二层问题故障排除</p>
+<blockquote>
+<p>二层重传<br>射频干扰<br>低信噪比<br>邻信道干扰<br>隐藏节点<br>功率失配<br>多径</p>
+</blockquote>
+<p>安全问题故障排除</p>
+<blockquote>
+<p>预共享密钥身份验证<br>802.1X/EAP身份验证<br>虚拟专用网</p>
+</blockquote>
+<p>漫游问题故障排除<br>信道利用率<br>第三~七层问题故障排除</p>
+<p>无线局域网故障排除工具</p>
+<blockquote>
+<p>无线局域网发现工具<br>频谱分析仪<br>协议分析仪<br>吞吐量测试工具<br>标准的IP网络测试命令<br>安全外壳</p>
+</blockquote>
+<hr>
+<h3 id="无线局域网故障排除的五大原则"><a href="#无线局域网故障排除的五大原则" class="headerlink" title="无线局域网故障排除的五大原则"></a>无线局域网故障排除的五大原则</h3><p><strong>遵循故障排除最佳实践（best practice)</strong><br>提出问题并收集信息是故障排除最佳实践的基本原则。需要询问的基本问题有：<br>1）问题何时发生？问题发生在哪个时段？是否发生在特定的时段？通过查看接入点、无线局域网控制器以及相关服务器日志文件，很容易获取这些信息。<br>   根据最佳实践的要求，所有网络硬件必须正确配置网络时间协议和时区设置。<br>2）问题出现在何处？问题普遍存在还是仅出现在某个区域？问题出现在一个楼层还是整栋大楼？问题只影响一个接入点还是影响整个接入点？确定问题<br>   出现在何处有助于进一步收集解决问题所需的信息。<br>3）有多少客户端受到影响？如果仅有一个客户端受到影响，那么可能制数简单的驱动程序问题或请求方配置不当；大多数连接问题与客户端设备有关，<br>   或者影响一个客户端，或者影响多个客户端。<br>4）问题是否复现？处理只出现一次或几次的问题或许更困难，因为对于重现的问题，收集数据要容易得多。<br>5）网络配置最近是否方式变化？</p>
+<p>提出问题后，可以开始着手解决问题。遵循故障排除最佳实践：<br>1）确认问题。<br>2）复现问题。<br>3）找出问题并隔离原因。<br>4）解决问题。<br>5）测试以验证问题是否解决。<br>6）记录问题和解决方案。<br>7）提供反馈。</p>
+<p><strong>解决OSI模型存在的问题</strong><br>通常自底向上分析OSI模型排除故障。<br>无线局域网应首先确定第一层和第二层是否存在问题。如果这两层工作正常，说明问题于Wi-Fi无关，应更多主要OSI模型更上层。</p>
+<p>与大多数网络技术一样，相当一部分问题出现在物理层。<br>接入点未上电或客户端无线接口驱动程序存在问题，往往导致无法连接或性能不佳。<br>射频信号干扰会影响无线局域网的性能和覆盖。</p>
+<p>如果确定物理层一切正常，接下来应查看数据链路层是否存在问题。<br>发现，身份验证，关联，漫游等基本的802.11通信均在数据链路层的MAC子层进行。<br>CCMP加密仅适用于802.11n HT和802.11ac VHT数据速率。</p>
+<p><strong>大多数Wi-Fi问题源自客户端</strong><br>70%的问题与Wi-Fi客户端有关。</p>
+<p><strong>合理的无线局域网设计可以降低问题出现概率</strong><br><strong>无线局域网总是众矢之的</strong><br>如果物理层和数据链路层一切正常，就表明与Wi-Fi无关。但是用户无法访问网络，可能归咎于OSI第三层~七层的问题，但总会归咎于无线局域网。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/23/CWNA-MIMO%E6%8A%80%E6%9C%AF-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-MIMO技术：高吞吐量与甚高吞吐量-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1329,91 +1433,9 @@
 
 
   
-    <article id="post-CWNA-802-11介质访问（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/14/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89/">CWNA:802.11介质访问（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/14/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-02-14T02:00:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-14</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="点协调功能"><a href="#点协调功能" class="headerlink" title="点协调功能"></a>点协调功能</h3><p>PCF是一种可选的介质访问方法，IEEE认为PCF已经过时，可能今后会将其删除。</p>
-<h3 id="混合协调功能"><a href="#混合协调功能" class="headerlink" title="混合协调功能"></a>混合协调功能</h3><p>定义服务质量的802.11e增加了混合协调功能。<br>HCF将DCF和PCF功能相结合并加以改进，定义了两种信道访问方法：增强型分布式信道访问（EDCA）和HCF受控信道访问（HCCA)<br>前面的DCF和PCF介质争用机制只允许802.11无线接口传输单个帧。<br>HCF定义的机制允许802.11无线接口通过射频介质传输多个帧。当兼容HCF的无线接口争用介质时，无线接口将获得帧发送时间，这段时间称为发送机会（TXOP）。<br>在此期间，802.11无线接口可以通过帧突发（frame burst)发送多个帧，帧之间通过SIFS隔开，以确保其他无线接口不会在帧突发期间占用介质。</p>
-<p><strong>增强型分布式信道访问</strong><br>提供差异化访问的无线介质访问方法，能将流量定向到4种访问类别的QoS优先级队列。优先级标记提供了在MAC子层实现QoS的机制。<br>EDMAC基于8个用户优先级字段定义了4种访问类别，优先级从低到高：<br>AC_BK(背景)<br>AC_BE（尽力而为)<br>AC_VI(视频)<br>AC_VO(语音)</p>
-<p>每种访问类别经过改进的增强型分布式信道访问功能争用介质。拥有高优先级的帧具有最小退避值，因此机会更多。</p>
-<p><strong>HCF受控信道访问</strong><br>内置在接入点中，具有更高的无线介质访问优先级。</p>
-<h3 id="Wi-Fi-多媒体"><a href="#Wi-Fi-多媒体" class="headerlink" title="Wi-Fi 多媒体"></a>Wi-Fi 多媒体</h3><p>语音，音频，视频等应用流量对延迟和抖动的容忍度较低，需要比标准数据流量更高的优先级。<br>WMM基于EDCA机制，因此以太网的802.1D优先级标记用于将流量定向到4种访问类别的优先级队列。</p>
-<h3 id="占用时长公平性"><a href="#占用时长公平性" class="headerlink" title="占用时长公平性"></a>占用时长公平性</h3><p>由于存在高速设备和低速设备争用无线介质会导致低速设备占用较多传输时长，<br>占用时长公平性，使得高数设备和低速设备有均等的时长，而非均等的机会。这样高速设备能够更多机会访问介质，最终提升无线局域网的性能、容量和吞吐量。<br>它致力于避免速度较慢设备影响网络的整体性能。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/14/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
