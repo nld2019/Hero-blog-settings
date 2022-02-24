@@ -1,5 +1,5 @@
 ---
-title: 'CWNA:MIMO技术:无线局域网故障排除(一)'
+title: 'CWNA:无线局域网故障排除(一)'
 date: 2022-02-24 09:40:31
 tags: 'Wi-Fi'
 ---
