@@ -146,6 +146,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-无线局域网安全体系结构-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/28/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/">CWNA:无线局域网安全体系结构(二)</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/28/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/" class="archive-article-date">
+  	<time datetime="2022-02-28T09:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-28</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="强健安全机制"><a href="#强健安全机制" class="headerlink" title="强健安全机制"></a>强健安全机制</h3><p>IEEE802.11-2016标准定义802.1X/EAP作为企业无线网络的身份验证机制；<br>定义预共享密钥或密码短语作为家用无线网络的身份验证机制。</p>
+<p><strong>强健安全网络</strong><br>IEEE802.11-2016定义了强健安全网络（RSN）和强健安全网络关联（RSNA）。<br>两台终端必须验证彼此的身份并建立关联，且通过四次握手过程生成动态加密密钥，这个关联称为RSNA</p>
+<p><strong>身份验证与授权</strong><br>身份验证必须先于授权进行。</p>
+<p><strong>预共享密钥身份验证</strong><br>WPA/WPA2个人版支持最终用户输入长度为8~63个字符的简单ASCII字符串。</p>
+<p>强健安全网络使用预共享密钥长度为256位，以十六进制则表示为64个字符。接入点和所有客户端都会配置预共享密钥，它是一种静态密钥。</p>
+<p>系统的密码短语-预共享密钥映射（passphrase-to-PSK mapping)函数负责将密码短语转换位256位的预共享密钥。它旨在方便普通家庭<br>用户配置密码短语。</p>
+<p>256位预共享密钥可以充当成对主密钥（PMK）。PMK位四次握手提供种子，四次握手用于生成动态加密密钥。因此，WPA/WPA2个人半使用的<br>预共享密钥实际上与PMK完全相同。</p>
+<p><strong>专有预共享密钥身份验证</strong><br>WPA/WPA2的密码短语是静态的，很容易受社会工程学攻击。</p>
+<p>专有预共享密钥身份验证位每个用户设置唯一的密码，为每个用户或每台设备提供唯一的预共享密钥功能。<br>如果摸一个预共享密钥泄漏，管理员只需撤销这一个密钥，不必重新配置所有接入点和最终用户设备。</p>
+<p><strong>对等实体同时验证</strong><br>SAE交换期间，802.11终端之间不会传输密码短语。<br>它以蜻蜓密钥交换（Dragonfly key exchange）为基础，采用零知识证明（zero-knowledge proof）密钥交换，用户或设备必须在不透露<br>密码的情况下证明自己掌握密码。</p>
+<p><strong>802.1X/EAP框架</strong><br>EAP类型众多，它是一种二层身份验证协议。<br>802.1X是基于端口的网络访问控制标准。既能用于无线环境，也能用于有线环境。</p>
+<p>802.1X授权框架主要包括请求方，认证方、认证服务器3个要素。<br>请求方， 要求身份验证并访问网络资源的主机。 通常是手机或平板。<br>认证方， 允许或拒绝流量通过其端口的设备。 通常是接入点或无线局域网控制器。<br>认证服务器， 验证请求方提供的凭证，并将请求方是否获得授权的结果通知认证方。认证服务器一般是 RADIUS服务器。</p>
+<p>802.1X/EAP帧交换过程</p>
+<p>请求方—————————————-认证方——————————————认证服务器</p>
+<ol>
+<li>802.11关联请求 ———————-&gt;          受控端口和非受控端口关闭</li>
+<li>EAPO-start —————————&gt;           受控端口和非受控端口关闭</li>
+<li>EAP-request/identity&lt;————-          非受控端口开启</li>
+<li>EAP-response/identity————-&gt; 5. RAIDUS-access-request————-&gt;</li>
+<li>EAP-challenge request&lt;————- 6. RADIUS-access-challenge———-&gt;</li>
+<li>EAP-challenge response————-&gt;9. RADIUS-access-request————-&gt;</li>
+<li>EAP-success&lt;—————————10. RADIUS-access-accept&lt;—————</li>
+<li>创建动态加密密钥的四次握手&lt;——-&gt;</li>
+<li>受控端口开启，允许访问网络。</li>
+</ol>
+<p>802.1X框架与EAP相互协作，提供验证用户和设备身份以及授权客户端访问网络资源的必要机制。</p>
+<p>动态密钥的优点：</p>
+<ol>
+<li>不会受到社会工程学的攻击</li>
+<li>每位用户有一把不同且唯一的密钥。</li>
+</ol>
+<p><strong>四次握手</strong></p>
+<p>请求方————————————————————————————————认证方<br>PMK已知———————————————————————————————-PMK已知<br>生成SNonce——————————————————————————————生成ANonce<br>Message 1: EAPOL-Key(ANonce, Unicast)&lt;—————————————————<br>派生PTK<br>Message 2: EAPOL-Key(SNonce, Unicast, MIC)——————————————-&gt;<br>———————————————————————————————————派生PTK，如果需要则生成GTK<br>Message 3: EAPOL-Key(Install PTK, Unicast, MIC, Encrypted GTK)&lt;————-<br>Message 4: EAPL-Key(Unicast, MIC)———————————————————&gt;<br>安装PTK和GTK—————————————————————————————-安装PTK</p>
+<p>最终的密钥为成对瞬时密钥（PTK）和组临时密钥（GTK）。PTK用于加密解密单播流量；GTK用于加密解密广播和多播流量。</p>
+<p>TKIP加密是正对WEP的加强版；CCMP加密优于TKIP；GCMP是更新的加密方式，无法向后兼容，接入点和客户端需要升级硬件。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/28/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-无线局域网安全体系结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1174,199 +1284,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-802-11-MAC-体系结构-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/">CWNA:802.11 MAC 体系结构(三)</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/" class="archive-article-date">
-  	<time datetime="2022-02-16T01:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-16</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="802-11状态机"><a href="#802-11状态机" class="headerlink" title="802.11状态机"></a>802.11状态机</h3><p>802.11-2016定义了4种客户端状态，称为802.11状态机。旨在使得客户端和接入点能发现彼此并建安全连接。</p>
-<p>主动扫描与被动扫描（active/passive scan）———     状态1：未通过验证未建立关联</p>
-<p>802.11身份验证成功(authentication request/response) ———          状态2：已通过验证未建立关联</p>
-<p>802.11（重）关联成功(association request/response) ———           状态3：已通过验证，已建立关联</p>
-<p>四次握手成功(4-way handshake) ———               状态4：以通过验证，已建立关联</p>
-<h3 id="管理帧"><a href="#管理帧" class="headerlink" title="管理帧"></a>管理帧</h3><p>IEEE802.11-2016定义了14种管理帧子类型</p>
-<blockquote>
-<p>关联请求帧<br>关联响应帧<br>重关联请求帧<br>重关联响应帧<br>探询请求帧<br>探询响应帧<br>信标帧<br>通过流量指示消息<br>取消关联帧<br>身份验证帧<br>解除身份验证帧<br>行动帧<br>无确认行动帧<br>定时通告帧</p>
-</blockquote>
-<p><strong>信标帧（Beacon)</strong><br>相当于无线网络的心跳消息。接入点利用信标帧向客户端通告基本服务集的所有配置信息。信标帧间隔102.4毫秒，每秒大约发送10次信标帧。<br>基本服务集中：接入点广播信标帧，客户端侦听信标帧。<br>IBSS中：客户端之间传输信标帧。</p>
-<p>信标帧包含的信息</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">信息类型</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">时间戳</td>
-<td style="text-align:center">同步信息</td>
-</tr>
-<tr>
-<td style="text-align:center">扩频参数集</td>
-<td style="text-align:center">FHSS、OFDM等</td>
-</tr>
-<tr>
-<td style="text-align:center">SSID</td>
-<td style="text-align:center">无线局域网的逻辑名</td>
-</tr>
-<tr>
-<td style="text-align:center">数据速率</td>
-<td style="text-align:center">基本速率和支持速率</td>
-</tr>
-<tr>
-<td style="text-align:center">服务集功能</td>
-<td style="text-align:center">额外的BSS或IBSS参数</td>
-</tr>
-<tr>
-<td style="text-align:center">信道信息</td>
-<td style="text-align:center">接入点或IBSS使用的信道</td>
-</tr>
-<tr>
-<td style="text-align:center">流量指示图</td>
-<td style="text-align:center">节电过程使用的字段</td>
-</tr>
-<tr>
-<td style="text-align:center">BSS负载</td>
-<td style="text-align:center">802.11e指定的字段，能有效指示信道利用率</td>
-</tr>
-<tr>
-<td style="text-align:center">Qos功能</td>
-<td style="text-align:center">服务质量和增强型分布式信道访问信息</td>
-</tr>
-<tr>
-<td style="text-align:center">RSN功能</td>
-<td style="text-align:center">TKIP或CCMP密码信息和身份验证机制</td>
-</tr>
-<tr>
-<td style="text-align:center">HT与VHT功能</td>
-<td style="text-align:center">802.11n和802.11ac功能</td>
-</tr>
-<tr>
-<td style="text-align:center">供应商专有信息</td>
-<td style="text-align:center">特定于供应商的信息</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>1.被动扫描<br>客户端必须发现接入点才能进行连接。<br>客户端进行被动扫描时，将侦听接入点不断发送的信标帧(Beacon)。</p>
-<p>不足之处，信标帧仅在接入点使用的信道对外广播。</p>
-<p>2.主动扫描<br>客户端发送探询帧，它既可以包括客户端正在查找的特定无线局域网的SSID，也可以搜索任何SSID。<br>探询帧SSID字段为空：查找所有可能的SSID<br>探询帧SSID字段存在：查找特定的SSID。</p>
-<p>探询响应帧(probe request)，用于回复探询请求帧。（probe response)</p>
-<p>主动扫描通过所有可用信道发送探询请求帧。</p>
-<p>客户端即便已经关联到接入点并开始传输数据，客户端一般也会实施信道外扫描（off-channel scanning),并继续每隔几秒就利用其他信道发送探询请求帧。<br>主要目的是寻找可能漫游到其他接入点，通过off-channel scanning 客户端维护并更新一份已知接入点列表，从而在需要的时可以更快、更有效进行地漫游。</p>
-<p><strong>身份验证帧（authentication）</strong><br>相当于验证两台设备是否是有效的802.11设备，客户端与接入点之间建立初步连接。802.11状态机进入状态2<br>两种身份验证机制：<br>1.共享密钥身份验证（早已过时）<br>2.开放系统身份验证<br>它不对客户端的身份做任何验证，本质是属于客户端与接入点之间的问候交换过程。</p>
-<p><strong>关联帧(association)</strong><br>客户端向接入点验证自己的身份后，接下来将与接入点建立关联，关联到接入点的客户端称为基本服务集的成员。802.11状态机进入状态3<br>关联请求帧（association request）的关联响应帧（association response）的帧体包含管理标识符（AID），每个关联的客户端唯一。<br>如果不配做RSN安全，客户端可以请求IP地址并开始上层通信。<br>如果接入点配置了预共享密钥或802.1X/EAP作为身份验证机制，双方还需要进行四次握手(4-way handshake)的帧交换，以便创建动态加密密钥。802.11状态机进入状态4，成为基本服务集的成员。</p>
-<p>如果客户端不能使用所有的基本速率，就无法关联到接入点，也不会获准加入基本服务集。</p>
-<p><strong>重关联帧(reassociation)</strong><br>客户端与接入点的重关联过程：<br>1）客户端向新接入点发送重关联帧；<br>2）新接入点向客户端回复确认帧；<br>3）新接入点尝试利用分布介质（DSM）与原接入点通信，获取漫游客户端的信息，并请求接入点转发所有缓存数据。（这部分是供应商专有）<br>4）如果通信成功，原接入点将使用分布介质向新接入点转发所有缓冲数据。<br>5）新接入点通过无线介质向漫游客户端发送重关联响应帧。<br>6）客户端向新接入点回复确认帧，并准备漫游。<br>7）如果加密了，进行四次握手帧交换，以便在两个无线接口之间生成唯一的加密密钥。</p>
-<p><strong>取消关联帧(deassociation)</strong><br>取消关联属于通知而非请求，包括原因代码。802.11状态机由4/3 切换到2</p>
-<p><strong>解除身份验证帧(deauthentication)</strong><br>属于通知而非请求，包括原因代码。802.11状态机由4/3/2 切换到1</p>
-<p><strong>行动帧(action)</strong><br>用于触发基本服务集的特定操作，旨在为准备执行的操作提供信息和指示。<br>由于管理帧的子类型已经耗尽，802.11h修正案首次引入行动帧。（Action)</p>
-<p>Action帧结构</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">帧控制</th>
-<th style="text-align:center">持续时间</th>
-<th style="text-align:center">目的地址</th>
-<th style="text-align:center">源地址</th>
-<th style="text-align:center">BSSID</th>
-<th style="text-align:center">序列控制</th>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">行动</th>
-<th style="text-align:center">元素</th>
-<th style="text-align:center">FCS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">6</td>
-<td style="text-align:center">6</td>
-<td style="text-align:center">6</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">varialble</td>
-<td style="text-align:center">4</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>行动帧的帧体由3部分构成：<br>类别：描述行动帧的类型<br>操作：准备执行的操作<br>元素：添加有关操作的其他信息。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/">展开全文 >></a>
         </p>
       
 

@@ -146,6 +146,199 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-802-11-MAC-体系结构-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/">CWNA:802.11 MAC 体系结构(三)</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/" class="archive-article-date">
+  	<time datetime="2022-02-16T01:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-16</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="802-11状态机"><a href="#802-11状态机" class="headerlink" title="802.11状态机"></a>802.11状态机</h3><p>802.11-2016定义了4种客户端状态，称为802.11状态机。旨在使得客户端和接入点能发现彼此并建安全连接。</p>
+<p>主动扫描与被动扫描（active/passive scan）———     状态1：未通过验证未建立关联</p>
+<p>802.11身份验证成功(authentication request/response) ———          状态2：已通过验证未建立关联</p>
+<p>802.11（重）关联成功(association request/response) ———           状态3：已通过验证，已建立关联</p>
+<p>四次握手成功(4-way handshake) ———               状态4：以通过验证，已建立关联</p>
+<h3 id="管理帧"><a href="#管理帧" class="headerlink" title="管理帧"></a>管理帧</h3><p>IEEE802.11-2016定义了14种管理帧子类型</p>
+<blockquote>
+<p>关联请求帧<br>关联响应帧<br>重关联请求帧<br>重关联响应帧<br>探询请求帧<br>探询响应帧<br>信标帧<br>通过流量指示消息<br>取消关联帧<br>身份验证帧<br>解除身份验证帧<br>行动帧<br>无确认行动帧<br>定时通告帧</p>
+</blockquote>
+<p><strong>信标帧（Beacon)</strong><br>相当于无线网络的心跳消息。接入点利用信标帧向客户端通告基本服务集的所有配置信息。信标帧间隔102.4毫秒，每秒大约发送10次信标帧。<br>基本服务集中：接入点广播信标帧，客户端侦听信标帧。<br>IBSS中：客户端之间传输信标帧。</p>
+<p>信标帧包含的信息</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">信息类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">时间戳</td>
+<td style="text-align:center">同步信息</td>
+</tr>
+<tr>
+<td style="text-align:center">扩频参数集</td>
+<td style="text-align:center">FHSS、OFDM等</td>
+</tr>
+<tr>
+<td style="text-align:center">SSID</td>
+<td style="text-align:center">无线局域网的逻辑名</td>
+</tr>
+<tr>
+<td style="text-align:center">数据速率</td>
+<td style="text-align:center">基本速率和支持速率</td>
+</tr>
+<tr>
+<td style="text-align:center">服务集功能</td>
+<td style="text-align:center">额外的BSS或IBSS参数</td>
+</tr>
+<tr>
+<td style="text-align:center">信道信息</td>
+<td style="text-align:center">接入点或IBSS使用的信道</td>
+</tr>
+<tr>
+<td style="text-align:center">流量指示图</td>
+<td style="text-align:center">节电过程使用的字段</td>
+</tr>
+<tr>
+<td style="text-align:center">BSS负载</td>
+<td style="text-align:center">802.11e指定的字段，能有效指示信道利用率</td>
+</tr>
+<tr>
+<td style="text-align:center">Qos功能</td>
+<td style="text-align:center">服务质量和增强型分布式信道访问信息</td>
+</tr>
+<tr>
+<td style="text-align:center">RSN功能</td>
+<td style="text-align:center">TKIP或CCMP密码信息和身份验证机制</td>
+</tr>
+<tr>
+<td style="text-align:center">HT与VHT功能</td>
+<td style="text-align:center">802.11n和802.11ac功能</td>
+</tr>
+<tr>
+<td style="text-align:center">供应商专有信息</td>
+<td style="text-align:center">特定于供应商的信息</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>1.被动扫描<br>客户端必须发现接入点才能进行连接。<br>客户端进行被动扫描时，将侦听接入点不断发送的信标帧(Beacon)。</p>
+<p>不足之处，信标帧仅在接入点使用的信道对外广播。</p>
+<p>2.主动扫描<br>客户端发送探询帧，它既可以包括客户端正在查找的特定无线局域网的SSID，也可以搜索任何SSID。<br>探询帧SSID字段为空：查找所有可能的SSID<br>探询帧SSID字段存在：查找特定的SSID。</p>
+<p>探询响应帧(probe request)，用于回复探询请求帧。（probe response)</p>
+<p>主动扫描通过所有可用信道发送探询请求帧。</p>
+<p>客户端即便已经关联到接入点并开始传输数据，客户端一般也会实施信道外扫描（off-channel scanning),并继续每隔几秒就利用其他信道发送探询请求帧。<br>主要目的是寻找可能漫游到其他接入点，通过off-channel scanning 客户端维护并更新一份已知接入点列表，从而在需要的时可以更快、更有效进行地漫游。</p>
+<p><strong>身份验证帧（authentication）</strong><br>相当于验证两台设备是否是有效的802.11设备，客户端与接入点之间建立初步连接。802.11状态机进入状态2<br>两种身份验证机制：<br>1.共享密钥身份验证（早已过时）<br>2.开放系统身份验证<br>它不对客户端的身份做任何验证，本质是属于客户端与接入点之间的问候交换过程。</p>
+<p><strong>关联帧(association)</strong><br>客户端向接入点验证自己的身份后，接下来将与接入点建立关联，关联到接入点的客户端称为基本服务集的成员。802.11状态机进入状态3<br>关联请求帧（association request）的关联响应帧（association response）的帧体包含管理标识符（AID），每个关联的客户端唯一。<br>如果不配做RSN安全，客户端可以请求IP地址并开始上层通信。<br>如果接入点配置了预共享密钥或802.1X/EAP作为身份验证机制，双方还需要进行四次握手(4-way handshake)的帧交换，以便创建动态加密密钥。802.11状态机进入状态4，成为基本服务集的成员。</p>
+<p>如果客户端不能使用所有的基本速率，就无法关联到接入点，也不会获准加入基本服务集。</p>
+<p><strong>重关联帧(reassociation)</strong><br>客户端与接入点的重关联过程：<br>1）客户端向新接入点发送重关联帧；<br>2）新接入点向客户端回复确认帧；<br>3）新接入点尝试利用分布介质（DSM）与原接入点通信，获取漫游客户端的信息，并请求接入点转发所有缓存数据。（这部分是供应商专有）<br>4）如果通信成功，原接入点将使用分布介质向新接入点转发所有缓冲数据。<br>5）新接入点通过无线介质向漫游客户端发送重关联响应帧。<br>6）客户端向新接入点回复确认帧，并准备漫游。<br>7）如果加密了，进行四次握手帧交换，以便在两个无线接口之间生成唯一的加密密钥。</p>
+<p><strong>取消关联帧(deassociation)</strong><br>取消关联属于通知而非请求，包括原因代码。802.11状态机由4/3 切换到2</p>
+<p><strong>解除身份验证帧(deauthentication)</strong><br>属于通知而非请求，包括原因代码。802.11状态机由4/3/2 切换到1</p>
+<p><strong>行动帧(action)</strong><br>用于触发基本服务集的特定操作，旨在为准备执行的操作提供信息和指示。<br>由于管理帧的子类型已经耗尽，802.11h修正案首次引入行动帧。（Action)</p>
+<p>Action帧结构</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">帧控制</th>
+<th style="text-align:center">持续时间</th>
+<th style="text-align:center">目的地址</th>
+<th style="text-align:center">源地址</th>
+<th style="text-align:center">BSSID</th>
+<th style="text-align:center">序列控制</th>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">行动</th>
+<th style="text-align:center">元素</th>
+<th style="text-align:center">FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">varialble</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>行动帧的帧体由3部分构成：<br>类别：描述行动帧的类型<br>操作：准备执行的操作<br>元素：添加有关操作的其他信息。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux-shell-script-实践记录-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1109,171 +1302,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-无线网络与扩频技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/18/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF/">CWNA:无线网络与扩频技术</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/18/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2022-01-18T06:56:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-18</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>窄带与扩频</p>
-<blockquote>
-<p>多径干扰</p>
-</blockquote>
-<p>跳频扩频</p>
-<blockquote>
-<p>跳变序列<br>驻留时间<br>跳变时间<br>调制</p>
-</blockquote>
-<p>直接序列扩频</p>
-<blockquote>
-<p>DSSS数据编码<br>调制</p>
-</blockquote>
-<p>正交频分复用</p>
-<blockquote>
-<p>卷积编码<br>调制</p>
-</blockquote>
-<p>正交频分多址<br>工业、科学和医疗频段<br>非授权国家信息基础设施频段</p>
-<blockquote>
-<p>U-NII-1频段<br>U-NII-2A频段<br>U-NII-2C频段<br>U-NII-3频段<br>今后的U-NII频段</p>
-</blockquote>
-<p>3.6GHz频段<br>4.9GHz频段<br>未来的Wi-Fi频段</p>
-<blockquote>
-<p>1GHz一下频段<br>60GHz频段<br>空白电视频段</p>
-</blockquote>
-<p>2.4GHz信道<br>5GHz信道</p>
-<blockquote>
-<p>5G长期演进技术</p>
-</blockquote>
-<p>邻信道、非邻信道与重叠信道<br>吞吐量与带宽<br>通信系统恢复能力</p>
-<blockquote>
-<p>802.11aj-2018</p>
-</blockquote>
-<h3 id="窄带与扩频"><a href="#窄带与扩频" class="headerlink" title="窄带与扩频"></a>窄带与扩频</h3><p>射频传输方式主要分为窄带和扩频两类。<br>窄带：使用极窄的带宽发送携带的数据。   // 针对该频率范围的蓄意干扰或非蓄意干扰很容易破坏信号。<br>扩频：使用超出实际所需的带宽发送数据。 // 抗干扰较强。</p>
-<h3 id="跳频扩频"><a href="#跳频扩频" class="headerlink" title="跳频扩频"></a>跳频扩频</h3><p>FHSS:在一段时间内使用一个特定的频率传输数据，这段时间称为驻留时间。<br>大致工作方式：首先使用一个很小的频率载波空间传输数据，然后跳变到另一个很小的频率载波空间传输数据，再跳到第三个频率载波空间。</p>
-<p><strong>跳变序列</strong><br>跳频使用信道的跳变方式。跳变序列结束后将重复。<br>所有FHSS发射机和接收机必须同时在同一载波跳上同步。FHSS接入点可以配置802.11原始标准定义的跳变序列，跳变序列信息通过信标管理帧发送给客户端。</p>
-<p><strong>驻留时间</strong><br>在切换到跳变序列中下一个频率之前，FHSS系统使用特定频率传输数据的时间，称为驻留时间。</p>
-<p><strong>跳变时间</strong><br>发射机从一个频率切换到另一个频率所需的时间。<br>跳变时间通常200~300us，与100~200ms的典型驻留时间相比很短。<br>跳变时间属于开销时间。一般而言，跳变越少吞吐量越高。<br>跳变可以增强抗干扰，跳变越少越易受到干扰。</p>
-<h3 id="直接序列扩频"><a href="#直接序列扩频" class="headerlink" title="直接序列扩频"></a>直接序列扩频</h3><p>直接序列扩频(DSSS)，是802.11定义的原始标准。它仅使用一条信道进行通信。</p>
-<p><strong>DSSS数据编码</strong><br>无线通信极易收到干扰，为此无线系统将每个数据比特编码为多个比特进行传输，称为处理增益。<br>系统将一个数据比特转换为一系列称为码片的比特。<br>单个数据比特转换为码片序列的过程称为展宽或码片成形。<br>接收端将码片序列转换为单个比特的过程称为解扩。<br>巴克码的11个比特中9个损坏，接收端无线接口仍然能够解析码片序列，并恢复出原始数据。</p>
-<p><strong>调制</strong><br>使用展宽技术编码后，发射机需要调制数据以产生包含码片的载波信号。</p>
-<p>802.11和802.11b使用的编码与调制技术</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">编码方式</th>
-<th style="text-align:center">数据速率</th>
-<th style="text-align:center">编码方式</th>
-<th style="text-align:center">码片长度</th>
-<th style="text-align:center">编码比特</th>
-<th>调制方式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">DSSS</td>
-<td style="text-align:center">1Mbps</td>
-<td style="text-align:center">巴克码</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">1</td>
-<td>DBPSK</td>
-</tr>
-<tr>
-<td style="text-align:center">DSSS</td>
-<td style="text-align:center">2Mbps</td>
-<td style="text-align:center">巴克码</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">1</td>
-<td>DQPSK</td>
-</tr>
-<tr>
-<td style="text-align:center">HR-DSSS</td>
-<td style="text-align:center">5.5Mbps</td>
-<td style="text-align:center">CCK</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">4</td>
-<td>DQPSK</td>
-</tr>
-<tr>
-<td style="text-align:center">HR-DSSS</td>
-<td style="text-align:center">11Mbps</td>
-<td style="text-align:center">CCK</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">8</td>
-<td>DQPSK</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>（后续，OFDM）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/18/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF/">展开全文 >></a>
         </p>
       
 
