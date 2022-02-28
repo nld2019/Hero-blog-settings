@@ -16,7 +16,7 @@
 <meta property="og:description" content="强健安全机制IEEE802.11-2016标准定义802.1X&#x2F;EAP作为企业无线网络的身份验证机制；定义预共享密钥或密码短语作为家用无线网络的身份验证机制。 强健安全网络IEEE802.11-2016定义了强健安全网络（RSN）和强健安全网络关联（RSNA）。两台终端必须验证彼此的身份并建立关联，且通过四次握手过程生成动态加密密钥，这个关联称为RSNA 身份验证与授权身份验证必须先于授权进行。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-02-28T09:31:28.000Z">
-<meta property="article:modified_time" content="2022-02-28T10:26:44.719Z">
+<meta property="article:modified_time" content="2022-02-28T10:35:27.550Z">
 <meta property="article:author" content="L.D.2021">
 <meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
@@ -191,9 +191,9 @@
 <p>802.1X/EAP帧交换过程</p>
 <p>请求方—————————————-认证方——————————————认证服务器</p>
 <ol>
-<li>802.11关联请求 ———————-&gt;          受控端口和非受控端口关闭</li>
-<li>EAPO-start —————————&gt;           受控端口和非受控端口关闭</li>
-<li>EAP-request/identity&lt;————-          非受控端口开启</li>
+<li>802.11关联请求 ———————-&gt;    ———-受控端口和非受控端口关闭—-</li>
+<li>EAPO-start —————————&gt;    ————受控端口和非受控端口关闭—</li>
+<li>EAP-request/identity&lt;————-    ————非受控端口开启—————-</li>
 <li>EAP-response/identity————-&gt; 5. RAIDUS-access-request————-&gt;</li>
 <li>EAP-challenge request&lt;————- 6. RADIUS-access-challenge———-&gt;</li>
 <li>EAP-challenge response————-&gt;9. RADIUS-access-request————-&gt;</li>
