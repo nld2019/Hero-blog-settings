@@ -146,6 +146,230 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-802-11ax技术-高效无线局域网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91/">CWNA:802.11ax技术:高效无线局域网</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91/" class="archive-article-date">
+  	<time datetime="2022-03-01T01:30:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-01</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>高效无线局域网技术概述<br>多用户<br>正交频分多址</p>
+<blockquote>
+<p>副载波<br>资源单元<br>触发帧<br>下行链路OFDMA<br>上行链路OFDMA</p>
+</blockquote>
+<p>多用户-多输入多输出<br>基本服务集颜色</p>
+<blockquote>
+<p>自适应空闲信道评估<br>双NAV计数器</p>
+</blockquote>
+<p>目标唤醒时间<br>其他802.11ax物理层与MAC子层功能</p>
+<blockquote>
+<p>1024-QAM<br>长符合时间与保护间隔<br>802.11ax PPDU格式<br>仅20MHz模式<br>多流量标识符聚合的MAC协议数据单元</p>
+</blockquote>
+<p>802.11ax设计注意事项</p>
+<h3 id="高效无线局域网技术概述"><a href="#高效无线局域网技术概述" class="headerlink" title="高效无线局域网技术概述"></a>高效无线局域网技术概述</h3><p>高效无线局域网（HEW）是描述802.11ax技术的专业术语。<br>由于无线局域网工作原理决定的，总吞吐量通常最多只能达到标定802.11数据速率的50%。</p>
+<p>导致802.11流量拥塞的因素：<br>遗留客户端的存在导致需要部署RTS/CTS保护机制，保护机制会降低效率。<br>小的数据帧导致MAC子层和介质争用开销过多。<br>由于高层应用协议的缘故，小帧必须按顺序传输，难以实施聚合。（例如:语音）</p>
+<p>802.11n/ac无线接口尽管可以使用更高的数据速率和更宽的信道，但却可能导致802.11流量拥塞。<br>802.11ax致力于更好的流量管理，它的目标并非提高数据速率或增加信道宽度，而是实现更优质、更高效的802.11流量管理。</p>
+<p>802.11n、802.11ac、802.11ax技术比较</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">802.11n</th>
+<th style="text-align:center">802.11ac</th>
+<th style="text-align:center">802.11ax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">频段</td>
+<td style="text-align:center">2.4GHz 和5GHz</td>
+<td style="text-align:center">仅5GHz</td>
+<td style="text-align:center">2.4GHz和5GHz</td>
+</tr>
+<tr>
+<td style="text-align:center">信道宽度</td>
+<td style="text-align:center">20MHz\40MHz</td>
+<td style="text-align:center">20/40/80/80+80/160MHz</td>
+<td style="text-align:center">20/40/80/80+80/160MHz</td>
+</tr>
+<tr>
+<td style="text-align:center">频率复用技术</td>
+<td style="text-align:center">OFDM</td>
+<td style="text-align:center">OFDM</td>
+<td style="text-align:center">OFDM和OFDMA</td>
+</tr>
+<tr>
+<td style="text-align:center">副载波间隔</td>
+<td style="text-align:center">312.5kHz</td>
+<td style="text-align:center">312.5kHz</td>
+<td style="text-align:center">78.125kHz</td>
+</tr>
+<tr>
+<td style="text-align:center">OFDM符号时间</td>
+<td style="text-align:center">3.2微秒</td>
+<td style="text-align:center">3.2微秒</td>
+<td style="text-align:center">12.8微秒</td>
+</tr>
+<tr>
+<td style="text-align:center">保护间隔</td>
+<td style="text-align:center">0.4或0.8微秒</td>
+<td style="text-align:center">0.4或0.8微秒</td>
+<td style="text-align:center">0.8、1.6或3.2微秒</td>
+</tr>
+<tr>
+<td style="text-align:center">总符号时间</td>
+<td style="text-align:center">3.6或4.0微秒</td>
+<td style="text-align:center">3.6或4.0微秒</td>
+<td style="text-align:center">13.6、14.4或16.0微秒</td>
+</tr>
+<tr>
+<td style="text-align:center">调制技术</td>
+<td style="text-align:center">BPSK/QPSK/16-QAM/64-QAM</td>
+<td style="text-align:center">BPSK/QPSK/16-QAM/64-QAM</td>
+<td style="text-align:center">BPSK/QPSK/16-QAM/64-QAM/1024-QAM</td>
+</tr>
+<tr>
+<td style="text-align:center">多用户-多输入多输出</td>
+<td style="text-align:center">不适用</td>
+<td style="text-align:center">下行传输</td>
+<td style="text-align:center">下行传输和上行传输</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>802.11ax主要的优势在于OFDMA技术，将信道划分为若干较小的子信道。</p>
+<h3 id="多用户"><a href="#多用户" class="headerlink" title="多用户"></a>多用户</h3><p>OFDMA通过细分信道来实现多用户访问；<br>MU-MIMO通过使用不同的空间流来实现多用户访问；</p>
+<h3 id="正交频分多址（OFDMA）"><a href="#正交频分多址（OFDMA）" class="headerlink" title="正交频分多址（OFDMA）"></a>正交频分多址（OFDMA）</h3><p>OFDMA技术将信道细分为较小的频率分配单元————资源单元（RU）————从而能同时向多个用户发送小帧。例如：<br>将传统的20MHz信道划分为9个子信道，采用OFDMA技术的802.11ax接入点可以同时向9个802.11ax客户端发送小帧。<br>它能够更好的利用频率空间，已经在LTE蜂窝通信中得到验证。</p>
+<p>802.11ax技术仍然采用802.11a/g/n/ac无线接口可以理解的OFDM技术，以基本速率传输管理帧和控制帧。</p>
+<p><strong>副载波</strong><br>802.11n/ac 在20MHz信道包括64个副载波，副载波的宽度为312.5kHz<br>802.11ax在20MHz信道包括256个副载波，副载波宽度为78.125KHz</p>
+<p>副载波包括3种：<br>数据副载波， 采用802.11ac相同的调制编码方案（MCS），增加两种调制编码方案和1024-QAM<br>导频副载波， 仅用于发射机和接收机之间的同步<br>未使用的副载波， 防止邻信道和子信道干扰</p>
+<p><strong>资源单元</strong><br>OFDM传输数据个多个客户端时，每一个时段都需要使用整个20MHz信道与单一客户端进行传输，各客户端分时占用。</p>
+<p>OFDMA包括256个副载波，242个副载波用于传输数据，可以将其细分为 106、 52、 26副载波资源单元，大致对应20MHz、8MHz、4MHz、2MHz<br>802.11ax接入点可以利用8MHz信道与一个802.11ax客户端通信，同时利用4MHz子信道与2个802.11ax客户端进行通信。既可以上行，也可以是下行。</p>
+<p><strong>触发帧</strong><br>触发帧为802.11ax客户端分配资源单元。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">触发帧类型</th>
+<th style="text-align:center">各类触发帧</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">基本触发帧</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">波束成形报告轮询</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">多用户块确认请求</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">多用户请求发送</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">缓冲区状态报告轮询</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">带重试的组播多用户块确认请求</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">带宽查询报告轮询</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">NDP反馈报告轮询</td>
+</tr>
+<tr>
+<td style="text-align:center">8~15</td>
+<td style="text-align:center">保留</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>触发帧的用户信息字段种每个特定资源单元有长度为7bit的唯一组合定义。</p>
+<p><strong>下行链路OFDMA</strong><br>接入点取得发送机会后，首先发送MU-RTS触发帧，分配资源单元，为了让遗留客户端重置，使用20MHz的信道发送。<br>收到客户端发送的并行CTS响应后，接入点开始向支持OFDMA的客户端传输多用户DL-PPDU。</p>
+<p>802.11ax接入点——————————————————————————————————-802.11ax客户端</p>
+<p>——————-AIFS MU-RTS SIFS————-SIFS—-DL-PPDU SIFS  BAR  SIFS———————-&gt;<br>&lt;———————————————CTS——————————————————块确认帧———-STA1<br>&lt;———————————————CTS——————————————————块确认帧———-STA2<br>&lt;———————————————CTS——————————————————块确认帧———-STA3<br>&lt;———————————————CTS——————————————————块确认帧———-STA4</p>
+<p><strong>上行连接OFDMA</strong><br>802.11ax接入点必须首先竞争介质的控制权并取得发送机会，然后才能协调802.11ax客户端发送的数据（上行传输）<br>上行传输非常复杂。需要三轮触发帧才能实现一次上行传输数据。</p>
+<p>802.11ax接入点———————————————————————————————————————802.11ax客户端</p>
+<p>—-AIFS BSRP SIFS———-SIFS—MU-RTS SIFS —— SIFS 触发帧 SIFS—————-SIFS 多终端块确认帧—-&gt;<br>&lt;—————————BSR——————————CTS——————————UL-PPDU——————————-STA1<br>&lt;—————————BSR——————————CTS——————————UL-PPDU——————————-STA2<br>&lt;—————————BSR——————————CTS——————————UL-PPDU——————————-STA3<br>&lt;—————————BSR——————————CTS——————————UL-PPDU——————————-STA4</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-无线局域网安全体系结构-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1193,97 +1417,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/02/21/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%94/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-802-11-MAC-体系结构-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/">CWNA:802.11 MAC 体系结构(四)</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/" class="archive-article-date">
-  	<time datetime="2022-02-18T10:08:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-18</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="控制帧"><a href="#控制帧" class="headerlink" title="控制帧"></a>控制帧</h3><p>控制帧协助传输数据帧，以某个基本速率发送。仅由MAC帧头和帧尾构成，没有帧体。</p>
-<p>12种控制帧子类型：</p>
-<blockquote>
-<p>波束成形报告轮询帧<br>VHT NDP 通告帧<br>控制帧扩展<br>控制帧封装<br>块确认请求帧(BAR)<br>请求发送帧（RTS)<br>允许发送帧(CTS)<br>确认帧(ACK)<br>CF-End 帧<br>CF-End + CF-ACK 帧</p>
-</blockquote>
-<p><strong>确认帧(ACK)</strong><br>由于802.11通信使用无线介质无法确保数据传输成功，发送端只能依靠接收端的通知来判断传输的帧是否已正确接收。</p>
-<p>格式：共14字节<br>帧控制|持续时间|接收机地址|FCS<br>2|2|6|4</p>
-<p><strong>块确认帧（BAR）</strong><br>802.11e定义的块确认机制，它将多个确认帧聚合为一个确认帧以提高信道利用率。分为两类：<br>1.即时块确认（immediate BA): 适用于延迟容忍度较低的流量。<br>2.延迟块确认(delayed BA): 适用于容忍度较高的流量。</p>
-<p>块确认帧中的位图(bitmap)字段用于标识所有的接收数据帧的状态。如果只有一个数据帧损坏，那么只需要重传该帧。</p>
-<p><strong>节电轮询帧（PS-Poll）</strong><br>采用遗留电源管理机制的客户端通过节电轮询帧请求接入点发送缓冲流量。<br>节电轮询帧中的持续时间/ID字段作为AID，用AID标识自己向接入点请求缓冲的单播帧。<br>仅有节电轮询帧使用持续时间/ID字段作为AID。</p>
-<p><strong>RTS/CTS</strong><br>存在客户端无法侦听到其他客户端的情况。<br>请求发送/允许发送机制通过实施NAV分发以帮助避免冲突。</p>
-<p>使用RTS/CTS机制的终端每次准备发送帧时，必须在正常的数据传输前执行（RTS/CTS）</p>
-<p><strong>CTS-to-Self</strong><br>相较于RTS/CTS，CTS-to-self作为保护机制的优点是发送帧数更少，吞吐量因此而提高。</p>
-<p><strong>保护机制</strong><br>802.11标准定义了ERP保护机制，以便两个802.11g无线接口的OFDM传输不会受到DSSS或HR-DSSS传输的干扰。<br>802.11g ERP终端使用所有终端都能理解的语言通知它们重置NAV计数器。利用RTS/CTS或CTS-to-self帧保留介质后，802.11g终端就能采用OFDM技术调制传输数据帧，<br>不必担心与802.11bHR-DSSS或遗留的802.11DSSS终端发生冲突。</p>
-<p>在ERP基本服务集中触发保护机制的3种情况：<br>1.如果非ERP客户端关联到ERP接入点，ERP接入点将其信标帧的NonERP_Present 位设置1，从而在基本服务集种启用保护机制。<br>2.如果侦听到802.11DSSS或802.11b HR-DSSS接入点发送信标帧，会启用保护机制<br>3.如果侦听到802.11DSSS或802.11b HR-DSSS速率的管理帧，会启用保护机制。</p>
-<p>ERP保护机制利用RTS/CTS或CTS-to-Self帧确保802.11终端和遗留的802.11b终端能共存于同一基本服务集。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/">展开全文 >></a>
         </p>
       
 

@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022 | Hexo</title>
+  <title>CWNA:802.11ax技术:高效无线局域网 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2022/page/2/index.html">
+  <meta name="description" content="高效无线局域网技术概述多用户正交频分多址  副载波资源单元触发帧下行链路OFDMA上行链路OFDMA  多用户-多输入多输出基本服务集颜色  自适应空闲信道评估双NAV计数器  目标唤醒时间其他802.11ax物理层与MAC子层功能  1024-QAM长符合时间与保护间隔802.11ax PPDU格式仅20MHz模式多流量标识符聚合的MAC协议数据单元  802.11ax设计注意事项 高效无线局域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CWNA:802.11ax技术:高效无线局域网">
+<meta property="og:url" content="http://example.com/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="高效无线局域网技术概述多用户正交频分多址  副载波资源单元触发帧下行链路OFDMA上行链路OFDMA  多用户-多输入多输出基本服务集颜色  自适应空闲信道评估双NAV计数器  目标唤醒时间其他802.11ax物理层与MAC子层功能  1024-QAM长符合时间与保护间隔802.11ax PPDU格式仅20MHz模式多流量标识符聚合的MAC协议数据单元  802.11ax设计注意事项 高效无线局域">
 <meta property="og:locale">
+<meta property="article:published_time" content="2022-03-01T01:30:57.000Z">
+<meta property="article:modified_time" content="2022-03-01T05:52:56.593Z">
 <meta property="article:author" content="L.D.2021">
+<meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -144,38 +149,211 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CWNA-802-11ax技术-高效无线局域网" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CWNA:802.11ax技术:高效无线局域网
+    </h1>
+  
+
+        
+        <a href="/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91/" class="archive-article-date">
+  	<time datetime="2022-03-01T01:30:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-01</time>
+</a>
+ 
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>高效无线局域网技术概述<br>多用户<br>正交频分多址</p>
+<blockquote>
+<p>副载波<br>资源单元<br>触发帧<br>下行链路OFDMA<br>上行链路OFDMA</p>
+</blockquote>
+<p>多用户-多输入多输出<br>基本服务集颜色</p>
+<blockquote>
+<p>自适应空闲信道评估<br>双NAV计数器</p>
+</blockquote>
+<p>目标唤醒时间<br>其他802.11ax物理层与MAC子层功能</p>
+<blockquote>
+<p>1024-QAM<br>长符合时间与保护间隔<br>802.11ax PPDU格式<br>仅20MHz模式<br>多流量标识符聚合的MAC协议数据单元</p>
+</blockquote>
+<p>802.11ax设计注意事项</p>
+<h3 id="高效无线局域网技术概述"><a href="#高效无线局域网技术概述" class="headerlink" title="高效无线局域网技术概述"></a>高效无线局域网技术概述</h3><p>高效无线局域网（HEW）是描述802.11ax技术的专业术语。<br>由于无线局域网工作原理决定的，总吞吐量通常最多只能达到标定802.11数据速率的50%。</p>
+<p>导致802.11流量拥塞的因素：<br>遗留客户端的存在导致需要部署RTS/CTS保护机制，保护机制会降低效率。<br>小的数据帧导致MAC子层和介质争用开销过多。<br>由于高层应用协议的缘故，小帧必须按顺序传输，难以实施聚合。（例如:语音）</p>
+<p>802.11n/ac无线接口尽管可以使用更高的数据速率和更宽的信道，但却可能导致802.11流量拥塞。<br>802.11ax致力于更好的流量管理，它的目标并非提高数据速率或增加信道宽度，而是实现更优质、更高效的802.11流量管理。</p>
+<p>802.11n、802.11ac、802.11ax技术比较</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">802.11n</th>
+<th style="text-align:center">802.11ac</th>
+<th style="text-align:center">802.11ax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">频段</td>
+<td style="text-align:center">2.4GHz 和5GHz</td>
+<td style="text-align:center">仅5GHz</td>
+<td style="text-align:center">2.4GHz和5GHz</td>
+</tr>
+<tr>
+<td style="text-align:center">信道宽度</td>
+<td style="text-align:center">20MHz\40MHz</td>
+<td style="text-align:center">20/40/80/80+80/160MHz</td>
+<td style="text-align:center">20/40/80/80+80/160MHz</td>
+</tr>
+<tr>
+<td style="text-align:center">频率复用技术</td>
+<td style="text-align:center">OFDM</td>
+<td style="text-align:center">OFDM</td>
+<td style="text-align:center">OFDM和OFDMA</td>
+</tr>
+<tr>
+<td style="text-align:center">副载波间隔</td>
+<td style="text-align:center">312.5kHz</td>
+<td style="text-align:center">312.5kHz</td>
+<td style="text-align:center">78.125kHz</td>
+</tr>
+<tr>
+<td style="text-align:center">OFDM符号时间</td>
+<td style="text-align:center">3.2微秒</td>
+<td style="text-align:center">3.2微秒</td>
+<td style="text-align:center">12.8微秒</td>
+</tr>
+<tr>
+<td style="text-align:center">保护间隔</td>
+<td style="text-align:center">0.4或0.8微秒</td>
+<td style="text-align:center">0.4或0.8微秒</td>
+<td style="text-align:center">0.8、1.6或3.2微秒</td>
+</tr>
+<tr>
+<td style="text-align:center">总符号时间</td>
+<td style="text-align:center">3.6或4.0微秒</td>
+<td style="text-align:center">3.6或4.0微秒</td>
+<td style="text-align:center">13.6、14.4或16.0微秒</td>
+</tr>
+<tr>
+<td style="text-align:center">调制技术</td>
+<td style="text-align:center">BPSK/QPSK/16-QAM/64-QAM</td>
+<td style="text-align:center">BPSK/QPSK/16-QAM/64-QAM</td>
+<td style="text-align:center">BPSK/QPSK/16-QAM/64-QAM/1024-QAM</td>
+</tr>
+<tr>
+<td style="text-align:center">多用户-多输入多输出</td>
+<td style="text-align:center">不适用</td>
+<td style="text-align:center">下行传输</td>
+<td style="text-align:center">下行传输和上行传输</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>802.11ax主要的优势在于OFDMA技术，将信道划分为若干较小的子信道。</p>
+<h3 id="多用户"><a href="#多用户" class="headerlink" title="多用户"></a>多用户</h3><p>OFDMA通过细分信道来实现多用户访问；<br>MU-MIMO通过使用不同的空间流来实现多用户访问；</p>
+<h3 id="正交频分多址（OFDMA）"><a href="#正交频分多址（OFDMA）" class="headerlink" title="正交频分多址（OFDMA）"></a>正交频分多址（OFDMA）</h3><p>OFDMA技术将信道细分为较小的频率分配单元————资源单元（RU）————从而能同时向多个用户发送小帧。例如：<br>将传统的20MHz信道划分为9个子信道，采用OFDMA技术的802.11ax接入点可以同时向9个802.11ax客户端发送小帧。<br>它能够更好的利用频率空间，已经在LTE蜂窝通信中得到验证。</p>
+<p>802.11ax技术仍然采用802.11a/g/n/ac无线接口可以理解的OFDM技术，以基本速率传输管理帧和控制帧。</p>
+<p><strong>副载波</strong><br>802.11n/ac 在20MHz信道包括64个副载波，副载波的宽度为312.5kHz<br>802.11ax在20MHz信道包括256个副载波，副载波宽度为78.125KHz</p>
+<p>副载波包括3种：<br>数据副载波， 采用802.11ac相同的调制编码方案（MCS），增加两种调制编码方案和1024-QAM<br>导频副载波， 仅用于发射机和接收机之间的同步<br>未使用的副载波， 防止邻信道和子信道干扰</p>
+<p><strong>资源单元</strong><br>OFDM传输数据个多个客户端时，每一个时段都需要使用整个20MHz信道与单一客户端进行传输，各客户端分时占用。</p>
+<p>OFDMA包括256个副载波，242个副载波用于传输数据，可以将其细分为 106、 52、 26副载波资源单元，大致对应20MHz、8MHz、4MHz、2MHz<br>802.11ax接入点可以利用8MHz信道与一个802.11ax客户端通信，同时利用4MHz子信道与2个802.11ax客户端进行通信。既可以上行，也可以是下行。</p>
+<p><strong>触发帧</strong><br>触发帧为802.11ax客户端分配资源单元。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">触发帧类型</th>
+<th style="text-align:center">各类触发帧</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">基本触发帧</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">波束成形报告轮询</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">多用户块确认请求</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">多用户请求发送</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">缓冲区状态报告轮询</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">带重试的组播多用户块确认请求</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">带宽查询报告轮询</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">NDP反馈报告轮询</td>
+</tr>
+<tr>
+<td style="text-align:center">8~15</td>
+<td style="text-align:center">保留</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>触发帧的用户信息字段种每个特定资源单元有长度为7bit的唯一组合定义。</p>
+<p><strong>下行链路OFDMA</strong><br>接入点取得发送机会后，首先发送MU-RTS触发帧，分配资源单元，为了让遗留客户端重置，使用20MHz的信道发送。<br>收到客户端发送的并行CTS响应后，接入点开始向支持OFDMA的客户端传输多用户DL-PPDU。</p>
+<p>802.11ax接入点——————————————————————————————————-802.11ax客户端</p>
+<p>——————-AIFS MU-RTS SIFS————-SIFS—-DL-PPDU SIFS  BAR  SIFS———————-&gt;<br>&lt;———————————————CTS——————————————————块确认帧———-STA1<br>&lt;———————————————CTS——————————————————块确认帧———-STA2<br>&lt;———————————————CTS——————————————————块确认帧———-STA3<br>&lt;———————————————CTS——————————————————块确认帧———-STA4</p>
+<p><strong>上行连接OFDMA</strong><br>802.11ax接入点必须首先竞争介质的控制权并取得发送机会，然后才能协调802.11ax客户端发送的数据（上行传输）<br>上行传输非常复杂。需要三轮触发帧才能实现一次上行传输数据。</p>
+<p>802.11ax接入点———————————————————————————————————————802.11ax客户端</p>
+<p>—-AIFS BSRP SIFS———-SIFS—MU-RTS SIFS —— SIFS 触发帧 SIFS—————-SIFS 多终端块确认帧—-&gt;<br>&lt;—————————BSR——————————CTS——————————UL-PPDU——————————-STA1<br>&lt;—————————BSR——————————CTS——————————UL-PPDU——————————-STA2<br>&lt;—————————BSR——————————CTS——————————UL-PPDU——————————-STA3<br>&lt;—————————BSR——————————CTS——————————UL-PPDU——————————-STA4</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/" class="archive-article-date">
-  	<time datetime="2022-02-18T10:08:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-18</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/">CWNA:802.11 MAC 体系结构(四)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -187,382 +365,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/" class="archive-article-date">
-  	<time datetime="2022-02-16T01:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-16</time>
-</a>
- 
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2022/02/28/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CWNA:无线局域网安全体系结构(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/">CWNA:802.11 MAC 体系结构(三)</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/15/Linux-shell-script-%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95-%E4%B8%80/" class="archive-article-date">
-  	<time datetime="2022-02-15T10:02:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-15</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/15/Linux-shell-script-%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95-%E4%B8%80/">Linux shell script 实践记录(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Shell script</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/15/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/" class="archive-article-date">
-  	<time datetime="2022-02-15T02:03:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-15</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/15/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/">CWNA:802.11 MAC 体系结构(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/14/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2022-02-14T07:25:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-14</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/14/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">CWNA:802.11 MAC 体系结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/14/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-02-14T02:00:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-14</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/14/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%EF%BC%88%E4%BA%8C%EF%BC%89/">CWNA:802.11介质访问（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/10/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE/" class="archive-article-date">
-  	<time datetime="2022-02-10T05:37:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-10</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/10/CWNA-802-11%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE/">CWNA:802.11介质访问</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91-%E4%BA%8C/" class="archive-article-date">
-  	<time datetime="2022-02-09T05:10:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-09</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91-%E4%BA%8C/">CWNA:无线局域网拓扑(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91/" class="archive-article-date">
-  	<time datetime="2022-02-09T01:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-09</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/09/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91/">CWNA:无线局域网拓扑</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-01-26T11:45:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-26</time>
-</a>
- 
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/">CWNA:无线网络与扩频技术（三）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2022/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2022/page/3/">3</a><a class="page-number" href="/archives/2022/page/4/">4</a><a class="extend next" rel="next" href="/archives/2022/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -599,8 +500,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

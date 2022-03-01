@@ -146,6 +146,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-802-11-MAC-体系结构-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/">CWNA:802.11 MAC 体系结构(四)</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/" class="archive-article-date">
+  	<time datetime="2022-02-18T10:08:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-18</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="控制帧"><a href="#控制帧" class="headerlink" title="控制帧"></a>控制帧</h3><p>控制帧协助传输数据帧，以某个基本速率发送。仅由MAC帧头和帧尾构成，没有帧体。</p>
+<p>12种控制帧子类型：</p>
+<blockquote>
+<p>波束成形报告轮询帧<br>VHT NDP 通告帧<br>控制帧扩展<br>控制帧封装<br>块确认请求帧(BAR)<br>请求发送帧（RTS)<br>允许发送帧(CTS)<br>确认帧(ACK)<br>CF-End 帧<br>CF-End + CF-ACK 帧</p>
+</blockquote>
+<p><strong>确认帧(ACK)</strong><br>由于802.11通信使用无线介质无法确保数据传输成功，发送端只能依靠接收端的通知来判断传输的帧是否已正确接收。</p>
+<p>格式：共14字节<br>帧控制|持续时间|接收机地址|FCS<br>2|2|6|4</p>
+<p><strong>块确认帧（BAR）</strong><br>802.11e定义的块确认机制，它将多个确认帧聚合为一个确认帧以提高信道利用率。分为两类：<br>1.即时块确认（immediate BA): 适用于延迟容忍度较低的流量。<br>2.延迟块确认(delayed BA): 适用于容忍度较高的流量。</p>
+<p>块确认帧中的位图(bitmap)字段用于标识所有的接收数据帧的状态。如果只有一个数据帧损坏，那么只需要重传该帧。</p>
+<p><strong>节电轮询帧（PS-Poll）</strong><br>采用遗留电源管理机制的客户端通过节电轮询帧请求接入点发送缓冲流量。<br>节电轮询帧中的持续时间/ID字段作为AID，用AID标识自己向接入点请求缓冲的单播帧。<br>仅有节电轮询帧使用持续时间/ID字段作为AID。</p>
+<p><strong>RTS/CTS</strong><br>存在客户端无法侦听到其他客户端的情况。<br>请求发送/允许发送机制通过实施NAV分发以帮助避免冲突。</p>
+<p>使用RTS/CTS机制的终端每次准备发送帧时，必须在正常的数据传输前执行（RTS/CTS）</p>
+<p><strong>CTS-to-Self</strong><br>相较于RTS/CTS，CTS-to-self作为保护机制的优点是发送帧数更少，吞吐量因此而提高。</p>
+<p><strong>保护机制</strong><br>802.11标准定义了ERP保护机制，以便两个802.11g无线接口的OFDM传输不会受到DSSS或HR-DSSS传输的干扰。<br>802.11g ERP终端使用所有终端都能理解的语言通知它们重置NAV计数器。利用RTS/CTS或CTS-to-self帧保留介质后，802.11g终端就能采用OFDM技术调制传输数据帧，<br>不必担心与802.11bHR-DSSS或遗留的802.11DSSS终端发生冲突。</p>
+<p>在ERP基本服务集中触发保护机制的3种情况：<br>1.如果非ERP客户端关联到ERP接入点，ERP接入点将其信标帧的NonERP_Present 位设置1，从而在基本服务集种启用保护机制。<br>2.如果侦听到802.11DSSS或802.11b HR-DSSS接入点发送信标帧，会启用保护机制<br>3.如果侦听到802.11DSSS或802.11b HR-DSSS速率的管理帧，会启用保护机制。</p>
+<p>ERP保护机制利用RTS/CTS或CTS-to-Self帧确保802.11终端和遗留的802.11b终端能共存于同一基本服务集。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/18/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%9B%9B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-802-11-MAC-体系结构-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1215,93 +1306,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-无线网络与扩频技术-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF-2/">CWNA:无线网络与扩频技术</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF-2/" class="archive-article-date">
-  	<time datetime="2022-01-26T07:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-26</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="正交频分复用"><a href="#正交频分复用" class="headerlink" title="正交频分复用"></a>正交频分复用</h3><p>正交频分复用(OFDM),被广泛用于有线和无线通信。<br>IEEE 802.11-2016规定 OFDM使用5GHz频段传输数据； ERP-OFDM 使用2.4GHz频段传输数据。</p>
-<p>20MHz OFDM信道包括64个副载波，其中<br>12个副载波充当保护频带，不做数据传输之用。<br>48个副载波用于传输调制数据。<br>4个副载波称为导频载波，用于发射机和接收机之间的动态校准。<br>每个副载波的宽度为312.5KHz，副载波之间间隔正交。</p>
-<p><strong>卷积编码</strong><br>为了增强抗窄带干扰的能力，OFDM采用卷积码作为纠错码。</p>
-<p><strong>调制</strong><br>星座图（constellation diagram)是一种二维图，通常表示QAM调制。<br>横轴通常是相移<br>纵轴通常是幅移<br>16-QAM   4x4</p>
-<h3 id="正交频分多址"><a href="#正交频分多址" class="headerlink" title="正交频分多址"></a>正交频分多址</h3><p>OFDMA技术将信道划分为较小的子信道， 以便同时进行多用户传输。</p>
-<h3 id="工业科学和医疗频段（ISM）"><a href="#工业科学和医疗频段（ISM）" class="headerlink" title="工业科学和医疗频段（ISM）"></a>工业科学和医疗频段（ISM）</h3><p>902~928MHz (26MHz宽)<br>2.4GHz~2.5GHz(100MHz宽)<br>5.725~5.875GHz(150MHz宽)</p>
-<p>802.11-2016标准规定，无线局域网可以使用该频段的14条信道传输数据，但各国信道分配可能不同。<br>5.8GHz ISM频段比U-NII-3频段宽25MHz</p>
-<h3 id="非授权国家信息基础设施频段"><a href="#非授权国家信息基础设施频段" class="headerlink" title="非授权国家信息基础设施频段"></a>非授权国家信息基础设施频段</h3><p>使用5GHz U-NII频段传输数据的802.11无线接口如下：<br>801.11a OFDM<br>802.11n HT<br>802.11ac VHT<br>802.11-2016标准规定，无线局域网可以使用全部的4个U-NII频段，总共25条信道传输数据，但各国信道分配和功率管理不同。</p>
-<p><strong>U-NII-1频段</strong><br>U-NII-1频段即U-NII低频段，为5.150GHz~5.250GHz的100MHz，4条20MHz信道。</p>
-<p><strong>U-NII-2A频段</strong><br>U-NII-2A频段即原来的U-NII-2频段，为5.250~5.350GHz，宽度为100MHz，4条20MHz信道。</p>
-<p><strong>U-NII-2C频段</strong><br>U-NII-2C频段即原来的U-NII-2扩展频段，5.470~5.725GHz，宽度为255MHz，11条20MHz信道。<br>使用该频段的802.11无线接口必须支持DFS </p>
-<p><strong>U-NII-3频段</strong><br>U-NII-3频段即NII高频段，为5.725~5.850GHz，宽度125MHz。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF-2/">展开全文 >></a>
         </p>
       
 
