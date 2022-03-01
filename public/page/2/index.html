@@ -146,6 +146,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-802-11-MAC-体系结构-五" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/21/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%94/">CWNA:802.11 MAC 体系结构(五)</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/21/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%94/" class="archive-article-date">
+  	<time datetime="2022-02-21T02:11:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-21</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="数据帧"><a href="#数据帧" class="headerlink" title="数据帧"></a>数据帧</h3><p>IEEE802.11-2016标准定义了15种数据子类型，11种仅停留在纸面上，4种实际存在的。</p>
+<blockquote>
+<p>数据帧（DATA）<br>空帧（null data)<br>Qos数据帧(Qos Data)<br>Qos空帧(Qos null data)</p>
+</blockquote>
+<p>只要非Qos 设备作为发送方或接收方参与通信，就必须使用非Qos数据帧。</p>
+<p><strong>不携带数据的数据帧</strong><br>仅由帧头和帧尾构成，帧体中没有MSDU数据。</p>
+<p>如果客户端希望通知接入点自己的节电状态有所变化，那么可以调整空帧的电源管理位。<br>客户端决定进行信道外扫描时，将向接入点发送一个电源管理位设置为1的空功能帧，收到这个帧后，接入点将就所有传输给客户端的802.11帧存储在缓冲区。<br>当客户端返回接入点所在的信道时，将向接入点发送另一个电源管理位设置为0的空功能帧。收到这个空功能帧后，接入点就向客户端发送缓冲帧。（可提高吞吐量）</p>
+<h3 id="电源管理"><a href="#电源管理" class="headerlink" title="电源管理"></a>电源管理</h3><p>无线主要提供了客户端的移动性，客户端一般使用电池，电源管理主要是为了提高设备的续航能力。</p>
+<p><strong>遗留的电源管理机制</strong><br>主动模式是早期802.11终端使用的电源管理模式，无线终端随时准备发送和接收数据。它不提供任何节电功能。使用该模式的终端获得更高的吞吐量，但电池使用时间通常要更短。<br>应将始终与电源相连的终端配置为主动模式。</p>
+<p>节电模式，客户端将在一段时间内关闭部分收发组件以减少耗电。</p>
+<p>1.流量指示图<br>加入基本服务集的客户端将电源管理位设置为1，以此通知接入点启用节电模式。接入点获知客户端处于节电模式，随后将收到的传输给客户端的数据存储在缓冲区中。每当客户端<br>关联到接入点时，都会收到关联标识符（AID），接入点通过AID来跟踪与自己建立关联且加入基本服务集的客户端。如果接入点缓冲了客户端的数据，将在下一次发送信标帧时，<br>信标帧的流量指示图（TIM）字段就会包括客户端的AID。TIM字段列出了所有需要接收数据的客户端，这些数据存储在接入点的缓冲区中。每个信标帧都会携带客户端的AID，直到<br>缓冲区数据传输完毕。</p>
+<p>信标帧根据一致的预定时间传输，这段时间称为目标信标传输时间（TBTT）。客户端在短时间内继续保持休眠状态，并及时切换到唤醒状态侦听信标帧。客户端不必在每次信标帧<br>发送时保持唤醒状态。</p>
+<p>客户端收到信标帧的时候，将查看自己的AID是否出现在TIM中，如果存在，客户端将保持唤醒并向接入点发送节电轮询帧。接入点收到节电轮询帧后，将向客户端发送数据单播帧。<br>每个单播帧保护长度1比特的更多数据字段，如果是1，客户端不进入休眠状态继续接收数据。不过客户端需要继续发送ps-poll帧。<br>当更多数据字段为0时，客户端重新进入休眠。</p>
+<p>2.发送流量指示图<br>多播和广播流量传输期间，发送流量指示图（DTIM)用于确保所有使用电源管理的终端保持唤醒状态。</p>
+<p><strong>WMM节电与非调度自动节电传输</strong><br>802.11e定义了改进的电源管理机制，自动节电传输（APSD）。分为两种<br>调度自动节电传输（S-APSD）<br>非调度自动节电传输（U-APSD）</p>
+<p>改进后的优点：</p>
+<blockquote>
+<p>应用可以通过设置休眠期并发送触发帧来控制节电行为。<br>触发帧和交付方法可以取代节电轮询帧。<br>客户端可以请求下载缓冲数据，不必等待信标帧。<br>TXOP期间，接入点可以在更快的帧突发中传输所有下行应用流量。</p>
+</blockquote>
+<p><strong>MIMO电源管理机制</strong><br>空间复用节电，仅保持一条射频链，关闭其他射频链。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/21/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%94/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-802-11-MAC-体系结构-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1177,164 +1272,6 @@
 
 
   
-    <article id="post-CWNA-无线网络与扩频技术（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/">CWNA:无线网络与扩频技术（三）</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-01-26T11:45:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-26</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="2-4GHz信道"><a href="#2-4GHz信道" class="headerlink" title="2.4GHz信道"></a>2.4GHz信道</h3><p>IEEE将2.4GHz ISM频段划分为14条独立的信道。</p>
-<p>Table-2.4GHz信道规划</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">信道编号</th>
-<th style="text-align:center">中心频率(GHz)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2.412</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2.417</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">2.422</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">2.427</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">2.432</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">2.437</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">2.442</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">2.447</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">2.452</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">2.457</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">2.462</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">2.467</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:center">2.472</td>
-</tr>
-<tr>
-<td style="text-align:center">14</td>
-<td style="text-align:center"><strong>2.484</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>802.11 DSSS 和 802.11 HR-DSSS使用的是22MHz的信道<br>信道中心频率间隔5MHz<br>OFDM技术使用的是20MHz的信道带宽。<br>2.4G一般有三个不重叠信道：1，6，11   或 2,7,12 或 3，8，13</p>
-<h3 id="5GHz信道"><a href="#5GHz信道" class="headerlink" title="5GHz信道"></a>5GHz信道</h3><p>信道中心频率 = 信道编号 X 5 + 5000<br>例如：<br>36 X 5 + 5000 = 5180MHz</p>
-<p><strong>5GHz 信道</strong><br>36，40，44，48，52，56，60，64，100，104，108，112，116，120，124，128，132，136，140，144，149，153，157，161，165，，169，173，177，181</p>
-<h3 id="非重叠信道"><a href="#非重叠信道" class="headerlink" title="非重叠信道"></a>非重叠信道</h3><p>802.11 DSSS信道中心频率必须相隔30MHz，认为互不重叠；<br>802.11b HR-DSSS和 802.11g ERP信道中心频率必须相隔25MHz认为互不重叠；<br>5G OFDM信道中心频率之间必须相关20MHz，认为互不重叠；</p>
-<h3 id="邻信道干扰"><a href="#邻信道干扰" class="headerlink" title="邻信道干扰"></a>邻信道干扰</h3><p>用于描述信道复用设计不当导致的频率空间重叠。</p>
-<h3 id="吞吐量与带宽"><a href="#吞吐量与带宽" class="headerlink" title="吞吐量与带宽"></a>吞吐量与带宽</h3><p>影响数据吞吐量的因素有：</p>
-<blockquote>
-<p>带宽<br>数据编码<br>调制<br>介质争用<br>加密</p>
-</blockquote>
-<p>数据编码和调制方式决定了数据速率，数据速率有时又称为数据带宽。<br>例如：<br>802.11a OFDM无线接口能以6，9，12，18，24，36，48，54Mbps的速率传输数据，但所有的U-NII信道的频率带宽相同，速率不同时由<br>数据编码和调试方式不同。</p>
-<p>802.11网络采用带冲突避免的载波监听多路访问（CSMA/CA）作为介质访问方式，以确保在任何给定的时间，只有一台无线设备可以使用介质传输数据。</p>
-<p>802.11 a/b/g实际数总吞吐量一般不会超过数据速率的50%；  CSMA/CA 产生的介质争用开销通常为带宽的50%<br>802.11 n/ac传输，实际吞吐量为数据速率的60%~70%；  CSMA/CA 产生的介质争用开销通常为带宽的35%</p>
-<p>RTS/CTS 机制也会增加通信开销，影响系统吞吐量。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/26/CWNA-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%89%A9%E9%A2%91%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1627,22 +1564,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 </body>
 </html>

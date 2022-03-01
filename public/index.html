@@ -146,6 +146,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-802-11ax技术-高效无线局域网-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91-%E4%BA%8C/">CWNA:802.11ax技术:高效无线局域网(二)</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91-%E4%BA%8C/" class="archive-article-date">
+  	<time datetime="2022-03-01T07:11:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-01</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="基本服务集颜色"><a href="#基本服务集颜色" class="headerlink" title="基本服务集颜色"></a>基本服务集颜色</h3><p>重叠基本服务集（OBSS）通常称为同信道干扰，如果位于信道36的接入点1侦听到附近同样位于信道36的接入点2的前同步码传输，<br>接入点1将推迟自己的传输，避免与接入点2同时发送数据。</p>
+<p>802.11ax引入的BSS color有望将信道复用效率提高8倍，致力于解决OBSS引起的介质争用开销问题。</p>
+<p>物理层和MAC子层都会传输BSS颜色信息。<br>802.11ax物理层头部的前同步码种，SIG-A字段包含长度6bit的BSS颜色字段，可以标识多达63个BSS。<br>MAC子层的BSS颜色信息位于802.11管理帧种，可以标识63种不同的BSS。<br>BSS 颜色根据颜色区分是否来自相邻的OBSS干扰，极大提高信道利用率。</p>
+<p>TWT目标唤醒时间节电机制，指定预订的目标唤醒时间。</p>
+<p>MU-OFDMA,BSS color, MU-MIMO和TWT是802.11ax的核心技术。<br>详细可以根据最新协议查阅。<br>CWNA，无线局域网权威指南第五版记录到此。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/01/CWNA-802-11ax%E6%8A%80%E6%9C%AF-%E9%AB%98%E6%95%88%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91-%E4%BA%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-802-11ax技术-高效无线局域网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1351,101 +1431,6 @@
 
 
   
-    <article id="post-CWNA-802-11-MAC-体系结构-五" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/21/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%94/">CWNA:802.11 MAC 体系结构(五)</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/21/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%94/" class="archive-article-date">
-  	<time datetime="2022-02-21T02:11:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-21</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="数据帧"><a href="#数据帧" class="headerlink" title="数据帧"></a>数据帧</h3><p>IEEE802.11-2016标准定义了15种数据子类型，11种仅停留在纸面上，4种实际存在的。</p>
-<blockquote>
-<p>数据帧（DATA）<br>空帧（null data)<br>Qos数据帧(Qos Data)<br>Qos空帧(Qos null data)</p>
-</blockquote>
-<p>只要非Qos 设备作为发送方或接收方参与通信，就必须使用非Qos数据帧。</p>
-<p><strong>不携带数据的数据帧</strong><br>仅由帧头和帧尾构成，帧体中没有MSDU数据。</p>
-<p>如果客户端希望通知接入点自己的节电状态有所变化，那么可以调整空帧的电源管理位。<br>客户端决定进行信道外扫描时，将向接入点发送一个电源管理位设置为1的空功能帧，收到这个帧后，接入点将就所有传输给客户端的802.11帧存储在缓冲区。<br>当客户端返回接入点所在的信道时，将向接入点发送另一个电源管理位设置为0的空功能帧。收到这个空功能帧后，接入点就向客户端发送缓冲帧。（可提高吞吐量）</p>
-<h3 id="电源管理"><a href="#电源管理" class="headerlink" title="电源管理"></a>电源管理</h3><p>无线主要提供了客户端的移动性，客户端一般使用电池，电源管理主要是为了提高设备的续航能力。</p>
-<p><strong>遗留的电源管理机制</strong><br>主动模式是早期802.11终端使用的电源管理模式，无线终端随时准备发送和接收数据。它不提供任何节电功能。使用该模式的终端获得更高的吞吐量，但电池使用时间通常要更短。<br>应将始终与电源相连的终端配置为主动模式。</p>
-<p>节电模式，客户端将在一段时间内关闭部分收发组件以减少耗电。</p>
-<p>1.流量指示图<br>加入基本服务集的客户端将电源管理位设置为1，以此通知接入点启用节电模式。接入点获知客户端处于节电模式，随后将收到的传输给客户端的数据存储在缓冲区中。每当客户端<br>关联到接入点时，都会收到关联标识符（AID），接入点通过AID来跟踪与自己建立关联且加入基本服务集的客户端。如果接入点缓冲了客户端的数据，将在下一次发送信标帧时，<br>信标帧的流量指示图（TIM）字段就会包括客户端的AID。TIM字段列出了所有需要接收数据的客户端，这些数据存储在接入点的缓冲区中。每个信标帧都会携带客户端的AID，直到<br>缓冲区数据传输完毕。</p>
-<p>信标帧根据一致的预定时间传输，这段时间称为目标信标传输时间（TBTT）。客户端在短时间内继续保持休眠状态，并及时切换到唤醒状态侦听信标帧。客户端不必在每次信标帧<br>发送时保持唤醒状态。</p>
-<p>客户端收到信标帧的时候，将查看自己的AID是否出现在TIM中，如果存在，客户端将保持唤醒并向接入点发送节电轮询帧。接入点收到节电轮询帧后，将向客户端发送数据单播帧。<br>每个单播帧保护长度1比特的更多数据字段，如果是1，客户端不进入休眠状态继续接收数据。不过客户端需要继续发送ps-poll帧。<br>当更多数据字段为0时，客户端重新进入休眠。</p>
-<p>2.发送流量指示图<br>多播和广播流量传输期间，发送流量指示图（DTIM)用于确保所有使用电源管理的终端保持唤醒状态。</p>
-<p><strong>WMM节电与非调度自动节电传输</strong><br>802.11e定义了改进的电源管理机制，自动节电传输（APSD）。分为两种<br>调度自动节电传输（S-APSD）<br>非调度自动节电传输（U-APSD）</p>
-<p>改进后的优点：</p>
-<blockquote>
-<p>应用可以通过设置休眠期并发送触发帧来控制节电行为。<br>触发帧和交付方法可以取代节电轮询帧。<br>客户端可以请求下载缓冲数据，不必等待信标帧。<br>TXOP期间，接入点可以在更快的帧突发中传输所有下行应用流量。</p>
-</blockquote>
-<p><strong>MIMO电源管理机制</strong><br>空间复用节电，仅保持一条射频链，关闭其他射频链。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/21/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%94/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1738,22 +1723,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 </body>
 </html>
