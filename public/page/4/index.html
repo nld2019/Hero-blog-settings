@@ -146,6 +146,201 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-射频基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/10/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">CWNA:射频基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/10/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2022-01-10T09:10:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-10</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>射频信号定义</strong></p>
+<p><strong>射频特性</strong></p>
+<blockquote>
+<p>波长<br>频率<br>振幅<br>相位</p>
+</blockquote>
+<p><strong>射频行为</strong></p>
+<blockquote>
+<p>波传播<br>吸收<br>反射<br>散射<br>折射<br>衍射<br>损耗（衰减）<br>自由空间路径损耗<br>多径<br>增益（放大）</p>
+</blockquote>
+<p>为了深入理解802.11技术，需要掌握无线信号在OSI模型的物理层上的原理。射频通信是物理层核心所在。<br>有线通信，信号在有界介质中传输。<br>无线通信，信号在无界介质中传输，信号向四面八方辐射到周围环境中，因而容易受环境影响。</p>
+<p><strong>射频信号的定义</strong><br>电磁频谱通常简称频谱，表示所有可能的电磁辐射的范围，这种辐射以自传播的电磁波的形式存在。</p>
+<p>射频信号始于发射机产生的交流信号，在传输过程中，射频信号会产生多种运动行为，称为传播行为。</p>
+<p><strong>射频信号的特性</strong><br><strong>波长</strong>，连续两个波峰或者连续两个波谷之间的距离。也是射频信号在一个周期内实际传播的距离。<br>$λ=c/f$<br>表示波长等于光速除以频率。</p>
+<p>射频信号在空间或物质中传输会出现衰减。衰减的原因并非频率和波长，而是距离。所有天线都存在接收<br>功率的有效区域，称为天线孔径(aperture)。天线的频率越高，天线孔径能捕获的能量频率越低。人们总<br>感觉波长较短的高频信号衰减较快。从理论上讲，电磁波在空中传播永不停歇；从本质上将，信号永远可以<br>到达接收机，但是会因为强度过低而难以被检测到。</p>
+<p>人们认为，与波长较短的高频信号相比，波长较长的低频信号能传播更远的距离。实际情况是，高频天线的<br>孔径能够捕获的能量远低于低频天线的孔径所能捕获的能量。</p>
+<p>多数802.11无线接口使用2.4GHz和5GHz频段的数据。<br>2.45GHz对应的波长12.24cm<br>5.775GHz对应的波长5.19cm</p>
+<p>高频信号在通过各种物理介质时，衰减的速度一般比低频信号要快。衰减的原因：<br>信号的自由空间损耗；<br>频率越高穿越障碍物的能力越差。2.4GHz比5GHz的穿墙能力更好。</p>
+<p><strong>频率</strong><br>频率，在指定时间内发生的次数，单位Hz,得名于德国物理学家海因里希·鲁道夫·赫兹。</p>
+<blockquote>
+<p>1Hz:每秒循环1次<br>1kHz:每秒循环1000次<br>1MHz:每秒循环1 000 000次<br>1GHz:每秒循环1 000 000 000次<br>因此，2.4GHz信号每秒振荡24亿次。</p>
+</blockquote>
+<p><strong>振幅</strong><br>振幅，表征信号的强度或功率。<br>不同类型的射频技术要求的发射振幅有所不同。<br>调幅广播电台发射的窄带信号功率可能达到50kW<br>802.11接入点的发射功率介于1mW和100mW之间。<br>802.11无线接口可以接收并解调振幅低于十亿分之一毫瓦的信号。</p>
+<p><strong>相位</strong><br>相位，描述两个或多个同频信号之间的关系。<br>同相，两个同频信号的波峰同一时刻精确对齐。<br>异相，两个同频信号的波峰在同一时刻没有精确对齐。<br>相位影响信号叠加的强度。多径效应就是有异相信号引起的。</p>
+<p>（未完待续…)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/10/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CWNA-IEEE-802-11标准与修正案-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-3/">CWNA:IEEE 802.11标准与修正案(3)</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-3/" class="archive-article-date">
+  	<time datetime="2022-01-10T05:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-10</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>承接上一篇</p>
+<h3 id="802-11aa-2012"><a href="#802-11aa-2012" class="headerlink" title="802.11aa-2012"></a>802.11aa-2012</h3><p>为MAC子层定义了经过改进的Qos机制，以便为消费类应用和企业应用提供强健的音频和视频流。</p>
+<h3 id="802-11ac-2013"><a href="#802-11ac-2013" class="headerlink" title="802.11ac-2013"></a>802.11ac-2013</h3><p>根据5GHz U-NII频段拥有更多的频谱空间而定义了低于6GHz频段的甚高吞吐量(VHT)增强机制。最高速率<br>可达6933.3Mbps，这是由以下增强机制实现。<br><strong>更宽的信道</strong><br>802.11n定义了40MHz信道，而802.11ac支持20,40,80,160MHz信道宽度。这是2.4G所不具备的资源。</p>
+<p><strong>新的调制技术</strong><br>支持256-QAM调制，不过需要很高的信噪比才能发挥作用。</p>
+<p><strong>更多的空间流</strong><br>无线接口可以发送并接收最多8路空间流。</p>
+<p><strong>改进的MIMO与波束成形</strong><br>引入MU-MIMO技术，如果多个客户端支持MU-MIMO且位于不同的物理区域，具有MU-MIMO功能的接入点就能同<br>时向同一信道的这些客户端发送信号。</p>
+<h3 id="802-11ad-2012"><a href="#802-11ad-2012" class="headerlink" title="802.11ad-2012"></a>802.11ad-2012</h3><p>为了提高无线网络性能，引入更高的60GHz非授权频段，也定义了多向吉比特(DMG)技术，支持高达7Gbps的<br>数据速率。仅用于视距传输。</p>
+<p>引入了快速会话转移功能，以便在60GHz与遗留2.4GHz/5GHz频段之间无缝切换。<br>CCMP对于大数据量加密存在缺陷，引入了GCMP加密。</p>
+<h3 id="802-11ae-2012"><a href="#802-11ae-2012" class="headerlink" title="802.11ae-2012"></a>802.11ae-2012</h3><p>定义了经过改进的QoS管理机制，启用服务质量管理帧(QMF)服务，使用QoS访问类别，提高流量服务质量。</p>
+<h3 id="802-11af-2014"><a href="#802-11af-2014" class="headerlink" title="802.11af-2014"></a>802.11af-2014</h3><p>允许无线局域网通信使用54MHz~790MHz的空白电视频段(TVWS)。</p>
+<h3 id="802-11ah-2016"><a href="#802-11ah-2016" class="headerlink" title="802.11ah-2016"></a>802.11ah-2016</h3><p>定义1GHz以下频段的Wi-Fi应用，有望用于传感器网络，智能家居，汽车，零售业，农业等。</p>
+<h3 id="802-11ai-2016"><a href="#802-11ai-2016" class="headerlink" title="802.11ai-2016"></a>802.11ai-2016</h3><p>定义了快速初始链路建立机制，以应对高密度环境中存在的挑战。旨在改善机场，体育馆，购物中心的应用。</p>
+<h3 id="802-11aj-2018"><a href="#802-11aj-2018" class="headerlink" title="802.11aj-2018"></a>802.11aj-2018</h3><p>定义59GHz~64GHz频段操作提供支持。还对802.11ad进行调整，以使得中国的45GHz频段传输数据。</p>
+<h3 id="802-11ak-2018"><a href="#802-11ak-2018" class="headerlink" title="802.11ak-2018"></a>802.11ak-2018</h3><p>又称为通用链路(GLK)，致力于完善802.11链路，以便在桥接网络中使用。允许终端提供桥接服务。</p>
+<h3 id="802-11aq-2018"><a href="#802-11aq-2018" class="headerlink" title="802.11aq-2018"></a>802.11aq-2018</h3><p>研究终端与802.11网络建立关联之前如何交付网络服务信息。</p>
+<h3 id="802-11ax"><a href="#802-11ax" class="headerlink" title="802.11ax"></a>802.11ax</h3><p>称为高校无线局域网修正案，支持2.4GHz和5GHz频段，提高吞吐量，支持更多的用户和更高的密度。引入了<br>OFDMA技术。</p>
+<h3 id="802-11ay"><a href="#802-11ay" class="headerlink" title="802.11ay"></a>802.11ay</h3><p>致力于完善11ad方案，提高传输速度和增加传输距离。</p>
+<h3 id="802-11az"><a href="#802-11az" class="headerlink" title="802.11az"></a>802.11az</h3><p>致力于提高物理位置跟踪和定位精度。</p>
+<h3 id="802-11ba"><a href="#802-11ba" class="headerlink" title="802.11ba"></a>802.11ba</h3><p>提出了唤醒无线电(WuR)的节电数据接收模式，致力于不增加网络延迟和性能的情况下增加设备的电池使用时间。</p>
+<h3 id="802-11m"><a href="#802-11m" class="headerlink" title="802.11m"></a>802.11m</h3><p>致力于维护802.11标准的技术性文档。对外发布的综合性文档如下<br>IEEE 802.11-2007标准<br>IEEE 802.11-2012标准<br>IEEE 802.11-2016标准</p>
+<p>以上就是标准历史演进和功能概述。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/10/CWNA-IEEE-802-11%E6%A0%87%E5%87%86%E4%B8%8E%E4%BF%AE%E6%AD%A3%E6%A1%88-3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-IEEE-802-11标准与修正案-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -879,79 +1074,6 @@ map &lt;silent&gt; &lt;F8&gt; :TlistToggle&lt;cr&gt;     &quot;在映射F8键打
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/11/hello-world/" class="archive-article-date">
-  	<time datetime="2021-12-11T14:58:26.373Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-11</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/11/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Step-by-step-to-build-personal-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1176,6 +1298,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git skills</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Shell script</a>
               </li>
             
@@ -1333,5 +1459,22 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 </html>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="射频计算中包含很多对数运算，不过工程应用无需进行复杂的计算。 10与3规则用于工程近似计算。4条规则：  每3dB增益（相对值），意味着绝对功率(mW)加倍；每3dB损耗（相对值），意味着绝对功率(mW)减半；每10dB增益，意味着绝对功率乘以10；每10dB损耗，意味着绝对功率除以10；  多数802.11无线接口可以解析从-30dBm(1mW 的千分之一)到低至-100dBm(1mW的百亿分之">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-01-12T01:32:41.000Z">
-<meta property="article:modified_time" content="2022-01-12T01:56:00.836Z">
+<meta property="article:modified_time" content="2022-01-12T01:56:00.000Z">
 <meta property="article:author" content="L.D.2021">
 <meta property="article:tag" content="Wi-Fi">
 <meta name="twitter:card" content="summary">
@@ -504,6 +504,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git skills</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Shell script</a>
               </li>
             
@@ -661,5 +665,22 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 </html>

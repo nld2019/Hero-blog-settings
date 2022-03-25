@@ -16,7 +16,7 @@
 <meta property="og:description" content="使用vim + cscope&#x2F;ctags，就能够实现Source Insight的功能，可以很方便地查看分析源代码。 关键词: vim, cscope, ctags, tags 1.查看vim是否支持cscope  $ vim —version | grep cscope  2.查看帮助  $ man cscope  $ man ctags  :help cscope (vim command)">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-12-22T06:20:21.000Z">
-<meta property="article:modified_time" content="2021-12-22T06:33:11.719Z">
+<meta property="article:modified_time" content="2021-12-22T06:33:11.000Z">
 <meta property="article:author" content="L.D.2021">
 <meta name="twitter:card" content="summary">
   
@@ -633,6 +633,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git skills</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Shell script</a>
               </li>
             
@@ -790,5 +794,22 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 </html>

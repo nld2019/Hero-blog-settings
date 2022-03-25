@@ -16,7 +16,7 @@
 <meta property="og:description" content="目标在ubuntu上搭建SVN仓库，通过windows访问仓库以记录和管理文档。 步骤1.检查ubuntu是否已经安装SVN工具1$ svn --version2.如果没有SVN则安装SVN工具1$ sudo apt install subversion3.再次检查SVN1234$ svn --versionsvn, version 1.9.7 (r1800392)   compiled Mar">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-12-16T15:41:15.000Z">
-<meta property="article:modified_time" content="2021-12-17T07:16:12.696Z">
+<meta property="article:modified_time" content="2021-12-17T07:16:12.000Z">
 <meta property="article:author" content="L.D.2021">
 <meta name="twitter:card" content="summary">
   
@@ -300,8 +300,8 @@
     </a>
   
   
-    <a href="/2021/12/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2021/12/08/Step-by-step-to-build-personal-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Step by step to build personal blog.</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -465,6 +465,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git skills</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Shell script</a>
               </li>
             
@@ -622,5 +626,22 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 </html>
