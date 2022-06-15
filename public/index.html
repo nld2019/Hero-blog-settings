@@ -146,6 +146,144 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vscode-compile-commands-json-generate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/15/vscode-compile-commands-json-generate/">vscode-compile_commands.json generate</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/15/vscode-compile-commands-json-generate/" class="archive-article-date">
+  	<time datetime="2022-06-15T14:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-15</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="compile-commands-json-can-be-used-for-vscode-to-prase-the-code-and-corresponding-code-branch"><a href="#compile-commands-json-can-be-used-for-vscode-to-prase-the-code-and-corresponding-code-branch" class="headerlink" title="compile_commands.json can be used for vscode to prase the code and corresponding code branch."></a>compile_commands.json can be used for vscode to prase the code and corresponding code branch.</h1><ol>
+<li><p>generate compile_commands.json directly by bear command.</p>
+<p> make<br> bear make -nB</p>
+</li>
+</ol>
+<ol>
+<li><p>generate compile_commands.json by compiledb</p>
+<p> make<br> copiledb make -nB</p>
+</li>
+<li><p>generate compile_commands.json by build log</p>
+<p> compiledb &lt; build-log.txt</p>
+</li>
+</ol>
+<p>After generate the compile_commands.json successfully, move the file to source code path and add it to vscode settings.<br>Sometimes, vscode may not prase the file correctly. may need do minor changes for the file.</p>
+<h2 id="An-example-of-compile-commands-json"><a href="#An-example-of-compile-commands-json" class="headerlink" title="An example of compile_commands.json"></a>An example of compile_commands.json</h2><pre><code>&#123;
+        &quot;directory&quot;: &quot;/home/nield/scode/FW/fw_v17_dev/src/wlan/src/wifidirect&quot;,
+        &quot;arguments&quot;: [
+                &quot;armcc&quot;,
+        &quot;--thumb&quot;,
+        &quot;-M&quot;,
+        &quot;--no_depend_system_headers&quot;,
+        &quot;--cpu&quot;,
+        &quot;Cortex-R7.no_vfp&quot;,
+        &quot;--dwarf3&quot;,
+        &quot;-g&quot;,
+        &quot;-O2&quot;,
+        &quot;--c99&quot;,
+        &quot;--split_sections&quot;,
+        &quot;-DBUILD_WLAN&quot;,
+        &quot;-DOSA_THREADX&quot;,
+        &quot;-DEEPROM_ACCESS&quot;,
+        &quot;-DBTCOEX_VER_2&quot;,
+        &quot;-DBTCOEX_SPATIAL&quot;,
+        &quot;-DRBC_SIMPLIFIED_BCA_TDM_COEX_MODE&quot;,
+        &quot;-DIEEE_PSPOLL&quot;,
+        &quot;-DDOT11H&quot;,
+        &quot;-DDOT11H_TPC&quot;,
+        &quot;-DDFS_RADAR_DETECT&quot;,
+        &quot;-DJAPAN_W53_NEW_PATTERN&quot;,
+        &quot;-DDOT11K&quot;,
+        &quot;-DDOT11K_VE&quot;,
+        &quot;-DCHANRPT&quot;,
+        &quot;-DUNII_4_SUPPORT&quot;,
+        &quot;-DDOT11W&quot;,
+        &quot;-DENABLE_GCMP_SUPPORT&quot;,
+        &quot;-DSSU_SUPPORT&quot;,
+        &quot;-DDOT11P&quot;,
+        &quot;-DASSOC_AGENT_MLME&quot;,
+        &quot;-DSCAN_AGENT_MLME&quot;,
+        &quot;-DENHANCED_POWER_SAVE&quot;,
+        &quot;-DSEND_ASSOC_REQ_IE_TO_HOST&quot;,
+        &quot;-I/home/nield/scode/FW/fw_v17_dev/src/build/../common/modules/OS/ThreadX&quot;,
+        &quot;-I/home/nield/scode/FW/fw_v17_dev/src/build/../btu2/rom/modules/bt/incl&quot;,
+        &quot;-I/home/nield/scode/FW/fw_v17_dev/src/build/../btu2/rom/modules/bt/btds/incl&quot;,
+        &quot;-I/home/nield/scode/FW/fw_v17_dev/src/build/../btu2/rom/modules/btble/incl&quot;
+        ],
+        &quot;file&quot;: [&quot;wifiDirect_services.c&quot;,
+                &quot;wifiDirect_main.c&quot;,
+                &quot;SyncWifiDirect_srv.c&quot;,
+                &quot;wifiDirect_ps.c&quot;
+        ]
+
+&#125;,
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Misc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/15/vscode-compile-commands-json-generate/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-tmux-conf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1234,101 +1372,9 @@ wlan_sdio_dnld_fw(pmlan_adapter pmadapter, pmlan_fw_image pmfw)
 
 
   
-    <article id="post-CODE-ANALYSIS-2-bus-driver-register" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/12/CODE-ANALYSIS-2-bus-driver-register/">CODE-ANALYSIS:2-bus-driver-register</a>
-    </h1>
-  
-
-        
-        <a href="/2022/06/12/CODE-ANALYSIS-2-bus-driver-register/" class="archive-article-date">
-  	<time datetime="2022-06-11T16:00:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-12</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Jun  3 16:36:02 CST 2022</p>
-<p>//while Wi-Fi card is detected by the Wi-Fi driver. Will trigger the register work.</p>
-<p>static void<br>woal_bus_register(struct work_struct *work)</p>
-<p>register wlan_sdio operation struct to kernel<br>/<em> SDIO Driver Registration </em>/<br>if (sdio_register_driver(&amp;wlan_sdio)) {</p>
-<pre><code>static struct sdio_driver REFDATA wlan_sdio = &#123;
-    .name = &quot;wlan_sdio&quot;,
-    .id_table = wlan_ids,
-    .probe = woal_sdio_probe,
-    .remove = woal_sdio_remove,
-</code></pre><p>if the Wi-Fi sdio card is detected by the OS, .probe function will be invoked.</p>
-<p>show the vendor info of the detected card.</p>
-<p>update the card current card type, current is 8997.</p>
-<p>// add the card to system via the above card type.<br>woal_add_card(card, &amp;card-&gt;func-&gt;dev, &amp;sdiommc_ops, card_type)) {</p>
-<pre><code>static moal_if_ops sdiommc_ops = &#123;
-    .register_dev = woal_sdiommc_register_dev,
-    .unregister_dev = woal_sdiommc_unregister_dev,
-    .read_reg = woal_sdiommc_read_reg,
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code analysis, Wi-Fi, Driver;</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/12/CODE-ANALYSIS-2-bus-driver-register/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 

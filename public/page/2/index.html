@@ -146,6 +146,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CODE-ANALYSIS-2-bus-driver-register" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/12/CODE-ANALYSIS-2-bus-driver-register/">CODE-ANALYSIS:2-bus-driver-register</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/12/CODE-ANALYSIS-2-bus-driver-register/" class="archive-article-date">
+  	<time datetime="2022-06-11T16:00:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-12</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Jun  3 16:36:02 CST 2022</p>
+<p>//while Wi-Fi card is detected by the Wi-Fi driver. Will trigger the register work.</p>
+<p>static void<br>woal_bus_register(struct work_struct *work)</p>
+<p>register wlan_sdio operation struct to kernel<br>/<em> SDIO Driver Registration </em>/<br>if (sdio_register_driver(&amp;wlan_sdio)) {</p>
+<pre><code>static struct sdio_driver REFDATA wlan_sdio = &#123;
+    .name = &quot;wlan_sdio&quot;,
+    .id_table = wlan_ids,
+    .probe = woal_sdio_probe,
+    .remove = woal_sdio_remove,
+</code></pre><p>if the Wi-Fi sdio card is detected by the OS, .probe function will be invoked.</p>
+<p>show the vendor info of the detected card.</p>
+<p>update the card current card type, current is 8997.</p>
+<p>// add the card to system via the above card type.<br>woal_add_card(card, &amp;card-&gt;func-&gt;dev, &amp;sdiommc_ops, card_type)) {</p>
+<pre><code>static moal_if_ops sdiommc_ops = &#123;
+    .register_dev = woal_sdiommc_register_dev,
+    .unregister_dev = woal_sdiommc_unregister_dev,
+    .read_reg = woal_sdiommc_read_reg,
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code analysis, Wi-Fi, Driver;</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/12/CODE-ANALYSIS-2-bus-driver-register/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CODE-ANALYSIS-1-module-init-process" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1097,113 +1189,9 @@
 
 
   
-    <article id="post-CWNA-无线局域网故障排除-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/24/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4-%E4%B8%80/">CWNA:无线局域网故障排除(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/24/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4-%E4%B8%80/" class="archive-article-date">
-  	<time datetime="2022-02-24T01:40:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-24</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="第一层问题故障排除"><a href="#第一层问题故障排除" class="headerlink" title="第一层问题故障排除"></a>第一层问题故障排除</h3><p>大多数网络问题通常出现在物理层。</p>
-<p><strong>无线局域网设计</strong><br>如果通过无线局域网传输数据，则覆盖至少要达到-70dBm;<br>如果通过无线局域网传输语音，则覆盖至少要达到-65dBm;<br>接入点无线接口的接收灵敏度通常远高于客户设备，所以应该从客户设备的角度测量并验证接收信号强度。<br>同信道干扰是造成无谓的占用时长消耗的首要原因。<br>调低发射功率同样能减少同信道干扰。</p>
-<p><strong>发射功率</strong><br>不宜设置过大，过大会引发同信道干扰和容量无法满足等问题。</p>
-<p><strong>射频干扰</strong><br>干扰设备的功率可能超过能量检测的阈值并阻止802.11无线接口传输数据，导致无线局域网瘫痪。<br>如果802.11帧传输因射频干扰而损坏，将导致重传率过高，从而显著降低吞吐量。</p>
-<p>1.窄带干扰<br>在一个很小的频段宽度上的干扰。</p>
-<p>2.宽带干扰<br>在一个较宽的频段上的干扰。</p>
-<p>3.全频段干扰<br>与跳频扩频通信相关的干扰。<br>如果同一区域内有多个2.4GHz接入点使用信道1、6、11传输数据，则必然会与蓝牙发射机相互干扰。</p>
-<p><strong>驱动程序</strong><br>确保升级到最新的驱动程序。</p>
-<p><strong>以太网供电</strong><br>接入点随机重启的原因往往是功率预算不足。</p>
-<p><strong>固件漏洞</strong><br>尽量采用最新的固件</p>
-<h3 id="第二层问题故障排除"><a href="#第二层问题故障排除" class="headerlink" title="第二层问题故障排除"></a>第二层问题故障排除</h3><p>进行无线局域网故障排除时，监控二层重传指标至关重要。</p>
-<p><strong>二层重传</strong><br>导致无线局域网性能下降的罪魁祸首是发生在MAC子层的二层重传。<br>无论哪种重传都会产生额外的MAC子层开销，导致半双工介质的占用时长消耗增加。</p>
-<p>二层重传增加介质占用时长，降低吞吐量。<br>二层重传引发流量交付出现延迟或抖动。对应时敏应用产生明显影响。</p>
-<p>延迟指到达时间延缓；抖动指部分数据包与所有数据包平均延迟的时间差。</p>
-<p>二层重传是多种因素共同作用的结果。多径、射频干扰、低信噪比、隐藏节点、功率设置失配、邻信道干扰等。</p>
-<p><strong>信噪比</strong><br>信噪比高于25dB表明信号质量较好；<br>信噪比低于10dB表明信号质量较差；</p>
-<p>为了确保帧传输成功，许多供应商建议数据无线局域网的信噪比至少达到20dB，语音无线局域网至少达到25dB。</p>
-<p><strong>邻信道干扰</strong><br>编号相邻的信道之间频率重叠导致的干扰。</p>
-<p><strong>隐藏节点</strong><br>如果只有接入点能侦听到某个客户端的传输，而基本服务集中其他客户端无法侦听到该客户端的传输，则会出现隐藏节点问题。</p>
-<p>协议分析仪是确定隐藏节点的有力工具。如果协议分析仪发现某个客户端的MAC地址重传率高于其他客户端，则该客户端很有可能是隐藏节点。</p>
-<p>隐藏节点通过执行RTS/CTS来保留介质并迫使其他所有客户端停止传输，从而减少冲突和重传次数。</p>
-<p>RTS/CTS也会降低吞吐量，但疑似隐藏节点执行RTS/CTS时，由于减少冲突和重传，吞吐量反而会提高。</p>
-<p>解决隐藏节点的方法：<br>1.使用RTS/CTS<br>2.增加所有客户端的功率<br>3.移走障碍物<br>4.移走隐藏节点<br>5.增加接入点</p>
-<p><strong>功率失配</strong><br>客户端移动到覆盖区的外缘时，客户端可以侦听到接入点，但接入点无法侦听到客户端，引发功率失配问题。更多的发生在室外环境。</p>
-<p>为确定是否存在接入点/客户端功率失配问题，可以利用协议分析仪进行监听。如果在接入点附近监听时发现客户端的帧传输损坏，而在客户端附近监听没有发现<br>帧传输损坏，则说明存在接入点/客户端功率失配问题。</p>
-<p>接入点功率过大，往往会导致功率失配。</p>
-<p>功率失配的更大问题往往是客户端的发射功率高于室内环境中部署的接入点。而且客户端通常处于移动状态，导致通信的干扰等。</p>
-<p>启用802.11k的接入点可以通知关联的客户端使用发射功率控制（TPC）功能来动态调整发射振幅，以便接入点和客户端功率匹配。这会显著减少客户端引起的<br>通信的干扰。启用TPC，部分遗留客户端可能无法连接到接入点。</p>
-<p><strong>多径</strong><br>对遗留的802.11a/b/g设备而言，多径堪称梦魇。<br>对于利用多输入多输出（MIMO）天线和最大合并比（MRC）信号处理技术的802.11n/ac传输来说，多径反而具有积极效果。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/24/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4-%E4%B8%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
