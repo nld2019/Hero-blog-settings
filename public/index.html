@@ -146,6 +146,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-adb-error-常用解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/17/adb-error-%E5%B8%B8%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">adb error 常用解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/17/adb-error-%E5%B8%B8%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2022-06-17T05:34:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1，adb-shell-提示：error-insufficient-permissions"><a href="#1，adb-shell-提示：error-insufficient-permissions" class="headerlink" title="1，adb shell 提示：error: insufficient permissions"></a>1，adb shell 提示：error: insufficient permissions</h2><blockquote>
+<p>user@HP:~/work/tcumtk2731\$ adb shell<br>error: insufficient permissions for device<br>user@HP:~/work/tcumtk2731\$</p>
+<p>1) adb devices 确认设备情况<br>user@HP:~/work/tcumtk2731\$ adb devices</p>
+<ul>
+<li>daemon not running. starting it now on port 5037 *</li>
+<li>daemon started successfully *<br>List of devices attached<br>????????????    no permissions</li>
+</ul>
+<p>2) 找到adb 的所在路径<br>user@HP:~/work/tcumtk2731\$ which adb<br>/usr/bin/adb<br>user@HP:~/work/tcumtk2731\$ cd /usr/bin/</p>
+<p>3) 查看adb的权限<br>user@HP:/usr/bin\$ ls -l adb<br>-rwxr-xr-x 1 root root 160912 4月   1  2016 adb<br>user@HP:/usr/bin\$</p>
+<p>4)添加设置用户ID权限位<br>root@HP:/usr/bin# chmod u+s adb<br>root@HP:/usr/bin# ls -l adb<br>-rwsr-xr-x 1 root root 160912 4月   1  2016 adb<br>root@HP:/usr/bin#</p>
+<p>5）重启 adb server<br>user@HP:/usr/bin\$ adb kill-server<br>user@HP:/usr/bin\$<br>user@HP:/usr/bin\$ adb start-server</p>
+<ul>
+<li>daemon not running. starting it now on port 5037 *</li>
+<li>daemon started successfully *<br>user@HP:/usr/bin\$</li>
+</ul>
+<p>6)查看adb设备情况<br>user@HP:/usr/bin\$ adb devices<br>List of devices attached<br>B6FAEFAC    device</p>
+<p>user@HP:/usr/bin\$</p>
+</blockquote>
+<h2 id="2，遇到问题no-permissions-verify-udev-rules"><a href="#2，遇到问题no-permissions-verify-udev-rules" class="headerlink" title="2，遇到问题no permissions (verify udev rules)"></a>2，遇到问题no permissions (verify udev rules)</h2><blockquote>
+<p>user@HP:/usr/bin\$ adb devices<br>List of devices attached<br>B6FAEFAC    no permissions (verify udev rules); see [<a target="_blank" rel="noopener" href="http://developer.android.com/tools/device.html">http://developer.android.com/tools/device.html</a>]</p>
+<p>1）查看当前设备的 vendor ID 和 product ID<br>user@HP:/etc/udev/rules.d\$ lsusb<br>Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub<br>Bus 001 Device 006: ID 18d1:4ee7 Google Inc.<br>Bus 001 Device 003: ID 413c:2105 Dell Computer Corp. Model L100 Keyboard<br>Bus 001 Device 002: ID 03f0:1f4a Hewlett-Packard<br>Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub<br>user@HP:/etc/udev/rules.d\$<br>user@HP:/etc/udev/rules.d\$</p>
+<p>2） 将上面的两个ID添加到51-android.rules文件中<br>user@HP:/etc/udev/rules.d\$ cat 51-android.rules<br>SUBSYSTEM==”usb”, ATTR{idVendor}==”18d1”, ATTR{idProduct}==”4ee7”, MODE=”0666”,GROUP=”plugdev”<br>user@HP:/etc/udev/rules.d\$</p>
+</blockquote>
+<h2 id="3，执行adb-shell-时报错-error-device-not-found"><a href="#3，执行adb-shell-时报错-error-device-not-found" class="headerlink" title="3，执行adb shell 时报错 error: device not found."></a>3，执行adb shell 时报错 error: device not found.</h2><blockquote>
+<p>1）使用lsusb 查看usb设备<br>Bus 002 Device 002: ID 8087:8000 Intel Corp.<br>Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub<br>Bus 001 Device 002: ID 8087:8008 Intel Corp.<br>Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub<br>Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub<br>Bus 003 Device 002: ID 0461:4e04 Primax Electronics, Ltd<br>Bus 003 Device 011: ID 2717:9039  //我的设备<br>Bus 003 Device 003: ID 17ef:6019 Lenovo<br>Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</p>
+<p>若不知道哪个是你的设备,可以拔掉后lsusb,然后对比即可.</p>
+<p>2）创建adb_usb.ini文件，写入id</p>
+<p>在home下寻找.android目录,在此目录下新建一个文件adb_usb.ini.</p>
+<p>echo 0x2717&gt; ~/.android/adb_usb.ini</p>
+<p>3）添加权限<br>sudo vim /etc/udev/rules.d/70-android.rules</p>
+<p>加入设备的相关ID<br>SUBSYSTEM==”usb”, ATTRS{idVendor}==”2717”, ATTRS{idProduct}==”9039”,MODE=”0666”</p>
+<p>4）重启USB服务<br>\$sudo chmod a+rx /etc/udev/rules.d/70-android.rules<br>\$sudo service udev restart</p>
+<p>5）重启adb服务，adb devices有设备说明adb安装成功<br>\$adb kill-server</p>
+<p>\$sudo adb start-server</p>
+<p>\$adb devices<br>List of devices attached<br>5cb00b6 device</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Misc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/17/adb-error-%E5%B8%B8%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vscode-compile-commands-json-generate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1228,121 +1339,6 @@ status = mlan_ioctl(priv-&gt;phandle-&gt;pmlan_adapter, req);
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/06/12/CODE-ANALYSIS-4-scan-process/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CODE-ANALYSIS-3-fw-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/12/CODE-ANALYSIS-3-fw-init/">CODE-ANALYSIS:3-fw-init</a>
-    </h1>
-  
-
-        
-        <a href="/2022/06/12/CODE-ANALYSIS-3-fw-init/" class="archive-article-date">
-  	<time datetime="2022-06-11T16:23:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-12</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Fri Jun  3 18:26:11 CST 2022</p>
-<p>// init firmware</p>
-<p>mlan_status<br>woal_init_fw(moal_handle *handle)</p>
-<p>log the fw request time to req_fw_time</p>
-<p>execute fw init, this function download FW using helper<br>    ret = woal_request_fw(handle);</p>
-<p>// the real function used to download firmware<br>ret = woal_request_fw_dpc(handle,</p>
-<p>// Download and init firmware DPC<br>woal_init_fw_dpc(moal_handle *handle)</p>
-<p>// download firmware<br>ret = mlan_dnld_fw(handle-&gt;pmlan_adapter, &amp;fw);<br>   ret = pmadapter-&gt;ops.dnld_fw(pmadapter, pmfw);</p>
-<pre><code>// This function download firmware to card
-static mlan_status
-wlan_sdio_dnld_fw(pmlan_adapter pmadapter, pmlan_fw_image pmfw)
-</code></pre><p>// request dpd data</p>
-<p>// request txpwr data</p>
-<p>// request cal data</p>
-<p>// init data to MLAN<br>    ret = mlan_set_init_param(handle-&gt;pmlan_adapter, &amp;param);</p>
-<p>// this function init firmware<br>    ret = mlan_init_fw(handle-&gt;pmlan_adapter);<br>    /<em> Initialize firmware, may return PENDING </em>/<br>        ret = wlan_init_fw(pmadapter);</p>
-<pre><code>        /* Initialize adapter structure */
-            wlan_init_adapter(pmadapter);
-
-        wlan_adapter_get_hw_spec(pmadapter);
-</code></pre><p>// send the first command 0xa9  to firmware<br>    ret = wlan_prepare_cmd(priv, HostCmd_CMD_FUNC_INIT, HostCmd_ACT_GEN_SET,<br>                       0, MNULL, MNULL);<br>/<em>* Host Command ID : Function initialization </em>/</p>
-<h1 id="define-HostCmd-CMD-FUNC-INIT-0x00a9"><a href="#define-HostCmd-CMD-FUNC-INIT-0x00a9" class="headerlink" title="define HostCmd_CMD_FUNC_INIT 0x00a9"></a>define HostCmd_CMD_FUNC_INIT 0x00a9</h1><p>//prepare the command</p>
-<p>// insert the command to queue to firmware</p>
-<p>// process DPD data</p>
-<p>// process txpwr data</p>
-<p>// preapre command to firmware<br>/<em>* Host Command ID : Cal data dnld </em>/</p>
-<h1 id="define-HostCmd-CMD-CFG-DATA-0x008f"><a href="#define-HostCmd-CMD-CFG-DATA-0x008f" class="headerlink" title="define HostCmd_CMD_CFG_DATA 0x008f"></a>define HostCmd_CMD_CFG_DATA 0x008f</h1><p>/<em>* use to query chan region cfg setting in firmware </em>/</p>
-<h1 id="define-HostCmd-CMD-CHAN-REGION-CFG-0x0242"><a href="#define-HostCmd-CMD-CHAN-REGION-CFG-0x0242" class="headerlink" title="define HostCmd_CMD_CHAN_REGION_CFG 0x0242"></a>define HostCmd_CMD_CHAN_REGION_CFG 0x0242</h1><p>/<em>* Host Command ID : Get hardware specifications </em>/</p>
-<h1 id="define-HostCmd-CMD-GET-HW-SPEC-0x0003"><a href="#define-HostCmd-CMD-GET-HW-SPEC-0x0003" class="headerlink" title="define HostCmd_CMD_GET_HW_SPEC 0x0003"></a>define HostCmd_CMD_GET_HW_SPEC 0x0003</h1><p>// Add interface DPC<br>woal_add_card_dpc(moal_handle <em>handle)<br>        /</em> Add interfaces */<br>        for (i = 0; i &lt; handle-&gt;drv_mode.intf_num; i++) {<br>                if (handle-&gt;drv_mode.bss_attr[i].bss_virtual)<br>                        continue;<br>                if (!woal_add_interface(handle, handle-&gt;priv_num,<br>                                        handle-&gt;drv_mode.bss_attr[i].<br>                                        bss_type)) {<br>                        ret = MLAN_STATUS_FAILURE;<br>                        goto err;<br>                }<br>        }</p>
-<p>// print driver version number<br>    woal_get_version(handle, str_buf, sizeof(str_buf) - 1);<br>        PRINTM(MMSG, “wlan: version = %s\n”, str_buf);</p>
-<p>// This function add new  interface.<br>moal_private <em><br>woal_add_interface(moal_handle </em>handle, t_u8 bss_index, t_u8 bss_type)</p>
-<p>// define interface name, such as mlan0, wlan0, uap0 etc.</p>
-<p>// init bss type, bss role type</p>
-<p>// init tcp session queue</p>
-<p>// init tx status queue</p>
-<p>woal_init_sta_dev(dev, priv);</p>
-<p>/<em> Register cfg80211 for STA or Wifi direct </em>/<br>if (woal_register_sta_cfg80211(dev, bss_type)) {</p>
-<p>// send domain info command to fw<br>        priv-&gt;phandle-&gt;band = IEEE80211_BAND_2GHZ;<br>        woal_send_domain_info_cmd_fw(priv, MOAL_IOCTL_WAIT);<br>        priv-&gt;phandle-&gt;band = IEEE80211_BAND_5GHZ;<br>        woal_send_domain_info_cmd_fw(priv, MOAL_IOCTL_WAIT);<br>        priv-&gt;phandle-&gt;band = band;</p>
-<p>// create sche scan work queue</p>
-<p>// create csa work queue</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code analysis, Wi-Fi, Driver;</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/12/CODE-ANALYSIS-3-fw-init/">展开全文 >></a>
         </p>
       
 

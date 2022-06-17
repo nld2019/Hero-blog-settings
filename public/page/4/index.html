@@ -146,6 +146,161 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-802-11-MAC-体系结构-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/15/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/">CWNA:802.11 MAC 体系结构(二)</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/15/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/" class="archive-article-date">
+  	<time datetime="2022-02-15T02:03:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-15</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="802-11-MAC-帧头"><a href="#802-11-MAC-帧头" class="headerlink" title="802.11 MAC 帧头"></a>802.11 MAC 帧头</h3><p>MAC帧头属于二层信息，二层信息没有加密，可以通过协议分析仪查看内容。<br>MAC帧头由9个字段构成，4个字段用于寻址，5个字段用于控制</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">帧控制</th>
+<th style="text-align:center">持续时间/ID</th>
+<th style="text-align:center">地址1</th>
+<th style="text-align:center">地址2</th>
+<th style="text-align:center">地址3</th>
+<th style="text-align:center">序列控制</th>
+<th style="text-align:center">地址4</th>
+<th style="text-align:center">QoS控制</th>
+<th style="text-align:center">HT控制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2字节</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">0 or 6</td>
+<td style="text-align:center">0 or 6</td>
+<td style="text-align:center">0 or 2</td>
+<td style="text-align:center">0 or 6</td>
+<td style="text-align:center">0 or 2</td>
+<td style="text-align:center">0 or 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>帧控制字段</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">协议版本</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">子类型</th>
+<th style="text-align:center">发往DS</th>
+<th style="text-align:center">来自DS</th>
+<th style="text-align:center">更多分片</th>
+<th style="text-align:center">重试</th>
+<th style="text-align:center">电源管理</th>
+<th style="text-align:center">更多数据</th>
+<th style="text-align:center">受保护帧</th>
+<th style="text-align:center">+HTC/顺序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>目前协议版本只有一种，值为0<br>帧类型四种：<br>管理帧（00）， 发现接入点并加入基本服务集<br>控制帧（01）， 确认传输成功并保留无线介质<br>数据帧（10）， 携带上层MSDU净荷<br>扩展帧（11）， 一种新的灵活帧格式，仅用于802.11ad</p>
+<p>由于帧类型多，类型和子类型字段共同决定帧类型，具体子类型可以抓控制包查看。</p>
+<p>重试字段，802.11 MAC帧头中最重要的字段之一。<br>0：表示首次传输<br>1：表示重传<br>可以通过重试字段设置为1的管理帧和数据帧计算二层重传率。</p>
+<p>受保护帧字段，标识数据帧的MSDU净荷是否加密。<br>0：未加密<br>1：加密</p>
+<p><strong>持续时间/ID字段</strong><br>多数情况，持续时间字段用于虚载波监听，用来设置NAV的倒数计数器；<br>个别情况，遗留的电源管理，客户端利用节电轮询帧的持续时间/ID向接入点通过电源管理状态。</p>
+<p><strong>MAC 寻址</strong><br>MAC地址分为两类：<br>单地址，分配给网络中唯一终端的地址<br>组地址，一个和多个终端使用的目的地址<br>多播地址，上层实体用于定义终端逻辑组的地址<br>广播地址，FF:FF:FF:FF:FF:FF</p>
+<p>MAC地址6字节：<br>前三个字节，组织唯一标识符（OUI)<br>后三个字节，扩展标识符</p>
+<p>源地址（SA)，原发终端的MAC地址；<br>目的地址(DA)，二层帧最终目的地的MAC地址；<br>发射机地址(TA)，发送端802.11无线接口的MAC地址<br>接收机地址(RA)，接收端802.11无线接口的MAC地址</p>
+<p><strong>发往DS和来自DS字段</strong><br>00  常用于管理帧和控制帧<br>01  表示接入点向客户端发送802.11数据帧（下行传输）<br>10  表示客户端向接入点发送802.11数据帧（上行传输）<br>11  表示使用无线分布系统，需要4个地址，源和目的通过中间的发送和接收转接。</p>
+<p><strong>序列控制字段</strong><br>两字节，在802.11 MSDU分片时使用。<br>分片总是在帧突发中传输，较小分片会降低数据吞吐量。<br>支持帧聚合和块确认的802.11n/ac网络不需要分片机制。</p>
+<p><strong>Qos控制字段</strong><br>2字节，仅有Qos数据帧的帧头使用该字段。</p>
+<p><strong>HT控制字段</strong><br>用于802.11n/ac发射机和接收机的链路自适应、发射波束成形等高级功能。</p>
+<h3 id="802-11-MAC-帧体"><a href="#802-11-MAC-帧体" class="headerlink" title="802.11 MAC 帧体"></a>802.11 MAC 帧体</h3><p>控制帧没有帧体。<br>802.11管理帧又称MAC管理协议数据单元（MMPDU），不携带任何上层信息。帧体包含二层信息字段和信息原始。帧体没有加密。<br>数据帧，携带上层信息，可以通过加密来保护。<br>null data的数据帧也没有帧体。特殊功能。</p>
+<h3 id="802-11-MAC-帧尾"><a href="#802-11-MAC-帧尾" class="headerlink" title="802.11 MAC 帧尾"></a>802.11 MAC 帧尾</h3><p>携带整个帧数据完整性校验信息。<br>帧校验失败，将导致帧重传。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/15/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-802-11-MAC-体系结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1180,171 +1335,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/01/14/CWNA-%E5%B0%84%E9%A2%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E5%A4%A9%E7%BA%BF%E6%A6%82%E5%BF%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-射频基础知识-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/12/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-5/">CWNA:射频基础知识(5)</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/12/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-5/" class="archive-article-date">
-  	<time datetime="2022-01-12T02:11:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="本底噪声"><a href="#本底噪声" class="headerlink" title="本底噪声"></a>本底噪声</h3><p>本底噪声(noise floor)，特定信道上的无线电能量的环境或背景电平。<br>这种背景能量来自附近传输数据的802.11无线接口产生的调制或编码比特，也包括非802.11设备（如微波炉，蓝牙设备等）产生的未调制能量。<br>本底噪声也称为背景噪声，它因环境而异。<br>2.4GHz ISM信道的本底噪声通常为 -100dBm左右。<br>5GHz的本底噪声几乎总是低于2.4GHz信道。</p>
-<h3 id="信噪比-SNR"><a href="#信噪比-SNR" class="headerlink" title="信噪比(SNR)"></a>信噪比(SNR)</h3><p>接收信号与背景噪声之间的分贝差值，而并非比值。<br>信噪比过低会引起数据破坏，并引起二层重传，从而降低数据吞吐量。<br>SNR &gt; 25dB 信号质量较好<br>SNR &lt; 10dB 信号质量较差</p>
-<h3 id="信干噪比-SINR"><a href="#信干噪比-SINR" class="headerlink" title="信干噪比(SINR)"></a>信干噪比(SINR)</h3><p>主射频信号功率相对于射频干扰和背景噪声功率之和的差值。<br>描述了主射频信号与干扰和噪声之间的关系，更好的描述信号在特定时间发生的变化。</p>
-<h3 id="接收信号强度指示"><a href="#接收信号强度指示" class="headerlink" title="接收信号强度指示"></a>接收信号强度指示</h3><p>接收灵敏度，表示接收机无线接口成功接收射频信号所需的功率电平。</p>
-<p>无线通信中无处不在的折衷，需要根据需要进行选择。关键是做好平衡。</p>
-<blockquote>
-<p>功率越高支持的数据速率越高；<br>调制技术和编码方案产生的数据速率也不同；<br>调制技术和编码方案的数据速率越高，数据越容易遭到破坏；<br>调制和编码方法的数据速率越低，数据越不易遭到破坏。</p>
-</blockquote>
-<p>RSSI，信号强度指示，不同供应商之间的定义范围不同，不能直接比较。</p>
-<p>接收灵敏度阈值</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">数据速率</th>
-<th style="text-align:center">接收信号的振幅</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">MCS7</td>
-<td style="text-align:center">-77dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">MCS6</td>
-<td style="text-align:center">-78dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">MCS5</td>
-<td style="text-align:center">-80dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">MCS4</td>
-<td style="text-align:center">-85dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">MCS3</td>
-<td style="text-align:center">-88dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">MCS2</td>
-<td style="text-align:center">-90dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">MCS1</td>
-<td style="text-align:center">-90dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">MCS0</td>
-<td style="text-align:center">-90dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">54Mbps</td>
-<td style="text-align:center">-79dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">48Mbps</td>
-<td style="text-align:center">-80dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">36Mbps</td>
-<td style="text-align:center">-85dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">24Mbps</td>
-<td style="text-align:center">-87dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">18Mbps</td>
-<td style="text-align:center">-90dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">12Mbps</td>
-<td style="text-align:center">-91dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">9Mbps</td>
-<td style="text-align:center">-91dBm</td>
-</tr>
-<tr>
-<td style="text-align:center">6Mbps</td>
-<td style="text-align:center">-91dBm</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="链路预算"><a href="#链路预算" class="headerlink" title="链路预算"></a>链路预算</h3><p>发射机无线接口经由射频介质到达接收机无线接口的所有增益与损耗之和。<br>旨在确保最终接收到的信号振幅高于接收机无线接口的接收灵敏度。</p>
-<p>在所有的射频传输中，导致信号丢失的罪魁祸首是<strong>自由空间路径损耗</strong></p>
-<h3 id="衰落裕度-fade-margin"><a href="#衰落裕度-fade-margin" class="headerlink" title="衰落裕度(fade margin)"></a>衰落裕度(fade margin)</h3><p>最终接收信号与接收灵敏度阈值之间存在的缓冲空间，称为衰落裕度。<br>由于射频信号受到多种外部因素影响，衰落裕度用来确保链路可靠性的做法十分普遍。</p>
-<h3 id="系统运行裕度"><a href="#系统运行裕度" class="headerlink" title="系统运行裕度"></a>系统运行裕度</h3><p>实际接收信号与实现可靠通信所需要的信号之间的差值。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/12/CWNA-%E5%B0%84%E9%A2%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-5/">展开全文 >></a>
         </p>
       
 
