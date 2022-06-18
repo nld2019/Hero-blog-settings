@@ -146,6 +146,128 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CWNA-无线局域网安全体系结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/25/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">CWNA:无线局域网安全体系结构</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/25/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2022-02-25T08:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-25</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>无线局域网安全基础知识</p>
+<blockquote>
+<p>数据隐私与完整性<br>身份验证、授权与记账<br>分段<br>监控与策略</p>
+</blockquote>
+<p>遗留安全机制</p>
+<blockquote>
+<p>遗留的身份验证机制<br>静态WEP加密<br>MAC过滤<br>SSID隐藏</p>
+</blockquote>
+<p>强健安全机制</p>
+<blockquote>
+<p>强健安全网络<br>身份验证与授权<br>预共享密钥身份验证<br>专有的预共享密钥身份验证<br>对等实体同时验证<br>802.1X/EAP框架<br>EAP类型<br>动态加密密钥生成<br>四次握手<br>无线局域网加密<br>TKIP加密<br>CCMP加密<br>CGMP加密</p>
+</blockquote>
+<p>流量分段</p>
+<blockquote>
+<p>虚拟局域网<br>基于角色的访问控制</p>
+</blockquote>
+<p>WPA3</p>
+<p>虚拟专用网安全</p>
+<blockquote>
+<p>VPN基础知识<br>三层VPN<br>SSL VPN<br>VPN部署</p>
+</blockquote>
+<h3 id="无线局域网安全基础知识"><a href="#无线局域网安全基础知识" class="headerlink" title="无线局域网安全基础知识"></a>无线局域网安全基础知识</h3><p>考虑射频信号传输的无缚性和开放性，为确保数据隐私，采用强有力的加密机制必不可少。</p>
+<p><strong>数据隐私与完整性</strong><br>在计算机行业中，将明文转换为密文的过程通常称为加密。<br>将密文还原称明文的过程称为解密。</p>
+<p>ARC4算法是一种流密码。<br>AES算法安全性优于ARC4流密码的分组密码。</p>
+<p>WEP采用完整性校验值（ICV）<br>TKIP采用消息完整性校验（MIC）<br>CCMP采用消息完整性校验（MIC），不过安全性由于TKIP或WEP的数据完整性机制。</p>
+<p><strong>身份验证、授权与记账（AAA）</strong><br>身份验证，验证身份和凭证是否有效。</p>
+<p>授权，决定是否给予用户或设备访问网络资源的权限。</p>
+<p>记账，跟踪用户或设备使用网络资源的情况。</p>
+<p><strong>分段</strong><br>目的是在网络中分隔用户流量。<br>分段能结合基于角色的访问控制使用。</p>
+<p><strong>监控与策略</strong><br>监控无线网络的性能；<br>监控无线网络的攻击和入侵。</p>
+<h3 id="遗留安全机制"><a href="#遗留安全机制" class="headerlink" title="遗留安全机制"></a>遗留安全机制</h3><p>遗留的安全机制早已破解。</p>
+<p><strong>遗留的身份验证机制</strong><br>802.11原始标准定义了两种身份验证机制：开放系统身份验证  和  共享密钥身份验证。</p>
+<p>遗留的身份验证机制与其说是验证用户身份，不如说是验证功能，其目的是确定两台设备是否为合法的802.11设备。</p>
+<p>共享密钥身份验证采用WEP验证客户端都能通过验证，并关联到接入点后获得网络资源的访问权限，需要4次身份验证帧：<br>1）客户端向接入点发送身份验证请求帧；<br>2）接入点向客户端发送包含明文质询消息的身份验证响应帧；<br>3）客户端加密明文质询消息，将其封装到另一个身份验证请求帧并发生给接入点。<br>4）接入点解密客户端质询消息，并与原质询消息比较。<br>如果二者匹配，验证成功；<br>如果二者不匹配，拒绝客户端的身份验证请求。</p>
+<p>安全隐患：任何人只有截获接入点的明文质询消息以及客户端返回的加密质询消息，就可能提取静态WEP密钥。攻击者一旦破解WEP密钥，<br>就可以之间破解数据帧并之间访问网络，网络将无密码可言。</p>
+<p><strong>静态WEP加密</strong><br>WEP旨在实现3个目标：<br>机密性，在传输前加密数据以提供隐私性。<br>访问控制，一种简单的授权形式。<br>数据完整性，加密前需要计算数据完整性和（ICV），防止数据遭到篡改。</p>
+<p>64位WEP称为WEP-40, 由40位静态密钥和24位初始化向量构成。 由10个16进制或5个ASCII字符构成。<br>128位WEP称为WEP-104, 由104位静态密钥和24位出生向量构成。由26个16进制或13个ASCII字符构成。</p>
+<p>客户端和接入点最多能配置4把独立的静态WEP密钥，用户可选择一把作为默认的静态密钥。 可以采用不同的密钥分别加密发送流量和接收流量。</p>
+<p>WEP存在大量安全隐患，4种主要的攻击：<br>IV冲突攻击， 由于24位的IV以明文形式传输且每一帧的IV都不同，如果采用WEP加密的流量大，那么IV在一定时间内必定重复。如果冲突发送，攻击者很容易破解密钥。</p>
+<p>弱密钥攻击， ARC4会生成一部分弱IV密钥。通过恢复已知的弱IV密钥，攻击者很容易破解密码。</p>
+<p>回注攻击， 对流量较少的网络，攻击者利用黑客工具发动数据包回注攻击，以加快收集弱IV密钥的速率。</p>
+<p>比特翻转攻击， ICV数据完整性校验安全性较差，经过WEP加密的数据包可能遭到篡改。</p>
+<p><strong>MAC过滤</strong><br>每块网卡有唯一的物理地址，MAC地址。<br>所有的MAC过滤都是特定于供应商的。<br>MAC地址可以欺骗或假冒。</p>
+<p>由于MAC地址容易遭到欺骗且配置MAC过滤器比较烦琐，因此MAC过滤并非包含企业无线网的可靠手段。</p>
+<p><strong>SSID隐藏</strong><br>多少接入点提供封闭网络，隐藏SSID或隐身模式的设置，启用后就能隐藏无线网络的名称。 这时信标帧的SSID字段位空。</p>
+<p>启用封闭网络的接入点仍然会响应发送定向探询请求帧（包含特定SSID）的客户端。如此一来，合法的用户仍然可以通过身份验证并关联到接入点，<br>而没有配置正确SSID的客户端无法通过身份验证或关联到客户端。</p>
+<p>只有使用合适的工具，通常只需要几秒的时间就可以发送隐藏的SSID。强烈建议不要隐藏SSID。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/25/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CWNA-无线攻击、入侵监控与安全策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1245,96 +1367,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/02/16/CWNA-802-11-MAC-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%B8%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux-shell-script-实践记录-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/15/Linux-shell-script-%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95-%E4%B8%80/">Linux shell script 实践记录(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/15/Linux-shell-script-%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95-%E4%B8%80/" class="archive-article-date">
-  	<time datetime="2022-02-15T10:02:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-15</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文展示一个Linux shell scpript实例。其中涉及的的一些Linux和shell相关的知识的如下：</p>
-<ol>
-<li>shell script 首行语法</li>
-<li>shell 的注释方法及script的代码规范一般形式</li>
-<li>shell 条件语句</li>
-<li>shell scprit中调用另外一个shell script.</li>
-<li>while 循环</li>
-<li>获取系统参数并保存变量，变量计数</li>
-<li>输出重定向及文件名创建编号。</li>
-<li>终端断开不杀脚本的方法</li>
-<li>Wi-Fi的连接操作等</li>
-</ol>
-<p>主shell script.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#ISSUE i simulation script.</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#Objects:Try to simulate the Wi-Fi interaction sequence to accelerate issue reproduce</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">Use method:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">1. Make sure the Wi-Fi is <span class="built_in">enable</span> when board power on.</span></span><br><span class="line"><span class="meta">#</span><span class="bash">2. adb push issue-i-test-tool /data/<span class="built_in">test</span>/</span></span><br><span class="line"><span class="meta">#</span><span class="bash">3. adb shell</span> </span><br><span class="line"><span class="meta">#</span><span class="bash">4. <span class="built_in">cd</span> /data/<span class="built_in">test</span>/</span></span><br><span class="line"><span class="meta">#</span><span class="bash">5. nohup sh issue_i_simulate_script.sh &amp;</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">Stop Android framework</span></span><br><span class="line">stop</span><br><span class="line"></span><br><span class="line">rm -rf /data/dump_*</span><br><span class="line">cp ./hostapd_ap0.conf /data/vendor/wifi/hostapd/hostapd_ap0.conf</span><br><span class="line">chown wifi:wifi /data/vendor/wifi/wpa/wpa_supplicant.conf</span><br><span class="line">chown wifi:wifi /data/vendor/wifi/hostapd/hostapd_ap0.conf</span><br><span class="line"></span><br><span class="line">dmesg -C</span><br><span class="line">ERR_NUM=0</span><br><span class="line">NUM=0</span><br><span class="line">if [ -e /data/test/kernel_log ]; then</span><br><span class="line">   rm -rf /data/test/kernel_log/*</span><br><span class="line">   echo &quot;kernel_log dir exitst&quot;</span><br><span class="line">else</span><br><span class="line">    mkdir -p /data/test/kernel_log/</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">echo &quot;######## statrt new simulation #########&quot;</span><br><span class="line"></span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">    echo &quot;######## statrt new simulation #########&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">    #Load 8997 driver</span><br><span class="line">    #insmod mlan.ko</span><br><span class="line">    #insmod moal.ko drv_mode=3 sta_name=wlan0 uap_name=ap cal_data=none cfg80211_wext=0xf fw_name=nxp/sdiouart_combo.bin</span><br><span class="line">    </span><br><span class="line">    #ifconfig wlan0 up</span><br><span class="line">    </span><br><span class="line">    ##Start wpa_supplicant</span><br><span class="line">    #/vendor/bin/hw/wpa_supplicant -Dnl80211 -iwlan0 -c/data/vendor/wifi/wpa/wpa_supplicant.conf &amp;</span><br><span class="line">    #start wpa_supplicant</span><br><span class="line">    wpa_cli -i wlan0 disconnect</span><br><span class="line"></span><br><span class="line">    ##Set driver and FW debug level</span><br><span class="line">    mlanutl wlan0 drvdbg 0x800FF</span><br><span class="line">	sleep 1</span><br><span class="line"><span class="meta">	#</span><span class="bash"><span class="comment">#Set driver and FW debug level</span></span></span><br><span class="line">    mlanutl ap0 drvdbg 0x800FF</span><br><span class="line">    #cat /proc/kmsg &gt; ./kernel_log/kernel_log.txt &amp;</span><br><span class="line">    echo &quot;Set drvdbg 0x800FF and capture kernel log.&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">    </span><br><span class="line">    ##Start scan every 10 seconds</span><br><span class="line">    sh /data/test/cycle_scan.sh $NUM &amp;</span><br><span class="line">    </span><br><span class="line">    ##Start AP</span><br><span class="line">    ##hostapd hostap.conf</span><br><span class="line">    echo &quot;------START SOFT AP-----&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">    start hostapd</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    media_state=$(cat /proc/mwlan/adapter0/wlan0/info  | grep -i media_state | cut -b 14-22)</span><br><span class="line">    echo &quot;$media_state&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">    </span><br><span class="line">    NUM_CONNECT=0</span><br><span class="line">    ##Connect remote ap specified by ssid</span><br><span class="line">    while true</span><br><span class="line">    do</span><br><span class="line">        #wpa_cli -i wlan0 remove_net all</span><br><span class="line">        #wpa_cli -i wlan0 flush</span><br><span class="line">        #wpa_cli -i wlan0 add_network</span><br><span class="line">        #wpa_cli -i wlan0 set_network 0 ssid &#x27;&quot;SSID&quot;&#x27;</span><br><span class="line">        #wpa_cli -i wlan0 set_network 0 key_mgmt NONE</span><br><span class="line">        #wpa_cli -i wlan0 set_network 0 proto WPA2</span><br><span class="line">        #wpa_cli -i wlan0 set_network 0 pairwise GCMP-256 CCMP TKIP</span><br><span class="line">        #wpa_cli -i wlan0 set_network 0 group GCMP-256 CCMP TKIP</span><br><span class="line">        #wpa_cli -i wlan0 set_network 0 psk &#x27;&quot;password&quot;&#x27;</span><br><span class="line">        wpa_cli -i wlan0 select_network 0</span><br><span class="line">    	</span><br><span class="line">        sleep 5</span><br><span class="line">        media_state=$(cat /proc/mwlan/adapter0/wlan0/info  | grep -i media_state | cut -b 14-22)</span><br><span class="line">        if [ &quot;$media_state&quot; == &quot;Disconnec&quot; ]; then</span><br><span class="line">            let NUM_CONNECT+=1</span><br><span class="line">            echo &quot;Try to connect again.NUM_CONNECT is $NUM_CONNECT&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">        else</span><br><span class="line">            echo &quot;-----Connect success.-----&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">    	    break</span><br><span class="line">        fi</span><br><span class="line">    </span><br><span class="line">        if [ $NUM_CONNECT -gt 4 ]; then</span><br><span class="line">            echo &quot;Stop connect NUM_CONNECT is $NUM_CONNECT&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">            break</span><br><span class="line">        else</span><br><span class="line">            echo &quot;Continue connect&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">        fi</span><br><span class="line"></span><br><span class="line">        sleep 8</span><br><span class="line">    done</span><br><span class="line">    </span><br><span class="line">    ##DHCP</span><br><span class="line">    </span><br><span class="line">    #dhclient -i wlan0</span><br><span class="line">    </span><br><span class="line"><span class="meta">	#</span><span class="bash">Add some traffic</span></span><br><span class="line">	iperf -c &lt;IP&gt; -i 1 -t 10</span><br><span class="line">	</span><br><span class="line">    sleep 5</span><br><span class="line"></span><br><span class="line">    ##Stop AP</span><br><span class="line">    echo &quot;-----STOP AP-----&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">    stop hostapd</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">	#</span><span class="bash">Add some traffic</span></span><br><span class="line">	iperf -c &lt;IP&gt; -i 1 -t 10</span><br><span class="line"></span><br><span class="line">    i=1</span><br><span class="line">    while(($i&lt;6))</span><br><span class="line">    do</span><br><span class="line">	mlanutl wlan0 verext 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">        echo &quot;get verext info&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">        #echo &quot;get verext info&quot; </span><br><span class="line">	sleep 2</span><br><span class="line">        i=$(($i+1))</span><br><span class="line">    done</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    dmesg &gt; kernel_log/kernel_log.txt</span><br><span class="line"> </span><br><span class="line">    driver_state=$(cat /proc/mwlan/adapter0/wlan0/debug | grep -i driver_state | cut -b 14)</span><br><span class="line">    echo &quot;$driver_state&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line"></span><br><span class="line">    ##Dump FW log</span><br><span class="line">    if [ -e /data/dump_*/file_sdio_DUMP ]; then</span><br><span class="line">        echo &quot;DUMP success&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">        killall cycle_scan.sh</span><br><span class="line">        break</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    if [ $driver_state != 0 ]; then</span><br><span class="line">        echo &quot;debug_dump&quot; &gt; /proc/mwlan/adapter0/wlan0/config</span><br><span class="line">		killall cycle_scan.sh</span><br><span class="line">        break</span><br><span class="line">    else</span><br><span class="line">        killall cycle_scan.sh</span><br><span class="line">        #rm -rf /data/test/kernel_log/kernel_log_$NUM.txt</span><br><span class="line">        rm -rf /data/test/kernel_log/script_log_$NUM.txt</span><br><span class="line">        let NUM+=1</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    echo &quot;Continue utimost circle.&quot;</span><br><span class="line"></span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<p>被上面的script调用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash">This script is used to trigger cycle scan</span></span><br><span class="line">ERR_NUM=0</span><br><span class="line">NUM=0</span><br><span class="line">LOGNUM=$1</span><br><span class="line"></span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">    scan_result=$(wpa_cli -i wlan0 scan)</span><br><span class="line">    if [ &quot;$scan_result&quot; != &quot;OK&quot; ]; then</span><br><span class="line">		echo &quot;scan FAIL&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$LOGNUM.txt</span><br><span class="line">        ERR_NUM=$[$ERR_NUM + 1]</span><br><span class="line">    else</span><br><span class="line">        echo &quot;scan OK&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$LOGNUM.txt</span><br><span class="line">        ERR_NUM=0</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    if [ $ERR_NUM -gt 10 ]; then</span><br><span class="line">        echo &quot;Continuos scan ERR_NUM is $ERR_NUM&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$LOGNUM.txt</span><br><span class="line">        break</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    echo &quot;scan NUM is $NUM&quot; 2&gt;&amp;1 &gt;&gt; /data/test/kernel_log/script_log_$LOGNUM.txt</span><br><span class="line">    let NUM+=1</span><br><span class="line">    sleep 8</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Shell script</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/15/Linux-shell-script-%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95-%E4%B8%80/">展开全文 >></a>
         </p>
       
 

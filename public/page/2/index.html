@@ -146,6 +146,146 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CODE-ANALYSIS-4-scan-process" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/12/CODE-ANALYSIS-4-scan-process/">CODE-ANALYSIS:4-scan-process</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/12/CODE-ANALYSIS-4-scan-process/" class="archive-article-date">
+  	<time datetime="2022-06-12T06:17:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-12</time>
+</a>
+ 
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Fri Jun  3 20:55:15 CST 2022</p>
+<p>// driver scan process.</p>
+<p>/<em>* cfg80211 operations </em>/<br>static struct cfg80211_ops woal_cfg80211_ops = {<br>        .change_virtual_intf = woal_cfg80211_change_virtual_intf,<br>        .scan = woal_cfg80211_scan,</p>
+<ul>
+<li>@brief Request the driver to do a scan. Always returning</li>
+<li>zero meaning that the scan request is given to driver,</li>
+<li>and will be valid until passed to cfg80211_scan_done().</li>
+<li><p>To inform scan results, call cfg80211_inform_bss().<br><em><br>static int<br>woal_cfg80211_scan(struct wiphy </em>wiphy, struct cfg80211_scan_request *request)</p>
+<p>  PRINTM(MINFO, “Received scan request on %s\n”, dev-&gt;name);    </p>
+</li>
+</ul>
+<p>if (MLAN_STATUS_SUCCESS != woal_do_scan(priv, scan_req)) {</p>
+<p>// request scan<br>mlan_status<br>woal_do_scan(moal_private <em>priv, wlan_user_scan_cfg </em>scan_cfg)</p>
+<p>if (!scan_cfg)<br>        ret = woal_request_scan(priv, MOAL_NO_WAIT, NULL);<br>else<br>        ret = woal_request_userscan(priv, MOAL_NO_WAIT, scan_cfg);</p>
+<p>scan = (mlan_ds_scan *)ioctl_req-&gt;pbuf;<br>scan-&gt;sub_command = MLAN_OID_SCAN_USER_CONFIG;<br>ioctl_req-&gt;req_id = MLAN_IOCTL_SCAN;<br>ioctl_req-&gt;action = MLAN_ACT_SET;</p>
+<pre><code>/* Send IOCTL request to MLAN */
+    status = woal_request_ioctl(priv, ioctl_req, wait_option);
+
+
+
+status = mlan_ioctl(priv-&gt;phandle-&gt;pmlan_adapter, req);
+</code></pre><p>static mlan_operations mlan_sta_ops = {<br>        /<em> init cmd handler </em>/<br>        wlan_ops_sta_init_cmd,<br>        /<em> ioctl handler </em>/<br>        wlan_ops_sta_ioctl,<br>        /<em> cmd handler </em>/<br>        wlan_ops_sta_prepare_cmd,</p>
+<p>mlan_status<br>wlan_ops_sta_ioctl(t_void *adapter, pmlan_ioctl_req pioctl_req)</p>
+<p>case MLAN_IOCTL_SCAN:<br>status = wlan_scan_ioctl(pmadapter, pioctl_req);<br>break;</p>
+<p>// Get /set scan<br>static mlan_status<br>wlan_scan_ioctl(pmlan_adapter pmadapter, pmlan_ioctl_req pioctl_req)<br>PRINTM(MMSG, “wlan: %s START SCAN\n”, dev-&gt;name);</p>
+<p>// to start scan based on input config<br>case MLAN_OID_SCAN_USER_CONFIG:<br>status = wlan_scan_networks(pmpriv, pioctl_req,<br>                (wlan_user_scan_cfg *)<br>                pscan-&gt;param.user_scan.<br>                scan_cfg_buf);<br>break;</p>
+<p>// Construct and send multiple scan config commands to the firmware<br>    ret = wlan_scan_channel_list(pmpriv, pioctl_buf, max_chan_per_scan,<br>                         filtered_scan, &amp;pscan_cfg_out-&gt;config,<br>                        pchan_list_out, pscan_chan_list);</p>
+<p>// Send the scan command to the firmware with the specified cfg<br>    cmd_no = HostCmd_CMD_802_11_SCAN_EXT;<br>    else<br>            cmd_no = HostCmd_CMD_802_11_SCAN;<br>    ret = wlan_prepare_cmd(pmpriv, cmd_no, HostCmd_ACT_GEN_SET, 0,<br>                    MNULL, pscan_cfg_out);</p>
+<p>//     /<em> Get scan command from scan_pending_q and put to cmd_pending_q </em>/<br>    wlan_insert_cmd_to_pending_q(pmadapter,<br>                    pcmd_node, MTRUE);</p>
+<pre><code>PRINTM(MCMND, &quot;QUEUE_CMD: cmd=0x%x is queued\n&quot;, command);
+</code></pre><p>// main process<br>mlan_status<br>mlan_main_process(t_void *padapter)</p>
+<p>if (wlan_exec_next_cmd(pmadapter) ==</p>
+<p>// This function execute the next command in the cmd pending queue.<br>mlan_status<br>wlan_exec_next_cmd(mlan_adapter *pmadapter)</p>
+<p>util_unlink_list(pmadapter-&gt;pmoal_handle,<br>        &amp;pmadapter-&gt;cmd_pending_q,<br>        (pmlan_linked_list)pcmd_node, MNULL, MNULL);<br>wlan_release_cmd_lock(pmadapter);<br>ret = wlan_dnld_cmd_to_fw(priv, pcmd_node);</p>
+<p>// This function download a command to firmware<br>static mlan_status<br>wlan_dnld_cmd_to_fw(mlan_private <em>pmpriv, cmd_ctrl_node </em>pcmd_node)</p>
+<p>/<em> Send the command to lower layer </em>/<br>ret = pmadapter-&gt;ops.host_to_card(pmpriv, MLAN_TYPE_CMD,<br>                pcmd_node-&gt;cmdbuf, MNULL);</p>
+<p>mlan_adapter_operations mlan_sdio_ops = {<br>        .dnld_fw = wlan_sdio_dnld_fw,<br>        .host_to_card = wlan_sdio_host_to_card_ext,</p>
+<p>// This function sends data to card<br>static mlan_status<br>wlan_sdio_host_to_card_ext(pmlan_private pmpriv, t_u8 type,<br>               mlan_buffer <em>pmbuf, mlan_tx_param </em>tx_param)</p>
+<p>// This function will send the data to card by methods via the type of the data.(data/ command)<br>    ret = wlan_sdio_host_to_card(pmadapter, type, pmbuf, tx_param);</p>
+<p>/<em> Setup the timer after transmit command </em>/<br>pcb-&gt;moal_start_timer(pmadapter-&gt;pmoal_handle,<br>                pmadapter-&gt;pmlan_cmd_timer, MFALSE, timeout);</p>
+<p>==============================================================================================</p>
+<p>// This function handles events generated by firmware<br>mlan_status<br>wlan_ops_sta_process_event(t_void *priv)</p>
+<p>// process scan result through event<br>case EVENT_EXT_SCAN_REPORT:      // 0x58<br>PRINTM(MEVENT, “EVENT: EXT_SCAN Report (%d)\n”,<br>                pmbuf-&gt;data_len);<br>if (pmadapter-&gt;pscan_ioctl_req &amp;&amp; pmadapter-&gt;ext_scan)<br>        ret = wlan_handle_event_ext_scan_report(priv, pmbuf);<br>break;</p>
+<p>// This function handle the event extended scan report<br>mlan_status<br>wlan_handle_event_ext_scan_report(mlan_private <em>pmpriv, mlan_buffer </em>pmbuf)</p>
+<p>// This function parse and sotre the extended scan result<br>wlan_parse_ext_scan_result(pmpriv, pevent_scan-&gt;num_of_set, ptlv,<br>                   tlv_buf_left);</p>
+<p>// This fucnntion handle the event exteded scan status<br>case EVENT_EXT_SCAN_STATUS_REPORT:      // 0x7f<br>PRINTM(MEVENT, “EVENT: EXT_SCAN status report (%d)\n”,<br>                pmbuf-&gt;data_len);<br>pmadapter-&gt;ext_scan_timeout = MFALSE;<br>ret = wlan_handle_event_ext_scan_status(priv, pmbuf);<br>break;</p>
+<p>// print current scan status</p>
+<p>// update channel statistics from scan result<br>case TLV_TYPE_CHANNEL_STATS:<br>tlv_chan_stats = (MrvlIEtypes_ChannelStats_t *)tlv;<br>wlan_update_chan_statistics(pmpriv, tlv_chan_stats);<br>break;</p>
+<p>/<em> Now we got response from FW, cancel the command timer </em>/</p>
+<p>// process the resulting scan table<br>wlan_scan_process_results(pmpriv);<br>// Post process the scan table after a new scan command has completed<br>static t_void<br>wlan_scan_process_results(mlan_private *pmpriv)</p>
+<p>// check if the media_connected status<br>// if it is connected, update the status of the current work</p>
+<p>// find a specific compatible BSSID in the scan list<br>j = wlan_find_bssid_in_list(pmpriv,<br>                pmpriv-&gt;curr_bss_params.<br>                bss_descriptor.mac_address,<br>                pmpriv-&gt;bss_mode);</p>
+<p>// save the current beacon buffer<br>    wlan_save_curr_bcn(pmpriv);</p>
+<p>caculate the channel load</p>
+<p>update channel rssi</p>
+<p>/*</p>
+<ul>
+<li>Prepares domain info from scan table and downloads the</li>
+<li>domain info command to the FW.<br>*/<br>wlan_11d_prepare_dnld_domain_info_cmd(pmpriv);<br>PRINTM(MMSG, “wlan: SCAN COMPLETED: scanned AP count=%d\n”,<pre><code>       pmadapter-&gt;num_in_scan_table);
+</code></pre></li>
+</ul>
+<p>// This function parse country info from AP and download country info to FW<br>/<em> Check if connected </em>/<br>if (pmpriv-&gt;media_connected == MTRUE) {<br>        ret = wlan_11d_parse_dnld_countryinfo(pmpriv,<br>                        &amp;pmpriv-&gt;<br>                        curr_bss_params.<br>                        bss_descriptor);<br>} else {<br>        ret = wlan_11d_parse_dnld_countryinfo(pmpriv, MNULL);<br>}</p>
+<p>/<em> Generate domain info </em>/<br>wlan_11d_generate_domain_info(pmadapter, &amp;region_chan);</p>
+<p>/<em> Set domain info </em>/<br>ret = wlan_11d_send_domain_info(pmpriv, MNULL);<br>/<em> Send cmd to FW to set domain info </em>/<br>ret = wlan_prepare_cmd(pmpriv, HostCmd_CMD_802_11D_DOMAIN_INFO,<br>                HostCmd_ACT_GEN_SET, 0, (t_void *)pioctl_buf,<br>                MNULL);</p>
+<p>complete the scan ioctl</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code analysis, Wi-Fi, Driver;</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/12/CODE-ANALYSIS-4-scan-process/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CODE-ANALYSIS-3-fw-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1054,128 +1194,6 @@ wlan_sdio_dnld_fw(pmlan_adapter pmadapter, pmlan_fw_image pmfw)
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/02/28/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E4%BA%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CWNA-无线局域网安全体系结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/25/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">CWNA:无线局域网安全体系结构</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/25/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2022-02-25T08:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-25</time>
-</a>
- 
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>无线局域网安全基础知识</p>
-<blockquote>
-<p>数据隐私与完整性<br>身份验证、授权与记账<br>分段<br>监控与策略</p>
-</blockquote>
-<p>遗留安全机制</p>
-<blockquote>
-<p>遗留的身份验证机制<br>静态WEP加密<br>MAC过滤<br>SSID隐藏</p>
-</blockquote>
-<p>强健安全机制</p>
-<blockquote>
-<p>强健安全网络<br>身份验证与授权<br>预共享密钥身份验证<br>专有的预共享密钥身份验证<br>对等实体同时验证<br>802.1X/EAP框架<br>EAP类型<br>动态加密密钥生成<br>四次握手<br>无线局域网加密<br>TKIP加密<br>CCMP加密<br>CGMP加密</p>
-</blockquote>
-<p>流量分段</p>
-<blockquote>
-<p>虚拟局域网<br>基于角色的访问控制</p>
-</blockquote>
-<p>WPA3</p>
-<p>虚拟专用网安全</p>
-<blockquote>
-<p>VPN基础知识<br>三层VPN<br>SSL VPN<br>VPN部署</p>
-</blockquote>
-<h3 id="无线局域网安全基础知识"><a href="#无线局域网安全基础知识" class="headerlink" title="无线局域网安全基础知识"></a>无线局域网安全基础知识</h3><p>考虑射频信号传输的无缚性和开放性，为确保数据隐私，采用强有力的加密机制必不可少。</p>
-<p><strong>数据隐私与完整性</strong><br>在计算机行业中，将明文转换为密文的过程通常称为加密。<br>将密文还原称明文的过程称为解密。</p>
-<p>ARC4算法是一种流密码。<br>AES算法安全性优于ARC4流密码的分组密码。</p>
-<p>WEP采用完整性校验值（ICV）<br>TKIP采用消息完整性校验（MIC）<br>CCMP采用消息完整性校验（MIC），不过安全性由于TKIP或WEP的数据完整性机制。</p>
-<p><strong>身份验证、授权与记账（AAA）</strong><br>身份验证，验证身份和凭证是否有效。</p>
-<p>授权，决定是否给予用户或设备访问网络资源的权限。</p>
-<p>记账，跟踪用户或设备使用网络资源的情况。</p>
-<p><strong>分段</strong><br>目的是在网络中分隔用户流量。<br>分段能结合基于角色的访问控制使用。</p>
-<p><strong>监控与策略</strong><br>监控无线网络的性能；<br>监控无线网络的攻击和入侵。</p>
-<h3 id="遗留安全机制"><a href="#遗留安全机制" class="headerlink" title="遗留安全机制"></a>遗留安全机制</h3><p>遗留的安全机制早已破解。</p>
-<p><strong>遗留的身份验证机制</strong><br>802.11原始标准定义了两种身份验证机制：开放系统身份验证  和  共享密钥身份验证。</p>
-<p>遗留的身份验证机制与其说是验证用户身份，不如说是验证功能，其目的是确定两台设备是否为合法的802.11设备。</p>
-<p>共享密钥身份验证采用WEP验证客户端都能通过验证，并关联到接入点后获得网络资源的访问权限，需要4次身份验证帧：<br>1）客户端向接入点发送身份验证请求帧；<br>2）接入点向客户端发送包含明文质询消息的身份验证响应帧；<br>3）客户端加密明文质询消息，将其封装到另一个身份验证请求帧并发生给接入点。<br>4）接入点解密客户端质询消息，并与原质询消息比较。<br>如果二者匹配，验证成功；<br>如果二者不匹配，拒绝客户端的身份验证请求。</p>
-<p>安全隐患：任何人只有截获接入点的明文质询消息以及客户端返回的加密质询消息，就可能提取静态WEP密钥。攻击者一旦破解WEP密钥，<br>就可以之间破解数据帧并之间访问网络，网络将无密码可言。</p>
-<p><strong>静态WEP加密</strong><br>WEP旨在实现3个目标：<br>机密性，在传输前加密数据以提供隐私性。<br>访问控制，一种简单的授权形式。<br>数据完整性，加密前需要计算数据完整性和（ICV），防止数据遭到篡改。</p>
-<p>64位WEP称为WEP-40, 由40位静态密钥和24位初始化向量构成。 由10个16进制或5个ASCII字符构成。<br>128位WEP称为WEP-104, 由104位静态密钥和24位出生向量构成。由26个16进制或13个ASCII字符构成。</p>
-<p>客户端和接入点最多能配置4把独立的静态WEP密钥，用户可选择一把作为默认的静态密钥。 可以采用不同的密钥分别加密发送流量和接收流量。</p>
-<p>WEP存在大量安全隐患，4种主要的攻击：<br>IV冲突攻击， 由于24位的IV以明文形式传输且每一帧的IV都不同，如果采用WEP加密的流量大，那么IV在一定时间内必定重复。如果冲突发送，攻击者很容易破解密钥。</p>
-<p>弱密钥攻击， ARC4会生成一部分弱IV密钥。通过恢复已知的弱IV密钥，攻击者很容易破解密码。</p>
-<p>回注攻击， 对流量较少的网络，攻击者利用黑客工具发动数据包回注攻击，以加快收集弱IV密钥的速率。</p>
-<p>比特翻转攻击， ICV数据完整性校验安全性较差，经过WEP加密的数据包可能遭到篡改。</p>
-<p><strong>MAC过滤</strong><br>每块网卡有唯一的物理地址，MAC地址。<br>所有的MAC过滤都是特定于供应商的。<br>MAC地址可以欺骗或假冒。</p>
-<p>由于MAC地址容易遭到欺骗且配置MAC过滤器比较烦琐，因此MAC过滤并非包含企业无线网的可靠手段。</p>
-<p><strong>SSID隐藏</strong><br>多少接入点提供封闭网络，隐藏SSID或隐身模式的设置，启用后就能隐藏无线网络的名称。 这时信标帧的SSID字段位空。</p>
-<p>启用封闭网络的接入点仍然会响应发送定向探询请求帧（包含特定SSID）的客户端。如此一来，合法的用户仍然可以通过身份验证并关联到接入点，<br>而没有配置正确SSID的客户端无法通过身份验证或关联到客户端。</p>
-<p>只有使用合适的工具，通常只需要几秒的时间就可以发送隐藏的SSID。强烈建议不要隐藏SSID。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Wi-Fi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/25/CWNA-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">展开全文 >></a>
         </p>
       
 
